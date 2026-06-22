@@ -1,4 +1,3 @@
-require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
@@ -15,8 +14,14 @@ const COMPETITORS = [
   'millenanbg',
 ];
 
-async function runScraper(usernames, label) {
-  console.log(`\n→ Scraping ${label}: ${usernames.join(', ')}`);
+function toUrl(handle) {
+  return `https://www.instagram.com/${handle}/`;
+}
+
+async function runScraper(handles, label) {
+  console.log(`\n→ Scraping ${label}: ${handles.join(', ')}`);
+
+  const directUrls = handles.map(toUrl);
 
   const runRes = await fetch(
     `https://api.apify.com/v2/acts/apify~instagram-scraper/runs?token=${APIFY_TOKEN}`,
@@ -24,7 +29,7 @@ async function runScraper(usernames, label) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        usernames,
+        directUrls,
         resultsType: 'posts',
         resultsLimit: 100,
         addParentData: true,
@@ -39,11 +44,13 @@ async function runScraper(usernames, label) {
 
   const { data: run } = await runRes.json();
   const runId = run.id;
-  console.log(`  Run started: ${runId}`);
+  const datasetId = run.defaultDatasetId;
+  console.log(`  Run ID: ${runId}`);
 
+  // Poll until finished
   let status = 'RUNNING';
   while (status === 'RUNNING' || status === 'READY') {
-    await new Promise(r => setTimeout(r, 8000));
+    await new Promise(r => setTimeout(r, 10000));
     const statusRes = await fetch(
       `https://api.apify.com/v2/actor-runs/${runId}?token=${APIFY_TOKEN}`
     );
@@ -52,30 +59,39 @@ async function runScraper(usernames, label) {
     process.stdout.write(`  Status: ${status}\r`);
   }
 
-  console.log(`\n  Run finished with status: ${status}`);
+  console.log(`\n  Run finished: ${status}`);
 
   if (status !== 'SUCCEEDED') {
     throw new Error(`Apify run did not succeed. Status: ${status}`);
   }
 
-  const datasetId = run.defaultDatasetId;
   const itemsRes = await fetch(
-    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${APIFY_TOKEN}&limit=200&clean=true`
+    `https://api.apify.com/v2/datasets/${datasetId}/items?token=${APIFY_TOKEN}&limit=500&clean=true`
   );
   const items = await itemsRes.json();
-  console.log(`  Fetched ${items.length} posts`);
+  console.log(`  Fetched ${items.length} items`);
   return items;
 }
 
 function summariseProfile(posts, handle) {
-  if (!posts.length) return null;
+  if (!posts || !posts.length) {
+    console.warn(`  ⚠️  No posts found for @${handle}`);
+    return { handle, followers: null, totalPosts: 0, totalViews: 0, totalLikes: 0, totalComments: 0, engagementRate: null, topPosts: [] };
+  }
 
-  const sorted = [...posts].sort((a, b) => (b.videoViewCount || b.likesCount || 0) - (a.videoViewCount || a.likesCount || 0));
+  const sorted = [...posts].sort(
+    (a, b) => (b.videoViewCount || b.likesCount || 0) - (a.videoViewCount || a.likesCount || 0)
+  );
 
-  const totalViews = posts.reduce((s, p) => s + (p.videoViewCount || 0), 0);
-  const totalLikes = posts.reduce((s, p) => s + (p.likesCount || 0), 0);
+  const totalViews    = posts.reduce((s, p) => s + (p.videoViewCount || 0), 0);
+  const totalLikes    = posts.reduce((s, p) => s + (p.likesCount || 0), 0);
   const totalComments = posts.reduce((s, p) => s + (p.commentsCount || 0), 0);
-  const followers = posts[0]?.ownerFollowersCount || null;
+
+  // follower count can live on ownerFollowersCount OR on a nested owner object
+  const followers =
+    posts[0]?.ownerFollowersCount ||
+    posts[0]?.owner?.followersCount ||
+    null;
 
   return {
     handle,
@@ -89,9 +105,9 @@ function summariseProfile(posts, handle) {
       : null,
     topPosts: sorted.slice(0, 10).map(p => ({
       url: p.url,
-      caption: (p.caption || '').slice(0, 120),
-      likes: p.likesCount,
-      comments: p.commentsCount,
+      caption: (p.caption || '').slice(0, 150),
+      likes: p.likesCount || 0,
+      comments: p.commentsCount || 0,
       views: p.videoViewCount || null,
       timestamp: p.timestamp,
       type: p.type,
@@ -101,34 +117,51 @@ function summariseProfile(posts, handle) {
 
 async function main() {
   if (!APIFY_TOKEN) {
-    console.error('❌ APIFY_API_TOKEN not found in .env or environment');
+    console.error('❌ APIFY_API_TOKEN not set');
     process.exit(1);
   }
 
+  // --- My account ---
   const myPosts = await runScraper([MY_HANDLE], 'my account');
   const myProfile = summariseProfile(myPosts, MY_HANDLE);
 
-  console.log('\n✅ MY ACCOUNT SUMMARY');
-  console.log(`  Handle:    @${myProfile.handle}`);
-  console.log(`  Followers: ${myProfile.followers?.toLocaleString() ?? 'n/a'}`);
+  console.log('\n✅ MY ACCOUNT');
+  console.log(`  @${myProfile.handle}`);
+  console.log(`  Followers:     ${myProfile.followers?.toLocaleString() ?? 'n/a'}`);
   console.log(`  Posts scraped: ${myProfile.totalPosts}`);
-  console.log(`  Total views: ${myProfile.totalViews?.toLocaleString()}`);
-  console.log(`  Engagement rate: ${myProfile.engagementRate}%`);
-  console.log(`\n  🏆 Top post (${myProfile.topPosts[0]?.views?.toLocaleString() ?? myProfile.topPosts[0]?.likes} views/likes):`);
-  console.log(`  ${myProfile.topPosts[0]?.url}`);
-  console.log(`  "${myProfile.topPosts[0]?.caption}..."`);
+  console.log(`  Total views:   ${myProfile.totalViews.toLocaleString()}`);
+  console.log(`  Total likes:   ${myProfile.totalLikes.toLocaleString()}`);
+  console.log(`  Engagement:    ${myProfile.engagementRate ?? 'n/a'}%`);
+  if (myProfile.topPosts[0]) {
+    const top = myProfile.topPosts[0];
+    console.log(`  🏆 Top post: ${top.views?.toLocaleString() ?? top.likes} views/likes`);
+    console.log(`     ${top.url}`);
+    console.log(`     "${top.caption}"`);
+  }
 
+  // --- Competitors (one batch) ---
   const compPosts = await runScraper(COMPETITORS, 'competitors');
-  const competitorProfiles = COMPETITORS.map(handle => {
-    const posts = compPosts.filter(p => p.ownerUsername === handle);
-    return summariseProfile(posts, handle);
-  }).filter(Boolean);
 
-  console.log('\n✅ COMPETITOR SUMMARY');
-  competitorProfiles.forEach(c => {
-    console.log(`  @${c.handle}: ${c.followers?.toLocaleString() ?? 'n/a'} followers, top post ${c.topPosts[0]?.views ?? c.topPosts[0]?.likes} views/likes`);
+  const competitorProfiles = COMPETITORS.map(handle => {
+    // match by ownerUsername (exact) or by URL containing the handle
+    const posts = compPosts.filter(
+      p =>
+        (p.ownerUsername || '').toLowerCase() === handle.toLowerCase() ||
+        (p.url || '').includes(`/${handle}/`)
+    );
+    return summariseProfile(posts, handle);
   });
 
+  console.log('\n✅ COMPETITORS');
+  competitorProfiles.forEach(c => {
+    const top = c.topPosts[0];
+    console.log(
+      `  @${c.handle}: ${c.followers?.toLocaleString() ?? 'n/a'} followers | ` +
+      `top post ${top?.views?.toLocaleString() ?? top?.likes ?? 0} views/likes`
+    );
+  });
+
+  // --- Save ---
   const output = {
     scrapedAt: new Date().toISOString(),
     myProfile,
@@ -137,10 +170,10 @@ async function main() {
 
   fs.mkdirSync(path.dirname(OUTPUT_FILE), { recursive: true });
   fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
-  console.log(`\n💾 Data saved to dashboard/data/data.json`);
+  console.log(`\n💾 Saved → dashboard/data/data.json`);
 }
 
 main().catch(err => {
-  console.error('❌ Error:', err.message);
+  console.error('❌', err.message);
   process.exit(1);
 });
