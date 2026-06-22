@@ -1,0 +1,14 @@
+{
+  "name": "content-agent",
+  "version": "1.0.0",
+  "description": "Content agent dashboard for @karenlira.adv.",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node scripts/scrape.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "node-fetch": "^2.7.0"
+  }
+}
