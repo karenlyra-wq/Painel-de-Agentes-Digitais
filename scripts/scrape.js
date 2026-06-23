@@ -5,7 +5,7 @@ const path = require('path');
 const APIFY_TOKEN = process.env.APIFY_API_TOKEN;
 const OUTPUT_FILE = path.join(__dirname, '../dashboard/data/data.json');
 
-const MY_HANDLE = 'karenlira.adv.';
+const MY_HANDLE = 'karenlira.adv';
 const COMPETITORS = [
   'advogadamarianagoncalves',
   '_gabriellaibrahim',
@@ -47,7 +47,6 @@ async function runScraper(handles, label) {
   const datasetId = run.defaultDatasetId;
   console.log(`  Run ID: ${runId}`);
 
-  // Poll until finished
   let status = 'RUNNING';
   while (status === 'RUNNING' || status === 'READY') {
     await new Promise(r => setTimeout(r, 10000));
@@ -87,7 +86,6 @@ function summariseProfile(posts, handle) {
   const totalLikes    = posts.reduce((s, p) => s + (p.likesCount || 0), 0);
   const totalComments = posts.reduce((s, p) => s + (p.commentsCount || 0), 0);
 
-  // follower count can live on ownerFollowersCount OR on a nested owner object
   const followers =
     posts[0]?.ownerFollowersCount ||
     posts[0]?.owner?.followersCount ||
@@ -121,7 +119,6 @@ async function main() {
     process.exit(1);
   }
 
-  // --- My account ---
   const myPosts = await runScraper([MY_HANDLE], 'my account');
   const myProfile = summariseProfile(myPosts, MY_HANDLE);
 
@@ -139,11 +136,9 @@ async function main() {
     console.log(`     "${top.caption}"`);
   }
 
-  // --- Competitors (one batch) ---
   const compPosts = await runScraper(COMPETITORS, 'competitors');
 
   const competitorProfiles = COMPETITORS.map(handle => {
-    // match by ownerUsername (exact) or by URL containing the handle
     const posts = compPosts.filter(
       p =>
         (p.ownerUsername || '').toLowerCase() === handle.toLowerCase() ||
@@ -161,7 +156,6 @@ async function main() {
     );
   });
 
-  // --- Save ---
   const output = {
     scrapedAt: new Date().toISOString(),
     myProfile,
