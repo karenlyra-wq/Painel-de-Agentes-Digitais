@@ -23,6 +23,18 @@
     .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
     .stat-card .value { font-size: 1.7rem; font-weight: 700; }
     .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+    .agents-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
+    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; position: relative; overflow: hidden; }
+    .agent-card:hover { transform: translateY(-3px); }
+    .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+    .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
+    .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: absolute; top: 14px; right: 14px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+    .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); animation: fillBar 2.5s ease-in-out infinite alternate; }
+    @keyframes fillBar { from{width:30%} to{width:95%} }
     .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); }
     .empty-state .big { font-size: 2.5rem; margin-bottom: 12px; }
     .empty-state p { font-size: 0.85rem; line-height: 1.6; }
@@ -48,7 +60,14 @@
     .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
     .yt-badge { display: inline-flex; align-items: center; gap: 6px; background: #ff0000; color: white; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 20px; }
-    @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.videos-grid{grid-template-columns:1fr}}
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: white; border-radius: 18px; padding: 32px; max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; }
+    .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
+    @media(max-width:768px){.stats-grid,.agents-grid{grid-template-columns:repeat(2,1fr)}.videos-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -70,8 +89,26 @@
     <div class="stat-card"><div class="label">Vídeos publicados</div><div class="value" id="stat-videos">—</div><div class="sub">no canal</div></div>
     <div class="stat-card"><div class="label">Top vídeo</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-title">—</div></div>
   </div>
+
+  <h2>Agentes ativos</h2>
+  <div class="agents-grid">
+    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Garimpa tendências e gaps dos concorrentes</div><div class="metric" id="ideator-metric">5 ideias prontas</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook &amp; Script</div><div class="role">Escreve hooks e roteiros de vídeos</div><div class="metric">1 roteiro gerado</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Monta o calendário semanal de vídeos</div><div class="metric">7 dias planejados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Analisa seus stats e benchmarks</div><div class="metric" id="analyst-metric">—</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">DM Manager</div><div class="role">Rascunha respostas para comentários</div><div class="metric">3 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
+  </div>
+
   <div id="main-content"></div>
 </main>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">×</button>
+    <h3 id="modal-title"></h3><p id="modal-body"></p><ul id="modal-list"></ul>
+  </div>
+</div>
+<script src="agents.js"></script>
 <script src="youtube.js"></script>
 </body>
 </html>
