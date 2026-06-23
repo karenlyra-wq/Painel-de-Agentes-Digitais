@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Agentes — @karenlira.adv</title>
+  <style>
+    :root {
+      --accent: #7C5CBF;
+      --accent-light: #f0ebfa;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --card-shadow: 0 2px 12px rgba(124,92,191,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
+
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
+    header span { font-size: 0.78rem; color: var(--muted); }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: var(--card-shadow);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,92,191,0.14); }
+    .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
+    .stat-card .value { font-size: 1.7rem; font-weight: 700; color: var(--text); }
+    .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .agent-card {
+      background: white;
+      border-radius: 14px;
+      padding: 20px 16px;
+      box-shadow: var(--card-shadow);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,92,191,0.16); }
+    .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+    .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
+    .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
+
+    .pulse-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+      position: absolute; top: 14px; right: 14px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; animation: fillBar 2.5s ease-in-out infinite alternate; }
+    @keyframes fillBar { from { width: 30%; } to { width: 95%; } }
+
+    .section { background: white; border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
+    .section-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 8px; border-bottom: 1px solid #f3f4f6; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--accent-light); }
+    .handle { font-weight: 600; color: var(--accent); }
+    .bar-cell { width: 140px; }
+    .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .post-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .post-card:hover { border-color: var(--accent); }
+    .post-card .post-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .post-card .views { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+    .post-card .date { color: var(--muted); font-size: 0.68rem; }
+    .post-card .caption { color: var(--text); line-height: 1.4; }
+    .post-card a { color: var(--accent); text-decoration: none; font-size: 0.68rem; display: block; margin-top: 6px; }
+
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4); z-index: 100;
+      align-items: center; justify-content: center;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white; border-radius: 18px; padding: 32px;
+      max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; color: var(--text); }
+    .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
+
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Painel de Agentes — @karenlira.adv</h1>
+  <span id="last-updated">Carregando...</span>
+</header>
+
+<main>
+  <div class="stats-grid" id="stats-grid">
+    <div class="stat-card" onclick="openModal('stat-posts')">
+      <div class="label">Posts publicados</div>
+      <div class="value" id="stat-posts">—</div>
+      <div class="sub">histórico completo</div>
+    </div>
+    <div class="stat-card" onclick="openModal('stat-views')">
+      <div class="label">Total de views</div>
+      <div class="value" id="stat-views">—</div>
+      <div class="sub">em vídeos</div>
+    </div>
+    <div class="stat-card" onclick="openModal('stat-likes')">
+      <div class="label">Total de likes</div>
+      <div class="value" id="stat-likes">—</div>
+      <div class="sub">+ <span id="stat-comments">—</span> comentários</div>
+    </div>
+    <div class="stat-card" onclick="openModal('stat-top')">
+      <div class="label">Top post (views)</div>
+      <div class="value" id="stat-top">—</div>
+      <div class="sub" id="stat-top-caption">—</div>
+    </div>
+  </div>
+
+  <h2>Agentes ativos</h2>
+  <div class="agents-grid">
+    <div class="agent-card" onclick="openAgentModal('ideator')">
+      <div class="pulse-dot"></div>
+      <div class="icon">💡</div>
+      <div class="name">Ideador</div>
+      <div class="role">Garimpa tendências e gaps dos concorrentes</div>
+      <div class="metric" id="ideator-metric">5 ideias prontas</div>
+      <div class="progress-bar"><div class="progress-fill"></div></div>
+    </div>
+    <div class="agent-card" onclick="openAgentModal('hook')">
+      <div class="pulse-dot" style="animation-delay:0.4s"></div>
+      <div class="icon">✍️</div>
+      <div class="name">Hook & Script</div>
+      <div class="role">Escreve hooks e roteiros de Reels</div>
+      <div class="metric">1 roteiro gerado</div>
+      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.3s"></div></div>
+    </div>
+    <div class="agent-card" onclick="openAgentModal('planner')">
+      <div class="pulse-dot" style="animation-delay:0.8s"></div>
+      <div class="icon">📅</div>
+      <div class="name">Planejador</div>
+      <div class="role">Monta o calendário semanal de posts</div>
+      <div class="metric">7 dias planejados</div>
+      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.6s"></div></div>
+    </div>
+    <div class="agent-card" onclick="openAgentModal('analyst')">
+      <div class="pulse-dot" style="animation-delay:1.2s"></div>
+      <div class="icon">📊</div>
+      <div class="name">Analista</div>
+      <div class="role">Analisa seus stats e benchmarks</div>
+      <div class="metric" id="analyst-metric">—</div>
+      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.9s"></div></div>
+    </div>
+    <div class="agent-card" onclick="openAgentModal('dm')">
+      <div class="pulse-dot" style="animation-delay:1.6s"></div>
+      <div class="icon">💬</div>
+      <div class="name">DM Manager</div>
+      <div class="role">Rascunha respostas para DMs comuns</div>
+      <div class="metric">3 templates prontos</div>
+      <div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Seus top 6 posts</div>
+    <div class="posts-grid" id="posts-grid"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Benchmarks — concorrentes</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Perfil</th>
+          <th>Posts</th>
+          <th>Total views</th>
+          <th>Total likes</th>
+          <th>Top post</th>
+          <th class="bar-cell">Volume relativo</th>
+        </tr>
+      </thead>
+      <tbody id="competitors-tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">×</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-body"></p>
+    <ul id="modal-list"></ul>
+  </div>
+</div>
+
+<script src="agents.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
