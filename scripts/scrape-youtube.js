@@ -44,11 +44,17 @@ async function getChannelByHandle(handle) {
 }
 
 async function getTopVideos(uploadsPlaylistId, maxResults = 10) {
-  const playlist = await yt('playlistItems', {
-    part: 'contentDetails',
-    playlistId: uploadsPlaylistId,
-    maxResults,
-  });
+  let playlist;
+  try {
+    playlist = await yt('playlistItems', {
+      part: 'contentDetails',
+      playlistId: uploadsPlaylistId,
+      maxResults,
+    });
+  } catch(e) {
+    console.warn(`  ⚠ Could not fetch uploads playlist: ${e.message}`);
+    return [];
+  }
   const ids = (playlist.items || []).map(i => i.contentDetails.videoId).join(',');
   if (!ids) return [];
   const videos = await yt('videos', { part: 'snippet,statistics', id: ids });
@@ -70,8 +76,8 @@ async function scrapeChannel(handle) {
   console.log(`  → @${handle}...`);
   const ch = await getChannelByHandle(handle);
   if (!ch) { console.warn(`  ⚠ Not found: @${handle}`); return null; }
-  const uploadsId = ch.contentDetails.relatedPlaylists.uploads;
-  const topVideos = await getTopVideos(uploadsId, 10);
+  const uploadsId = ch.contentDetails?.relatedPlaylists?.uploads;
+  const topVideos = uploadsId ? await getTopVideos(uploadsId, 10) : [];
   return {
     handle,
     channelId: ch.id,
