@@ -1,12 +1,12 @@
 /**
  * Pautas do Dia — busca as top notícias do Brasil via RSS,
- * gera ângulos jurídico/filosófico/formato com Claude e envia por email.
+ * gera ângulos jurídico/filosófico/formato com Gemini (gratuito) e envia por email.
  */
 
 const fetch = require('node-fetch');
 
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-const RESEND_API_KEY    = process.env.RESEND_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const TO_EMAIL          = 'karenlyra@live.com';
 const FROM_EMAIL        = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 
@@ -68,14 +68,14 @@ async function fetchTopNews() {
   return unique.slice(0, 10);
 }
 
-// ── Claude ──────────────────────────────────────────────────────────────────
+// ── Gemini (gratuito) ────────────────────────────────────────────────────────
 
 async function generateAngles(news) {
   const newsBlock = news
     .map((n, i) => `${i + 1}. [${n.source}] ${n.title}${n.desc ? '\n   ' + n.desc : ''}`)
     .join('\n\n');
 
-  const systemPrompt = `Você é um estrategista de conteúdo para advogada premium especializada em advocacia extrajudicial, planejamento patrimonial e direito imobiliário (@karenlira.adv no Instagram).
+  const prompt = `Você é um estrategista de conteúdo para advogada premium especializada em advocacia extrajudicial, planejamento patrimonial e direito imobiliário (@karenlira.adv no Instagram).
 
 Sua missão: para cada notícia do dia, criar 3 ângulos de conteúdo que conectem o tema ao universo jurídico, filosófico ou psicológico de forma que gere engajamento nas redes sociais — mesmo que a notícia não seja do nicho jurídico.
 
@@ -84,9 +84,9 @@ Regras:
 - O ângulo filosófico/psicológico deve trazer reflexão mais profunda sobre o comportamento humano, valores ou decisões
 - A sugestão de formato deve ser específica: Reels 60s, Carrossel (X slides), Newsletter, Stories poll etc.
 - Use linguagem direta, contemporânea, sem juridiquês
-- O gancho de cada ângulo deve ter no máximo 2 linhas — deve parecer um post pronto para copiar`;
+- O gancho de cada ângulo deve ter no máximo 2 linhas — deve parecer um post pronto para copiar
 
-  const userPrompt = `Aqui estão as top notícias do Brasil de hoje, ${new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}:
+Aqui estão as top notícias do Brasil de hoje, ${new Date().toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}:
 
 ${newsBlock}
 
@@ -105,32 +105,29 @@ Para cada notícia, responda EXATAMENTE neste formato JSON (array de objetos):
 
 Retorne APENAS o JSON, sem texto antes ou depois.`;
 
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+  const res = await fetch(url, {
     method: 'POST',
-    headers: {
-      'x-api-key': ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-      'content-type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
-      max_tokens: 4096,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: userPrompt }],
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { maxOutputTokens: 4096, temperature: 0.7 },
     }),
   });
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`Claude API error ${res.status}: ${err}`);
+    throw new Error(`Gemini API error ${res.status}: ${err}`);
   }
 
   const data = await res.json();
-  const text = data.content[0].text.trim();
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+  if (!text) throw new Error('Gemini não retornou conteúdo');
 
   // extrai o JSON mesmo se vier com markdown fences
   const jsonMatch = text.match(/\[[\s\S]*\]/);
-  if (!jsonMatch) throw new Error('Claude não retornou JSON válido');
+  if (!jsonMatch) throw new Error('Gemini não retornou JSON válido');
   return JSON.parse(jsonMatch[0]);
 }
 
@@ -213,7 +210,7 @@ function buildEmail(angles) {
 // ── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  if (!ANTHROPIC_API_KEY) { console.error('❌ ANTHROPIC_API_KEY não definida'); process.exit(1); }
+  if (!GEMINI_API_KEY)    { console.error('❌ GEMINI_API_KEY não definida');    process.exit(1); }
   if (!RESEND_API_KEY)    { console.error('❌ RESEND_API_KEY não definida');    process.exit(1); }
 
   console.log('→ Buscando notícias...');
