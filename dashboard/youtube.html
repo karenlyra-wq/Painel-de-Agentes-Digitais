@@ -90,13 +90,13 @@
     <div class="stat-card"><div class="label">Top vídeo</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-title">—</div></div>
   </div>
 
-  <h2>Agentes ativos</h2>
+  <h2>Agentes ativos — YouTube</h2>
   <div class="agents-grid">
-    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Garimpa tendências e gaps dos concorrentes</div><div class="metric" id="ideator-metric">5 ideias prontas</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook &amp; Script</div><div class="role">Escreve hooks e roteiros de vídeos</div><div class="metric">1 roteiro gerado</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Monta o calendário semanal de vídeos</div><div class="metric">7 dias planejados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Analisa seus stats e benchmarks</div><div class="metric" id="analyst-metric">—</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">DM Manager</div><div class="role">Rascunha respostas para comentários</div><div class="metric">3 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Ideias baseadas nos concorrentes do YouTube</div><div class="metric">5 ideias de vídeo</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook &amp; Script</div><div class="role">Roteiro completo para vídeo YouTube</div><div class="metric">formato 8-12 min</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Calendário semanal de publicações</div><div class="metric" id="planner-metric">1 vídeo + 2 Shorts</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Benchmark real dos concorrentes</div><div class="metric" id="analyst-metric">4 canais analisados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">Comentários</div><div class="role">Templates para responder comentários</div><div class="metric">5 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
   </div>
 
   <div id="main-content"></div>
@@ -108,7 +108,7 @@
     <h3 id="modal-title"></h3><p id="modal-body"></p><ul id="modal-list"></ul>
   </div>
 </div>
-<script src="agents.js"></script>
+<script src="youtube-agents.js"></script>
 <script src="youtube.js"></script>
 </body>
 </html>
