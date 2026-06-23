@@ -1,20 +1,103 @@
 {
-  "scrapedAt": "2026-06-23T00:02:24.704Z",
+  "scrapedAt": "2026-06-23T00:13:34.840Z",
   "myProfile": {
-    "handle": "karenlira.adv.",
+    "handle": "karenlira.adv",
     "followers": null,
-    "totalPosts": 1,
-    "totalViews": 0,
-    "totalLikes": 0,
-    "totalComments": 0,
+    "totalPosts": 100,
+    "totalViews": 1444,
+    "totalLikes": 3736,
+    "totalComments": 263,
     "engagementRate": null,
     "topPosts": [
       {
-        "url": "https://www.instagram.com/karenlira.adv./",
-        "caption": "",
-        "likes": 0,
+        "url": "https://www.instagram.com/p/CGGtIbHhmyx/",
+        "caption": "pra quem vende trabalho intelectual: seu cliente te contrata e paga pelo seu conhecimento e pelo seu tempo, nada disso inclui sua humanidade e respeit",
+        "likes": 61,
+        "comments": 5,
+        "views": 308,
+        "timestamp": "2020-10-09T01:43:43.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/CGP85QDBaLX/",
+        "caption": "tchau, feriado!",
+        "likes": 40,
+        "comments": 1,
+        "views": 305,
+        "timestamp": "2020-10-12T15:55:11.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/CHnZPz_BYGf/",
+        "caption": "já foram votar hoje? #eleições2020",
+        "likes": 27,
         "comments": 0,
-        "views": null
+        "views": 153,
+        "timestamp": "2020-11-15T14:56:24.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/CD3_UNNh34r/",
+        "caption": "aqui no escritório cada um colhe sua sobremesa kkkkk",
+        "likes": 32,
+        "comments": 2,
+        "views": 146,
+        "timestamp": "2020-08-14T15:31:13.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/Cdmh0uUpIm4/",
+        "caption": "Peak-a-boo de paraíso na estrada 👀🌴",
+        "likes": 20,
+        "comments": 0,
+        "views": 142,
+        "timestamp": "2022-05-16T02:22:48.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/CWGAXEALeAo/",
+        "caption": "bom dia! ☕",
+        "likes": 29,
+        "comments": 2,
+        "views": 139,
+        "timestamp": "2021-11-10T11:35:04.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/Cx3hq87uwkr/",
+        "caption": "Hoje é o último dia da Renaissance World Tour, foram 56 shows e eu tive o prazer de estar presente em um deles com o @cacaairex, o melhor amigo que a ",
+        "likes": 114,
+        "comments": 4,
+        "views": null,
+        "timestamp": "2023-10-01T19:16:14.000Z",
+        "type": "Sidecar"
+      },
+      {
+        "url": "https://www.instagram.com/p/CYNH0qpJiq7/",
+        "caption": "01.01.2022 às 4h42 ♡",
+        "likes": 22,
+        "comments": 0,
+        "views": 113,
+        "timestamp": "2022-01-01T23:09:01.000Z",
+        "type": "Video"
+      },
+      {
+        "url": "https://www.instagram.com/p/CDwNsichDmT/",
+        "caption": "um #tbt fora do dia, mas cheio de saudades.\n⠀\n“Prometo exercer a advocacia com dignidade e independência, observar a ética, os deveres e prerrogativas",
+        "likes": 109,
+        "comments": 21,
+        "views": null,
+        "timestamp": "2020-08-11T15:02:52.000Z",
+        "type": "Image"
+      },
+      {
+        "url": "https://www.instagram.com/p/Cu4iAReO36h/",
+        "caption": "",
+        "likes": 103,
+        "comments": 6,
+        "views": null,
+        "timestamp": "2023-07-19T15:04:12.000Z",
+        "type": "Sidecar"
       }
     ]
   },
@@ -23,7 +106,7 @@
       "handle": "advogadamarianagoncalves",
       "followers": null,
       "totalPosts": 93,
-      "totalViews": 181824,
+      "totalViews": 181827,
       "totalLikes": 29,
       "totalComments": 1237,
       "engagementRate": null,
@@ -124,17 +207,17 @@
       "handle": "_gabriellaibrahim",
       "followers": null,
       "totalPosts": 96,
-      "totalViews": 275788,
-      "totalLikes": 30314,
-      "totalComments": 14027,
+      "totalViews": 275826,
+      "totalLikes": 30319,
+      "totalComments": 14033,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DYfzbNMJwwS/",
           "caption": "Eu parei de acompanhar as novidades da minha área no braço. \n\nConfigurei uma rotina que lê isso todo dia e me entrega um relatório pronto, filtrado pe",
-          "likes": 12370,
-          "comments": 10123,
-          "views": 157018,
+          "likes": 12373,
+          "comments": 10127,
+          "views": 157037,
           "timestamp": "2026-05-18T22:39:54.000Z",
           "type": "Video"
         },
@@ -143,7 +226,7 @@
           "caption": "Toda quarta-feira um tema diferente sobre gestão, marketing e comercial para advogados.\n\nComenta AOVIVO26 e entra no grupo exclusivo para receber toda",
           "likes": -1,
           "comments": 399,
-          "views": 20991,
+          "views": 20993,
           "timestamp": "2026-02-02T21:46:08.000Z",
           "type": "Video"
         },
@@ -151,8 +234,8 @@
           "url": "https://www.instagram.com/p/DZn1Xh1J59A/",
           "caption": "Comenta CLAUDE26 que eu te explico.",
           "likes": 656,
-          "comments": 1244,
-          "views": 11157,
+          "comments": 1246,
+          "views": 11171,
           "timestamp": "2026-06-15T22:01:50.000Z",
           "type": "Video"
         },
@@ -161,7 +244,7 @@
           "caption": "Site e CRM completos do meu escritório 👀\n\nForam tantos orçamentos caríssimos para fazer isso e que, com certeza, não ficariam exatamente como eu quer",
           "likes": -1,
           "comments": 280,
-          "views": 9939,
+          "views": 9941,
           "timestamp": "2026-06-16T12:14:18.000Z",
           "type": "Video"
         },
@@ -170,7 +253,7 @@
           "caption": "Suas melhores ideias já foram ditas. Numa reunião, numa call, numa explicação pro cliente.\n\nO problema é que elas somem quando a conversa termina.\n\nO ",
           "likes": 618,
           "comments": 664,
-          "views": 7637,
+          "views": 7638,
           "timestamp": "2026-05-29T21:41:58.000Z",
           "type": "Video"
         },
@@ -225,8 +308,8 @@
       "handle": "thaisschaly",
       "followers": null,
       "totalPosts": 100,
-      "totalViews": 621013,
-      "totalLikes": 31544,
+      "totalViews": 621069,
+      "totalLikes": 31546,
       "totalComments": 1234,
       "engagementRate": null,
       "topPosts": [
@@ -235,16 +318,16 @@
           "caption": "Não confundam as coisas.\n\nUm gestor não precisa fazer tudo, mas precisa saber como tudo é feito ou, no mínimo, saber reconhecer quem sabe.\n\nExiste uma",
           "likes": 14229,
           "comments": 448,
-          "views": 399861,
+          "views": 399872,
           "timestamp": "2026-03-17T17:31:30.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DW7Do6bKE1-/",
           "caption": "Não existe escritório sem controladoria!",
-          "likes": 3899,
+          "likes": 3901,
           "comments": 87,
-          "views": 53679,
+          "views": 53682,
           "timestamp": "2026-04-09T19:33:52.000Z",
           "type": "Video"
         },
@@ -262,7 +345,7 @@
           "caption": "Testa e me diz!",
           "likes": 1112,
           "comments": 31,
-          "views": 15231,
+          "views": 15232,
           "timestamp": "2026-04-28T15:52:47.000Z",
           "type": "Video"
         },
@@ -271,7 +354,7 @@
           "caption": "A maioria dos clientes não sai por causa do resultado. Sai porque não consegue falar com o advogado e não sabe o que está acontecendo no próprio proce",
           "likes": 898,
           "comments": 18,
-          "views": 12750,
+          "views": 12751,
           "timestamp": "2026-04-12T23:38:40.000Z",
           "type": "Video"
         },
@@ -289,7 +372,7 @@
           "caption": "-20 minutos de execução 🤝 -gastos de tokens",
           "likes": 250,
           "comments": 6,
-          "views": 7135,
+          "views": 7136,
           "timestamp": "2026-06-10T02:34:27.000Z",
           "type": "Video"
         },
@@ -326,35 +409,35 @@
       "handle": "abarbaratorres",
       "followers": null,
       "totalPosts": 97,
-      "totalViews": 5793981,
-      "totalLikes": 1614438,
-      "totalComments": 38270,
+      "totalViews": 5794140,
+      "totalLikes": 1614555,
+      "totalComments": 38271,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DZFV9FDxPeY/",
           "caption": "O valor da beleza externa tem o prazo de validade muito curto.",
-          "likes": 97270,
+          "likes": 97271,
           "comments": 2677,
-          "views": 947239,
+          "views": 947266,
           "timestamp": "2026-06-02T12:32:34.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYmdNRNokB0/",
           "caption": "Você também acha isso ridículo?!",
-          "likes": 66732,
+          "likes": 66736,
           "comments": 2534,
-          "views": 594137,
+          "views": 594156,
           "timestamp": "2026-05-21T12:42:43.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYwth1tR0Fj/",
           "caption": "O que acham que vai acontecer?",
-          "likes": 58807,
+          "likes": 58810,
           "comments": 4110,
-          "views": 250468,
+          "views": 250474,
           "timestamp": "2026-05-25T12:11:20.000Z",
           "type": "Video"
         },
@@ -381,16 +464,16 @@
           "caption": "Qual foi o seu primeiro julgamento?",
           "likes": 20760,
           "comments": 382,
-          "views": 157859,
+          "views": 157871,
           "timestamp": "2026-06-01T12:53:11.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYzNMdTowdQ/",
           "caption": "A futilidade sempre vencerá a história?",
-          "likes": 26895,
+          "likes": 26897,
           "comments": 853,
-          "views": 157390,
+          "views": 157397,
           "timestamp": "2026-05-26T11:32:43.000Z",
           "type": "Video"
         },
@@ -399,7 +482,7 @@
           "caption": "Esse é o mais alto grau de carência que o ser humano pode chegar.",
           "likes": 12110,
           "comments": 123,
-          "views": 149201,
+          "views": 149202,
           "timestamp": "2026-06-08T10:50:12.000Z",
           "type": "Video"
         },
@@ -417,7 +500,7 @@
           "caption": "Mais uma trend ridícula.",
           "likes": 14321,
           "comments": 577,
-          "views": 146838,
+          "views": 146839,
           "timestamp": "2026-03-11T12:28:22.000Z",
           "type": "Video"
         }
@@ -427,8 +510,8 @@
       "handle": "millenanbg",
       "followers": null,
       "totalPosts": 87,
-      "totalViews": 413539,
-      "totalLikes": 285571,
+      "totalViews": 413552,
+      "totalLikes": 285592,
       "totalComments": 15870,
       "engagementRate": null,
       "topPosts": [
@@ -453,9 +536,9 @@
         {
           "url": "https://www.instagram.com/p/DZzoPdDAGyJ/",
           "caption": "Deixo meu alerta novamente",
-          "likes": 2650,
+          "likes": 2651,
           "comments": 184,
-          "views": 29797,
+          "views": 29805,
           "timestamp": "2026-06-20T11:55:58.000Z",
           "type": "Video"
         },
@@ -482,7 +565,7 @@
           "caption": "Num mercado saturado de performance e ostentação, quem é coerente com a sua essência cria conexões que ninguém pode reproduzir.\n\n@joaogomescantor é pr",
           "likes": 3045,
           "comments": 77,
-          "views": 15889,
+          "views": 15890,
           "timestamp": "2026-05-21T17:45:02.000Z",
           "type": "Video"
         },
@@ -507,7 +590,7 @@
         {
           "url": "https://www.instagram.com/p/DZ2SZqCAAUH/",
           "caption": "Como você tem treinado a sua criatividade?",
-          "likes": 14093,
+          "likes": 14106,
           "comments": 15,
           "views": null,
           "timestamp": "2026-06-21T12:39:20.000Z",
