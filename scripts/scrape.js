@@ -31,7 +31,7 @@ async function runScraper(handles, label) {
       body: JSON.stringify({
         directUrls,
         resultsType: 'posts',
-        resultsLimit: 100,
+        resultsLimit: 200,
         addParentData: true,
       }),
     }
@@ -72,10 +72,10 @@ async function runScraper(handles, label) {
   return items;
 }
 
-function summariseProfile(posts, handle) {
+function summariseProfile(posts, handle, knownFollowers) {
   if (!posts || !posts.length) {
     console.warn(`  ⚠️  No posts found for @${handle}`);
-    return { handle, followers: null, totalPosts: 0, totalViews: 0, totalLikes: 0, totalComments: 0, engagementRate: null, topPosts: [] };
+    return { handle, followers: knownFollowers || null, totalPosts: 0, totalViews: 0, totalLikes: 0, totalComments: 0, engagementRate: null, topPosts: [] };
   }
 
   const sorted = [...posts].sort(
@@ -87,6 +87,7 @@ function summariseProfile(posts, handle) {
   const totalComments = posts.reduce((s, p) => s + (p.commentsCount || 0), 0);
 
   const followers =
+    knownFollowers ||
     posts[0]?.ownerFollowersCount ||
     posts[0]?.owner?.followersCount ||
     null;
@@ -119,8 +120,11 @@ async function main() {
     process.exit(1);
   }
 
+  // Known follower counts (updated manually when Apify doesn't return them)
+  const KNOWN_FOLLOWERS = { 'karenlira.adv': 828 };
+
   const myPosts = await runScraper([MY_HANDLE], 'my account');
-  const myProfile = summariseProfile(myPosts, MY_HANDLE);
+  const myProfile = summariseProfile(myPosts, MY_HANDLE, KNOWN_FOLLOWERS[MY_HANDLE]);
 
   console.log('\n✅ MY ACCOUNT');
   console.log(`  @${myProfile.handle}`);
@@ -133,11 +137,9 @@ async function main() {
     const top = myProfile.topPosts[0];
     console.log(`  🏆 Top post: ${top.views?.toLocaleString() ?? top.likes} views/likes`);
     console.log(`     ${top.url}`);
-    console.log(`     "${top.caption}"`);
   }
 
   const compPosts = await runScraper(COMPETITORS, 'competitors');
-
   const competitorProfiles = COMPETITORS.map(handle => {
     const posts = compPosts.filter(
       p =>
