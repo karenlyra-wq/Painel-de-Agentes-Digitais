@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube — @kah_lira</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(124,92,191,0.08); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+    #last-updated { font-size: 0.78rem; color: var(--muted); }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); }
+    .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
+    .stat-card .value { font-size: 1.7rem; font-weight: 700; }
+    .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+    .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); }
+    .empty-state .big { font-size: 2.5rem; margin-bottom: 12px; }
+    .empty-state p { font-size: 0.85rem; line-height: 1.6; }
+    .videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 32px; }
+    .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); font-size: 0.78rem; }
+    .video-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .video-thumb-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    .video-body { padding: 12px 14px; }
+    .video-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .video-views { font-weight: 700; color: var(--accent); font-size: 0.88rem; }
+    .video-date { color: var(--muted); font-size: 0.68rem; }
+    .video-title { color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+    .video-card a { color: var(--accent); text-decoration: none; font-size: 0.68rem; }
+    .section { background: white; border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
+    .section-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 8px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--accent-light); }
+    .handle { font-weight: 600; color: var(--accent); }
+    .bar-cell { width: 140px; }
+    .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+    .yt-badge { display: inline-flex; align-items: center; gap: 6px; background: #ff0000; color: white; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 20px; }
+    @media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr)}.videos-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab active">▶ YouTube</a>
+  <div class="nav-right">
+    <span id="last-updated">Carregando...</span>
+  </div>
+</nav>
+<main>
+  <div class="yt-badge">▶ YouTube · @kah_lira</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="label">Inscritos</div><div class="value" id="stat-subs">—</div><div class="sub">total</div></div>
+    <div class="stat-card"><div class="label">Views totais</div><div class="value" id="stat-views">—</div><div class="sub">todos os vídeos</div></div>
+    <div class="stat-card"><div class="label">Vídeos publicados</div><div class="value" id="stat-videos">—</div><div class="sub">no canal</div></div>
+    <div class="stat-card"><div class="label">Top vídeo</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-title">—</div></div>
+  </div>
+  <div id="main-content"></div>
+</main>
+<script src="youtube.js"></script>
+</body>
+</html>

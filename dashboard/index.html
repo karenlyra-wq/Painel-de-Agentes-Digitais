@@ -1,182 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel de Agentes — @karenlira.adv</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel de Agentes — Karen Lira</title>
   <style>
-    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(124,92,191,0.08); }
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --border: #e5e7eb; --text: #1a1a2e; --muted: #6b7280; --shadow: 0 2px 14px rgba(124,92,191,0.09); }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
-    header { background: white; border-bottom: 1px solid var(--border); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
-    header h1 { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
-    header span { font-size: 0.78rem; color: var(--muted); }
-    .insights-link { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
-    main { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
-    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
-
-    /* Stats grid */
-    .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 16px; }
-    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; }
-    .stat-card:hover { transform: translateY(-2px); }
-    .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
-    .stat-card .value { font-size: 1.7rem; font-weight: 700; }
-    .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
-
-    /* Insights section */
-    .insights-section { display: none; margin-bottom: 32px; }
-    .insights-section.visible { display: block; }
-    .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px; }
-    .ins-card { background: white; border-radius: 14px; padding: 18px; box-shadow: var(--card-shadow); }
-    .ins-card .label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px; }
-    .ins-card .value { font-size: 1.4rem; font-weight: 700; color: var(--text); }
-    .ins-card .sub { font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
-
-    /* Charts grid */
-    .charts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
-    .chart-card { background: white; border-radius: 14px; padding: 18px; box-shadow: var(--card-shadow); }
-    .chart-card .chart-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 14px; }
-
-    /* Donut chart */
-    .donut-wrap { display: flex; align-items: center; gap: 14px; }
-    .donut { width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; }
-    .donut-legend { flex: 1; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; margin-bottom: 5px; }
-    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-
-    /* Bar chart */
-    .bar-list { display: flex; flex-direction: column; gap: 8px; }
-    .bar-item .bar-label { display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 3px; }
-    .bar-item .bar-label span:last-child { font-weight: 600; color: var(--accent); }
-    .bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-    .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
-
-    /* Agents */
-    .agents-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
-    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; position: relative; overflow: hidden; }
-    .agent-card:hover { transform: translateY(-3px); }
-    .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
-    .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
-    .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
-    .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: absolute; top: 14px; right: 14px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
-    .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--accent); animation: fillBar 2.5s ease-in-out infinite alternate; }
-    @keyframes fillBar { from{width:30%} to{width:95%} }
-
-    .section { background: white; border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
-    .section-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-    th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--border); }
-    td { padding: 10px 8px; border-bottom: 1px solid #f3f4f6; }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: var(--accent-light); }
-    .handle { font-weight: 600; color: var(--accent); }
-    .bar-cell { width: 140px; }
-    .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
-    .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
-    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .post-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: 0.78rem; cursor: pointer; transition: border-color 0.15s; }
-    .post-card:hover { border-color: var(--accent); }
-    .post-card .post-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
-    .post-card .views { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
-    .post-card .date { color: var(--muted); font-size: 0.68rem; }
-    .post-card .caption { color: var(--text); line-height: 1.4; }
-    .post-card a { color: var(--accent); text-decoration: none; font-size: 0.68rem; display: block; margin-top: 6px; }
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
-    .modal-overlay.open { display: flex; }
-    .modal { background: white; border-radius: 18px; padding: 32px; max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
-    .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
-    .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; }
-    .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
-    @media(max-width:768px){.stats-grid,.insights-grid,.charts-grid,.agents-grid{grid-template-columns:repeat(2,1fr)}.posts-grid{grid-template-columns:1fr}}
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 48px; }
+    .profile { background: white; border-radius: 18px; padding: 28px 32px; margin-bottom: 20px; box-shadow: var(--shadow); display: flex; gap: 20px; align-items: flex-start; }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+    .profile-info h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+    .handles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .handle-chip { font-size: 0.72rem; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+    .bio { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 10px; }
+    .niches { display: flex; flex-wrap: wrap; gap: 6px; }
+    .niche { font-size: 0.68rem; color: #374151; background: #f3f4f6; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    .stat-box { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow); }
+    .stat-box .lbl { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
+    .stat-box .val { font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-box .sub { font-size: 0.7rem; color: var(--muted); margin-top: 5px; }
+    .platforms { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .plat-card { background: white; border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+    .plat-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .plat-ico { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; flex-shrink: 0; }
+    .plat-ico.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .plat-ico.yt { background: #ff0000; }
+    .plat-name { font-weight: 700; font-size: 0.9rem; }
+    .plat-handle { font-size: 0.7rem; color: var(--muted); }
+    .plat-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pm-val { font-size: 1.1rem; font-weight: 700; }
+    .pm-lbl { font-size: 0.66rem; color: var(--muted); }
+    .plat-link { display: block; text-align: center; margin-top: 16px; font-size: 0.75rem; color: var(--accent); font-weight: 600; text-decoration: none; background: var(--accent-light); padding: 9px; border-radius: 8px; transition: opacity 0.15s; }
+    .plat-link:hover { opacity: 0.8; }
+    .audience { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .aud-card { background: white; border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+    .section-lbl { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    .peak-chart { display: flex; align-items: flex-end; gap: 5px; height: 72px; }
+    .pb-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+    .pb { width: 100%; background: var(--accent-light); border-radius: 3px 3px 0 0; min-height: 3px; }
+    .pb.top { background: var(--accent); }
+    .pb-lbl { font-size: 0.58rem; color: var(--muted); }
+    .cbar { margin-bottom: 10px; }
+    .cbar-head { display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 3px; }
+    .cbar-head strong { color: var(--accent); }
+    .cbar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .cbar-fill { height: 100%; border-radius: 3px; }
+    .footer { text-align: center; font-size: 0.68rem; color: #9ca3af; padding-top: 16px; }
+    @media(max-width:600px){ .stats-row,.platforms,.audience { grid-template-columns: 1fr; } .profile { flex-direction: column; align-items: center; text-align: center; } .handles,.niches { justify-content: center; } }
   </style>
 </head>
 <body>
-<header>
-  <h1>Painel de Agentes — @karenlira.adv</h1>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <a href="insights.html" class="insights-link">→ Atualizar Insights</a>
-    <span id="last-updated">Carregando...</span>
-  </div>
-</header>
-<main>
-
-  <!-- Stats -->
-  <div class="stats-grid">
-    <div class="stat-card" onclick="openModal('stat-followers')"><div class="label">Seguidores</div><div class="value" id="stat-followers">—</div><div class="sub">total atual</div></div>
-    <div class="stat-card" onclick="openModal('stat-posts')"><div class="label">Posts publicados</div><div class="value" id="stat-posts">—</div><div class="sub">histórico completo</div></div>
-    <div class="stat-card" onclick="openModal('stat-views')"><div class="label">Visualizações</div><div class="value" id="stat-views">—</div><div class="sub" id="stat-views-label">em vídeos</div></div>
-    <div class="stat-card" onclick="openModal('stat-likes')"><div class="label">Total de likes</div><div class="value" id="stat-likes">—</div><div class="sub">+ <span id="stat-comments">—</span> comentários</div></div>
-    <div class="stat-card" onclick="openModal('stat-top')"><div class="label">Top post</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-caption">—</div></div>
-  </div>
-
-  <!-- Insights section -->
-  <div class="insights-section" id="insights-section">
-    <h2>Insights — últimos 30 dias <span id="ins-week-label" style="font-size:0.75rem;color:var(--muted);text-transform:none;letter-spacing:0;"></span></h2>
-
-    <!-- KPI cards -->
-    <div class="insights-grid">
-      <div class="ins-card"><div class="label">Alcance</div><div class="value" id="ins-reach">—</div><div class="sub">contas alcançadas</div></div>
-      <div class="ins-card"><div class="label">Interações</div><div class="value" id="ins-interactions">—</div><div class="sub">contas engajadas: <span id="ins-engaged">—</span></div></div>
-      <div class="ins-card"><div class="label">Salvamentos</div><div class="value" id="ins-saves">—</div><div class="sub">posts salvos</div></div>
-      <div class="ins-card"><div class="label">Visitas ao perfil</div><div class="value" id="ins-profile">—</div><div class="sub">toques em link: <span id="ins-links">—</span></div></div>
-    </div>
-
-    <!-- Charts -->
-    <div class="charts-grid">
-      <div class="chart-card">
-        <div class="chart-title">Views por audiência</div>
-        <div class="donut-wrap">
-          <div class="donut" id="donut-views-audience"></div>
-          <div class="donut-legend" id="legend-views-audience"></div>
-        </div>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab active">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab">▶ YouTube</a>
+</nav>
+<div class="wrap">
+  <div class="profile">
+    <div class="avatar">⚖️</div>
+    <div class="profile-info">
+      <h1>Karen Lira</h1>
+      <div class="handles">
+        <span class="handle-chip">📸 @karenlira.adv</span>
+        <span class="handle-chip">▶ @kah_lira</span>
       </div>
-      <div class="chart-card">
-        <div class="chart-title">Views por tipo de conteúdo</div>
-        <div class="bar-list" id="bars-views-content"></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Interações por audiência</div>
-        <div class="donut-wrap">
-          <div class="donut" id="donut-int-audience"></div>
-          <div class="donut-legend" id="legend-int-audience"></div>
-        </div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Interações por tipo de conteúdo</div>
-        <div class="bar-list" id="bars-int-content"></div>
+      <p class="bio">Advogada especialista em soluções extrajudiciais, planejamento jurídico patrimonial e direito imobiliário para clientes premium.</p>
+      <div class="niches">
+        <span class="niche">Direito Imobiliário</span>
+        <span class="niche">Planejamento Patrimonial</span>
+        <span class="niche">Soluções Extrajudiciais</span>
+        <span class="niche">Consultoria Jurídica</span>
+        <span class="niche">Advocacia Premium</span>
       </div>
     </div>
   </div>
-
-  <!-- Agents -->
-  <h2>Agentes ativos</h2>
-  <div class="agents-grid">
-    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Garimpa tendências e gaps dos concorrentes</div><div class="metric" id="ideator-metric">5 ideias prontas</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook & Script</div><div class="role">Escreve hooks e roteiros de Reels</div><div class="metric">1 roteiro gerado</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Monta o calendário semanal de posts</div><div class="metric">7 dias planejados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Analisa seus stats e benchmarks</div><div class="metric" id="analyst-metric">—</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
-    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">DM Manager</div><div class="role">Rascunha respostas para DMs comuns</div><div class="metric">3 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
+  <div class="stats-row">
+    <div class="stat-box"><div class="lbl">Alcance total</div><div class="val" id="total-reach">—</div><div class="sub">seguidores + inscritos</div></div>
+    <div class="stat-box"><div class="lbl">Visualizações totais</div><div class="val" id="total-views">—</div><div class="sub">Instagram + YouTube</div></div>
+    <div class="stat-box"><div class="lbl">Alcance mensal</div><div class="val" id="monthly-reach">—</div><div class="sub">contas alcançadas (IG)</div></div>
   </div>
-
-  <div class="section"><div class="section-title">Seus top 6 posts</div><div class="posts-grid" id="posts-grid"></div></div>
-
-  <div class="section">
-    <div class="section-title">Benchmarks — concorrentes</div>
-    <table><thead><tr><th>Perfil</th><th>Posts</th><th>Total views</th><th>Total likes</th><th>Top post</th><th class="bar-cell">Volume relativo</th></tr></thead>
-    <tbody id="competitors-tbody"></tbody></table>
+  <div class="platforms">
+    <div class="plat-card">
+      <div class="plat-head">
+        <div class="plat-ico ig">📸</div>
+        <div><div class="plat-name">Instagram</div><div class="plat-handle">@karenlira.adv</div></div>
+      </div>
+      <div class="plat-metrics">
+        <div><div class="pm-val" id="ig-followers">—</div><div class="pm-lbl">Seguidores</div></div>
+        <div><div class="pm-val" id="ig-reach">—</div><div class="pm-lbl">Alcance/mês</div></div>
+        <div><div class="pm-val" id="ig-interactions">—</div><div class="pm-lbl">Interações</div></div>
+        <div><div class="pm-val" id="ig-posts">—</div><div class="pm-lbl">Posts</div></div>
+      </div>
+      <a href="./instagram.html" class="plat-link">→ Ver dashboard Instagram</a>
+    </div>
+    <div class="plat-card">
+      <div class="plat-head">
+        <div class="plat-ico yt">▶</div>
+        <div><div class="plat-name">YouTube</div><div class="plat-handle">@kah_lira</div></div>
+      </div>
+      <div class="plat-metrics">
+        <div><div class="pm-val" id="yt-subs">—</div><div class="pm-lbl">Inscritos</div></div>
+        <div><div class="pm-val" id="yt-views">—</div><div class="pm-lbl">Views totais</div></div>
+        <div><div class="pm-val" id="yt-videos">—</div><div class="pm-lbl">Vídeos</div></div>
+        <div><div class="pm-val" id="yt-top">—</div><div class="pm-lbl">Top vídeo</div></div>
+      </div>
+      <a href="./youtube.html" class="plat-link">→ Ver dashboard YouTube</a>
+    </div>
   </div>
-</main>
-
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">×</button>
-    <h3 id="modal-title"></h3><p id="modal-body"></p><ul id="modal-list"></ul>
+  <div class="audience">
+    <div class="aud-card">
+      <div class="section-lbl">⏰ Horários de pico — Instagram</div>
+      <div class="peak-chart" id="peak-chart"></div>
+    </div>
+    <div class="aud-card">
+      <div class="section-lbl">📊 Views por tipo de conteúdo</div>
+      <div id="content-bars" style="margin-top:4px;"></div>
+    </div>
   </div>
+  <div class="footer" id="footer-ts"></div>
 </div>
-<script src="agents.js"></script>
-<script src="dashboard.js"></script>
-</body></html>
+<script>
+const fmt = n => (n||0).toLocaleString('pt-BR');
+async function load() {
+  let ig=null,yt=null,ins=null;
+  try{ig=await fetch('data/data.json').then(r=>r.json());}catch(e){}
+  try{yt=await fetch('data/youtube.json').then(r=>r.json());}catch(e){}
+  try{ins=await fetch('data/insights.json').then(r=>r.json());}catch(e){}
+  const igFollowers=ins?.followers??ig?.myProfile?.followers??0;
+  const ytSubs=yt?.myChannel?.subscribers??0;
+  document.getElementById('total-reach').textContent=fmt(igFollowers+ytSubs);
+  document.getElementById('total-views').textContent=fmt((ig?.myProfile?.totalViews??0)+(yt?.myChannel?.totalViews??0));
+  document.getElementById('monthly-reach').textContent=fmt(ins?.reach??0);
+  document.getElementById('ig-followers').textContent=fmt(igFollowers);
+  document.getElementById('ig-reach').textContent=fmt(ins?.reach??0);
+  document.getElementById('ig-interactions').textContent=fmt(ins?.interactions??0);
+  document.getElementById('ig-posts').textContent=fmt(ig?.myProfile?.totalPosts??0);
+  document.getElementById('yt-subs').textContent=fmt(ytSubs);
+  document.getElementById('yt-views').textContent=fmt(yt?.myChannel?.totalViews??0);
+  document.getElementById('yt-videos').textContent=fmt(yt?.myChannel?.videoCount??0);
+  document.getElementById('yt-top').textContent=fmt(yt?.myChannel?.topVideos?.[0]?.views??0);
+  if(ins?.peakHours){
+    const vals=Object.values(ins.peakHours),max=Math.max(...vals);
+    document.getElementById('peak-chart').innerHTML=Object.entries(ins.peakHours).map(([h,v])=>`<div class="pb-wrap"><div class="pb${v===max?' top':''}" style="height:${Math.round(v/max*100)}%"></div><div class="pb-lbl">${h}</div></div>`).join('');
+  }
+  if(ins?.viewsByContent){
+    const colors=['#7C5CBF','#a78bda','#d4c8f5','#e8e0ff'];
+    document.getElementById('content-bars').innerHTML=Object.entries(ins.viewsByContent).map(([k,v],i)=>`<div class="cbar"><div class="cbar-head"><span>${k}</span><strong>${v}%</strong></div><div class="cbar-track"><div class="cbar-fill" style="width:${v}%;background:${colors[i%colors.length]}"></div></div></div>`).join('');
+  }
+  const ts=ig?.scrapedAt?new Date(ig.scrapedAt).toLocaleString('pt-BR'):'';
+  if(ts)document.getElementById('footer-ts').textContent='Atualizado: '+ts;
+}
+load();
+</script>
+</body>
+</html>
