@@ -15,73 +15,35 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
-
-    header {
-      background: white;
-      border-bottom: 1px solid var(--border);
-      padding: 18px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    header { background: white; border-bottom: 1px solid var(--border); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
     header h1 { font-size: 1.1rem; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
     header span { font-size: 0.78rem; color: var(--muted); }
-
     main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .stat-card {
-      background: white;
-      border-radius: 14px;
-      padding: 20px 22px;
-      box-shadow: var(--card-shadow);
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
+    .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 16px; }
+    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
     .stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,92,191,0.14); }
     .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
     .stat-card .value { font-size: 1.7rem; font-weight: 700; color: var(--text); }
     .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 
+    /* Insights row */
+    .insights-row { display: none; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
+    .ins-card { background: var(--accent-light); border-radius: 12px; padding: 14px 18px; }
+    .ins-card .label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 6px; }
+    .ins-card .value { font-size: 1.2rem; font-weight: 700; color: var(--text); }
+    .ins-card .sub { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
     h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
-    .agents-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-      margin-bottom: 32px;
-    }
-    .agent-card {
-      background: white;
-      border-radius: 14px;
-      padding: 20px 16px;
-      box-shadow: var(--card-shadow);
-      cursor: pointer;
-      transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-      overflow: hidden;
-    }
+    .agents-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
+    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
     .agent-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,92,191,0.16); }
     .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
     .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
     .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
     .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
-
-    .pulse-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #22c55e;
-      position: absolute; top: 14px; right: 14px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
-    }
-
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: absolute; top: 14px; right: 14px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
     .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
     .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; animation: fillBar 2.5s ease-in-out infinite alternate; }
     @keyframes fillBar { from { width: 30%; } to { width: 95%; } }
@@ -97,64 +59,53 @@
     .bar-cell { width: 140px; }
     .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
     .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
-
     .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .post-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px;
-      font-size: 0.78rem;
-      cursor: pointer;
-      transition: border-color 0.15s;
-    }
+    .post-card { border: 1px solid var(--border); border-radius: 10px; padding: 14px; font-size: 0.78rem; cursor: pointer; transition: border-color 0.15s; }
     .post-card:hover { border-color: var(--accent); }
     .post-card .post-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
     .post-card .views { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
     .post-card .date { color: var(--muted); font-size: 0.68rem; }
     .post-card .caption { color: var(--text); line-height: 1.4; }
     .post-card a { color: var(--accent); text-decoration: none; font-size: 0.68rem; display: block; margin-top: 6px; }
-
-    .modal-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.4); z-index: 100;
-      align-items: center; justify-content: center;
-    }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
     .modal-overlay.open { display: flex; }
-    .modal {
-      background: white; border-radius: 18px; padding: 32px;
-      max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-    }
+    .modal { background: white; border-radius: 18px; padding: 32px; max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
     .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
     .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
     .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; color: var(--text); }
     .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
-
+    .insights-link { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
     @media (max-width: 768px) {
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .agents-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid, .insights-row, .agents-grid { grid-template-columns: repeat(2, 1fr); }
       .posts-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
 <header>
   <h1>Painel de Agentes — @karenlira.adv</h1>
-  <span id="last-updated">Carregando...</span>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <a href="insights.html" class="insights-link">→ Atualizar Insights</a>
+    <span id="last-updated">Carregando...</span>
+  </div>
 </header>
-
 <main>
-  <div class="stats-grid" id="stats-grid">
+  <!-- Stats bar -->
+  <div class="stats-grid">
+    <div class="stat-card" onclick="openModal('stat-followers')">
+      <div class="label">Seguidores</div>
+      <div class="value" id="stat-followers">—</div>
+      <div class="sub">total atual</div>
+    </div>
     <div class="stat-card" onclick="openModal('stat-posts')">
       <div class="label">Posts publicados</div>
       <div class="value" id="stat-posts">—</div>
       <div class="sub">histórico completo</div>
     </div>
     <div class="stat-card" onclick="openModal('stat-views')">
-      <div class="label">Total de views</div>
+      <div class="label">Visualizações</div>
       <div class="value" id="stat-views">—</div>
-      <div class="sub">em vídeos</div>
+      <div class="sub" id="stat-views-label">em vídeos</div>
     </div>
     <div class="stat-card" onclick="openModal('stat-likes')">
       <div class="label">Total de likes</div>
@@ -168,6 +119,36 @@
     </div>
   </div>
 
+  <!-- Insights row (shown when insights.json loaded) -->
+  <div class="insights-row" id="insights-row">
+    <div class="ins-card">
+      <div class="label">Alcance</div>
+      <div class="value" id="ins-reach">—</div>
+      <div class="sub">contas alcançadas</div>
+    </div>
+    <div class="ins-card">
+      <div class="label">Interações</div>
+      <div class="value" id="ins-interactions">—</div>
+      <div class="sub">likes + comentários</div>
+    </div>
+    <div class="ins-card">
+      <div class="label">Visitas ao perfil</div>
+      <div class="value" id="ins-profile">—</div>
+      <div class="sub">nos últimos 30 dias</div>
+    </div>
+    <div class="ins-card">
+      <div class="label">Views via Stories</div>
+      <div class="value" id="ins-stories">—</div>
+      <div class="sub" id="ins-week"></div>
+    </div>
+    <div class="ins-card">
+      <div class="label">Pico de atividade</div>
+      <div class="value" id="ins-peak">—</div>
+      <div class="sub">melhor horário</div>
+    </div>
+  </div>
+
+  <!-- Agents -->
   <h2>Agentes ativos</h2>
   <div class="agents-grid">
     <div class="agent-card" onclick="openAgentModal('ideator')">
@@ -220,16 +201,9 @@
   <div class="section">
     <div class="section-title">Benchmarks — concorrentes</div>
     <table>
-      <thead>
-        <tr>
-          <th>Perfil</th>
-          <th>Posts</th>
-          <th>Total views</th>
-          <th>Total likes</th>
-          <th>Top post</th>
-          <th class="bar-cell">Volume relativo</th>
-        </tr>
-      </thead>
+      <thead><tr>
+        <th>Perfil</th><th>Posts</th><th>Total views</th><th>Total likes</th><th>Top post</th><th class="bar-cell">Volume relativo</th>
+      </tr></thead>
       <tbody id="competitors-tbody"></tbody>
     </table>
   </div>
