@@ -1,0 +1,23 @@
+{
+  "week": "2026-06-16",
+  "reach": 1088,
+  "impressions": 17553,
+  "saves": 0,
+  "profileVisits": 313,
+  "externalLinkTaps": 4,
+  "interactions": 679,
+  "accountsEngaged": 102,
+  "followers": 829,
+  "contentBreakdown": {
+    "stories": 96.6,
+    "posts": 3.2,
+    "reels": 0.1,
+    "videos": 0.1
+  },
+  "peakHours": {
+    "0h": 99, "3h": 272, "6h": 309, "9h": 318,
+    "12h": 321, "15h": 332, "18h": 221, "21h": 54
+  },
+  "topContentViews": [494, 423, 387, 386, 385],
+  "updatedAt": "2026-06-23T10:37:00.000Z"
+}

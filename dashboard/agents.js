@@ -1,13 +1,13 @@
 const AGENT_MODALS = {
   ideator: {
     title: '💡 Ideador — 5 ideias desta semana',
-    body: 'Baseado nos posts mais virais dos seus concorrentes e nos gaps de conteúdo no nicho de advocacia premium, aqui estão as 5 melhores ideias para esta semana:',
+    body: 'Baseado nos posts mais virais dos seus concorrentes e nos gaps de conteúdo no nicho de advocacia premium:',
     list: [
-      '📌 "3 erros que fazem seu contrato de compra de imóvel ser anulado" — formato Reels 60s (tema top em @thaisschaly)',
-      '📌 "O que é mediação e por que evita meses de processo judicial" — carrossel educativo',
-      '📌 "Seu planejamento patrimonial está incompleto se não tiver isso" — Reels com gancho de urgência',
-      '📌 "Diferença entre inventário extrajudicial e judicial — qual escolher" — vídeo explicativo direto',
-      '📌 "Due diligence imobiliária: o que verificar antes de assinar qualquer contrato" — carrossel premium',
+      '📌 "3 erros que fazem seu contrato de compra de imóvel ser anulado" — Reels 60s',
+      '📌 "O que é mediação e por que evita meses de processo judicial" — Carrossel',
+      '📌 "Seu planejamento patrimonial está incompleto se não tiver isso" — Reels',
+      '📌 "Diferença entre inventário extrajudicial e judicial — qual escolher" — Vídeo',
+      '📌 "Due diligence imobiliária: o checklist completo" — Carrossel premium',
     ]
   },
   hook: {
@@ -15,37 +15,43 @@ const AGENT_MODALS = {
     body: 'Roteiro pronto para o Reel de maior potencial desta semana:',
     list: [
       '🎬 HOOK (0-3s): "Esse erro custa caro — e a maioria dos compradores de imóvel comete sem saber."',
-      '📝 DESENVOLVIMENTO (3-45s): Apresentar os 3 principais erros em contratos imobiliários. Um por um, com exemplo real (sem citar cliente). Linguagem direta, sem juridiquês.',
+      '📝 DESENVOLVIMENTO (3-45s): 3 erros principais em contratos imobiliários. Um por um, com exemplo real. Sem juridiquês.',
       '💡 VIRADA (45-55s): "A solução não é advogado caro. É advogado certo, antes de assinar."',
       '📣 CTA (55-60s): "Salva esse vídeo antes de fechar qualquer negócio imobiliário."',
-      '✍️ LEGENDA: "Você não precisa de sorte na compra do seu imóvel. Você precisa de due diligence. Comenta aqui se quer saber mais."',
+      '✍️ LEGENDA: "Você não precisa de sorte na compra do seu imóvel. Você precisa de due diligence."',
     ]
   },
   planner: {
     title: '📅 Planejador — Calendário desta semana',
-    body: 'Distribuição estratégica para maximizar alcance e consistência:',
+    body: 'Baseado nos seus horários mais ativos (pico às 15h) e na análise de que 96.6% das suas views vem de Stories:',
     list: [
-      '📆 Segunda 19h — Reels: "3 erros no contrato de imóvel" (educativo, alto potencial de shares)',
-      '📆 Terça 12h — Story: poll "Você já fez due diligence antes de comprar?" (engajamento)',
-      '📆 Quarta 19h — Carrossel: "O que é mediação" (salvar + compartilhar)',
-      '📆 Quinta 08h — Story: bastidores do escritório (humanização)',
-      '📆 Sexta 18h — Reels: "Planejamento patrimonial incompleto" (urgência + CTA para DM)',
-      '📆 Sábado 10h — Carrossel: "Due diligence imobiliária" (conteúdo evergreen)',
-      '📆 Domingo — Descanso (consistência > volume)',
+      '📆 Segunda 15h — Reels: "3 erros no contrato de imóvel" (explorar alcance fora dos seguidores)',
+      '📆 Terça 12h — Story interativo: poll ou caixa de perguntas jurídicas',
+      '📆 Quarta 15h — Carrossel: "O que é mediação" (salvar + compartilhar)',
+      '📆 Quinta 09h — Story: bastidores do escritório (humanização)',
+      '📆 Sexta 15h — Reels: "Planejamento patrimonial" (CTA para DM)',
+      '📆 Sábado 12h — Carrossel: "Due diligence imobiliária" (evergreen)',
+      '⚠️ FOCO DA SEMANA: aumentar views em Posts e Reels (hoje estão em 3.2% e 0.1% — Stories dominam 96.6%)',
     ]
   },
   analyst: {
-    title: '📊 Analista — Diagnóstico da semana',
-    body: 'Análise baseada nos dados reais coletados pelo scraper:',
-    list: []
+    title: '📊 Analista — Diagnóstico (jun/2026)',
+    body: 'Análise baseada nos Insights reais dos últimos 30 dias:',
+    list: [
+      '📈 17.553 visualizações no total | 1.088 contas alcançadas',
+      '⚠️ 96.6% das views vem de Stories — Reels e Posts estão subaproveitados',
+      '⏰ Melhor horário para postar: 15h (332 seguidores ativos) | 12h (321) | 9h (318)',
+      '👥 829 seguidores | 313 visitas ao perfil | 102 contas engajadas',
+      '🎯 Prioridade: publicar mais Reels com hooks fortes para crescer alcance fora dos seguidores (hoje apenas 26.3%)',
+    ]
   },
   dm: {
     title: '💬 DM Manager — Templates prontos',
-    body: 'Respostas rascunhadas para as DMs mais comuns no nicho jurídico premium:',
+    body: 'Respostas para as DMs mais comuns no nicho jurídico premium:',
     list: [
       '📩 CONSULTA: "Olá! Fico feliz com seu interesse. Trabalho com clientes que buscam soluções estratégicas e personalizadas. Para entender melhor o seu caso, podemos agendar uma conversa de 20 minutos? [link agenda]"',
-      '📩 PREÇO: "Cada caso tem suas particularidades e o valor é definido após entendermos o seu objetivo. O que posso garantir é que o foco está sempre em resolver de forma eficiente — sem processos desnecessários quando existe uma solução mais inteligente."',
-      '📩 "É legal isso?": "Essa é exatamente a pergunta certa a se fazer antes de agir! Pelo que você descreveu, existem alguns pontos importantes a analisar. Recomendo uma conversa para que eu possa orientar com base no seu caso específico. Posso te ajudar a marcar?"',
+      '📩 PREÇO: "Cada caso tem suas particularidades e o valor é definido após entendermos o seu objetivo. O foco está sempre em resolver de forma eficiente — sem processos desnecessários quando existe uma solução mais inteligente."',
+      '📩 "É legal isso?": "Essa é exatamente a pergunta certa antes de agir! Existem pontos importantes a analisar. Recomendo uma conversa para que eu possa orientar com base no seu caso específico. Posso te ajudar a marcar?"',
     ]
   }
 };
