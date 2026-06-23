@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube — @kah_lira</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(124,92,191,0.08); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+    #last-updated { font-size: 0.78rem; color: var(--muted); }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); }
+    .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
+    .stat-card .value { font-size: 1.7rem; font-weight: 700; }
+    .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+    .agents-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
+    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; position: relative; overflow: hidden; }
+    .agent-card:hover { transform: translateY(-3px); }
+    .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
+    .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
+    .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: absolute; top: 14px; right: 14px; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
+    .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
+    .progress-fill { height: 100%; background: var(--accent); animation: fillBar 2.5s ease-in-out infinite alternate; }
+    @keyframes fillBar { from{width:30%} to{width:95%} }
+    .empty-state { text-align: center; padding: 60px 24px; color: var(--muted); }
+    .empty-state .big { font-size: 2.5rem; margin-bottom: 12px; }
+    .empty-state p { font-size: 0.85rem; line-height: 1.6; }
+    .videos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 32px; }
+    .video-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--card-shadow); font-size: 0.78rem; }
+    .video-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+    .video-thumb-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+    .video-body { padding: 12px 14px; }
+    .video-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .video-views { font-weight: 700; color: var(--accent); font-size: 0.88rem; }
+    .video-date { color: var(--muted); font-size: 0.68rem; }
+    .video-title { color: var(--text); line-height: 1.4; margin-bottom: 6px; }
+    .video-card a { color: var(--accent); text-decoration: none; font-size: 0.68rem; }
+    .section { background: white; border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
+    .section-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+    td { padding: 10px 8px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--accent-light); }
+    .handle { font-weight: 600; color: var(--accent); }
+    .bar-cell { width: 140px; }
+    .inline-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .inline-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+    .yt-badge { display: inline-flex; align-items: center; gap: 6px; background: #ff0000; color: white; font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 20px; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: white; border-radius: 18px; padding: 32px; max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+    .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; }
+    .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
+    @media(max-width:768px){.stats-grid,.agents-grid{grid-template-columns:repeat(2,1fr)}.videos-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab active">▶ YouTube</a>
+  <div class="nav-right">
+    <span id="last-updated">Carregando...</span>
+  </div>
+</nav>
+<main>
+  <div class="yt-badge">▶ YouTube · @kah_lira</div>
+  <div class="stats-grid">
+    <div class="stat-card"><div class="label">Inscritos</div><div class="value" id="stat-subs">—</div><div class="sub">total</div></div>
+    <div class="stat-card"><div class="label">Views totais</div><div class="value" id="stat-views">—</div><div class="sub">todos os vídeos</div></div>
+    <div class="stat-card"><div class="label">Vídeos publicados</div><div class="value" id="stat-videos">—</div><div class="sub">no canal</div></div>
+    <div class="stat-card"><div class="label">Top vídeo</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-title">—</div></div>
+  </div>
+
+  <h2>Agentes ativos — YouTube</h2>
+  <div class="agents-grid">
+    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Ideias baseadas nos concorrentes do YouTube</div><div class="metric">5 ideias de vídeo</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook &amp; Script</div><div class="role">Roteiro completo para vídeo YouTube</div><div class="metric">formato 8-12 min</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Calendário semanal de publicações</div><div class="metric" id="planner-metric">1 vídeo + 2 Shorts</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Benchmark real dos concorrentes</div><div class="metric" id="analyst-metric">4 canais analisados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">Comentários</div><div class="role">Templates para responder comentários</div><div class="metric">5 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
+  </div>
+
+  <div id="main-content"></div>
+</main>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">×</button>
+    <h3 id="modal-title"></h3><p id="modal-body"></p><ul id="modal-list"></ul>
+  </div>
+</div>
+<script src="youtube-agents.js"></script>
+<script src="youtube.js"></script>
+</body>
+</html>

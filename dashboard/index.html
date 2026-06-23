@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel de Agentes — Karen Lira</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --border: #e5e7eb; --text: #1a1a2e; --muted: #6b7280; --shadow: 0 2px 14px rgba(124,92,191,0.09); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 48px; }
+    .profile { background: white; border-radius: 18px; padding: 28px 32px; margin-bottom: 20px; box-shadow: var(--shadow); display: flex; gap: 20px; align-items: flex-start; }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+    .profile-info h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+    .handles { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+    .handle-chip { font-size: 0.72rem; color: var(--accent); background: var(--accent-light); padding: 3px 10px; border-radius: 20px; font-weight: 600; }
+    .bio { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 10px; }
+    .niches { display: flex; flex-wrap: wrap; gap: 6px; }
+    .niche { font-size: 0.68rem; color: #374151; background: #f3f4f6; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); }
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
+    .stat-box { background: white; border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow); }
+    .stat-box .lbl { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 8px; }
+    .stat-box .val { font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1; }
+    .stat-box .sub { font-size: 0.7rem; color: var(--muted); margin-top: 5px; }
+    .platforms { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .plat-card { background: white; border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+    .plat-head { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .plat-ico { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: white; flex-shrink: 0; }
+    .plat-ico.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .plat-ico.yt { background: #ff0000; }
+    .plat-name { font-weight: 700; font-size: 0.9rem; }
+    .plat-handle { font-size: 0.7rem; color: var(--muted); }
+    .plat-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pm-val { font-size: 1.1rem; font-weight: 700; }
+    .pm-lbl { font-size: 0.66rem; color: var(--muted); }
+    .plat-link { display: block; text-align: center; margin-top: 16px; font-size: 0.75rem; color: var(--accent); font-weight: 600; text-decoration: none; background: var(--accent-light); padding: 9px; border-radius: 8px; transition: opacity 0.15s; }
+    .plat-link:hover { opacity: 0.8; }
+    .audience { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .aud-card { background: white; border-radius: 14px; padding: 22px; box-shadow: var(--shadow); }
+    .section-lbl { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    .peak-chart { display: flex; align-items: flex-end; gap: 5px; height: 72px; }
+    .pb-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%; }
+    .pb { width: 100%; background: var(--accent-light); border-radius: 3px 3px 0 0; min-height: 3px; }
+    .pb.top { background: var(--accent); }
+    .pb-lbl { font-size: 0.58rem; color: var(--muted); }
+    .cbar { margin-bottom: 10px; }
+    .cbar-head { display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 3px; }
+    .cbar-head strong { color: var(--accent); }
+    .cbar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .cbar-fill { height: 100%; border-radius: 3px; }
+    .footer { text-align: center; font-size: 0.68rem; color: #9ca3af; padding-top: 16px; }
+    @media(max-width:600px){ .stats-row,.platforms,.audience { grid-template-columns: 1fr; } .profile { flex-direction: column; align-items: center; text-align: center; } .handles,.niches { justify-content: center; } }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab active">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab">▶ YouTube</a>
+</nav>
+<div class="wrap">
+  <div class="profile">
+    <div class="avatar">⚖️</div>
+    <div class="profile-info">
+      <h1>Karen Lira</h1>
+      <div class="handles">
+        <span class="handle-chip">📸 @karenlira.adv</span>
+        <span class="handle-chip">▶ @kah_lira</span>
+      </div>
+      <p class="bio">Advogada especialista em soluções extrajudiciais, planejamento jurídico patrimonial e direito imobiliário para clientes premium.</p>
+      <div class="niches">
+        <span class="niche">Direito Imobiliário</span>
+        <span class="niche">Planejamento Patrimonial</span>
+        <span class="niche">Soluções Extrajudiciais</span>
+        <span class="niche">Consultoria Jurídica</span>
+        <span class="niche">Advocacia Premium</span>
+      </div>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat-box"><div class="lbl">Alcance total</div><div class="val" id="total-reach">—</div><div class="sub">seguidores + inscritos</div></div>
+    <div class="stat-box"><div class="lbl">Visualizações totais</div><div class="val" id="total-views">—</div><div class="sub">Instagram + YouTube</div></div>
+    <div class="stat-box"><div class="lbl">Alcance mensal</div><div class="val" id="monthly-reach">—</div><div class="sub">contas alcançadas (IG)</div></div>
+  </div>
+  <div class="platforms">
+    <div class="plat-card">
+      <div class="plat-head">
+        <div class="plat-ico ig">📸</div>
+        <div><div class="plat-name">Instagram</div><div class="plat-handle">@karenlira.adv</div></div>
+      </div>
+      <div class="plat-metrics">
+        <div><div class="pm-val" id="ig-followers">—</div><div class="pm-lbl">Seguidores</div></div>
+        <div><div class="pm-val" id="ig-reach">—</div><div class="pm-lbl">Alcance/mês</div></div>
+        <div><div class="pm-val" id="ig-interactions">—</div><div class="pm-lbl">Interações</div></div>
+        <div><div class="pm-val" id="ig-posts">—</div><div class="pm-lbl">Posts</div></div>
+      </div>
+      <a href="./instagram.html" class="plat-link">→ Ver dashboard Instagram</a>
+    </div>
+    <div class="plat-card">
+      <div class="plat-head">
+        <div class="plat-ico yt">▶</div>
+        <div><div class="plat-name">YouTube</div><div class="plat-handle">@kah_lira</div></div>
+      </div>
+      <div class="plat-metrics">
+        <div><div class="pm-val" id="yt-subs">—</div><div class="pm-lbl">Inscritos</div></div>
+        <div><div class="pm-val" id="yt-views">—</div><div class="pm-lbl">Views totais</div></div>
+        <div><div class="pm-val" id="yt-videos">—</div><div class="pm-lbl">Vídeos</div></div>
+        <div><div class="pm-val" id="yt-top">—</div><div class="pm-lbl">Top vídeo</div></div>
+      </div>
+      <a href="./youtube.html" class="plat-link">→ Ver dashboard YouTube</a>
+    </div>
+  </div>
+  <div class="audience">
+    <div class="aud-card">
+      <div class="section-lbl">⏰ Horários de pico — Instagram</div>
+      <div class="peak-chart" id="peak-chart"></div>
+    </div>
+    <div class="aud-card">
+      <div class="section-lbl">📊 Views por tipo de conteúdo</div>
+      <div id="content-bars" style="margin-top:4px;"></div>
+    </div>
+  </div>
+  <div class="footer" id="footer-ts"></div>
+</div>
+<script>
+const fmt = n => (n||0).toLocaleString('pt-BR');
+async function load() {
+  let ig=null,yt=null,ins=null;
+  try{ig=await fetch('data/data.json').then(r=>r.json());}catch(e){}
+  try{yt=await fetch('data/youtube.json').then(r=>r.json());}catch(e){}
+  try{ins=await fetch('data/insights.json').then(r=>r.json());}catch(e){}
+  const igFollowers=ins?.followers??ig?.myProfile?.followers??0;
+  const ytSubs=yt?.myChannel?.subscribers??0;
+  document.getElementById('total-reach').textContent=fmt(igFollowers+ytSubs);
+  document.getElementById('total-views').textContent=fmt((ig?.myProfile?.totalViews??0)+(yt?.myChannel?.totalViews??0));
+  document.getElementById('monthly-reach').textContent=fmt(ins?.reach??0);
+  document.getElementById('ig-followers').textContent=fmt(igFollowers);
+  document.getElementById('ig-reach').textContent=fmt(ins?.reach??0);
+  document.getElementById('ig-interactions').textContent=fmt(ins?.interactions??0);
+  document.getElementById('ig-posts').textContent=fmt(ig?.myProfile?.totalPosts??0);
+  document.getElementById('yt-subs').textContent=fmt(ytSubs);
+  document.getElementById('yt-views').textContent=fmt(yt?.myChannel?.totalViews??0);
+  document.getElementById('yt-videos').textContent=fmt(yt?.myChannel?.videoCount??0);
+  document.getElementById('yt-top').textContent=fmt(yt?.myChannel?.topVideos?.[0]?.views??0);
+  if(ins?.peakHours){
+    const vals=Object.values(ins.peakHours),max=Math.max(...vals);
+    document.getElementById('peak-chart').innerHTML=Object.entries(ins.peakHours).map(([h,v])=>`<div class="pb-wrap"><div class="pb${v===max?' top':''}" style="height:${Math.round(v/max*100)}%"></div><div class="pb-lbl">${h}</div></div>`).join('');
+  }
+  if(ins?.viewsByContent){
+    const colors=['#7C5CBF','#a78bda','#d4c8f5','#e8e0ff'];
+    document.getElementById('content-bars').innerHTML=Object.entries(ins.viewsByContent).map(([k,v],i)=>`<div class="cbar"><div class="cbar-head"><span>${k}</span><strong>${v}%</strong></div><div class="cbar-track"><div class="cbar-fill" style="width:${v}%;background:${colors[i%colors.length]}"></div></div></div>`).join('');
+  }
+  const ts=ig?.scrapedAt?new Date(ig.scrapedAt).toLocaleString('pt-BR'):'';
+  if(ts)document.getElementById('footer-ts').textContent='Atualizado: '+ts;
+}
+load();
+</script>
+</body>
+</html>
