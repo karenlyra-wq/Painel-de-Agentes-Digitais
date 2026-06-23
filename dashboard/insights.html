@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atualizar Insights — @karenlira.adv</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --border: #e5e7eb; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .card { background: white; border-radius: 18px; padding: 36px; max-width: 420px; width: 100%; box-shadow: 0 4px 24px rgba(124,92,191,0.10); }
+    .logo { color: var(--accent); font-weight: 700; font-size: 0.85rem; margin-bottom: 6px; }
+    h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+    .sub { font-size: 0.78rem; color: #6b7280; margin-bottom: 28px; }
+    label { display: block; font-size: 0.75rem; font-weight: 600; color: #374151; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.4px; }
+    .hint { font-size: 0.68rem; color: #9ca3af; margin-bottom: 8px; font-weight: 400; text-transform: none; letter-spacing: 0; }
+    input[type="number"] {
+      width: 100%; padding: 11px 14px; border: 1.5px solid var(--border);
+      border-radius: 9px; font-size: 1rem; color: #1a1a2e;
+      transition: border-color 0.15s; margin-bottom: 18px;
+    }
+    input[type="number"]:focus { outline: none; border-color: var(--accent); }
+    button {
+      width: 100%; background: var(--accent); color: white; border: none;
+      padding: 13px; border-radius: 10px; font-size: 0.92rem; font-weight: 600;
+      cursor: pointer; transition: opacity 0.15s;
+    }
+    button:hover { opacity: 0.88; }
+    .status { margin-top: 16px; font-size: 0.82rem; text-align: center; min-height: 20px; }
+    .status.ok { color: #16a34a; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+    .week-label { font-size: 0.72rem; color: #9ca3af; text-align: center; margin-bottom: 20px; }
+    .back { display: block; text-align: center; margin-top: 20px; font-size: 0.75rem; color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">Painel de Agentes · @karenlira.adv</div>
+  <h1>Atualizar Insights</h1>
+  <p class="sub">Instagram → Painel Profissional → Insights. Preencha os 4 números da semana e clique em Salvar.</p>
+
+  <div class="week-label" id="week-label"></div>
+
+  <form id="insights-form">
+    <label>Alcance (Reach)
+      <span class="hint">Insights → Contas alcançadas</span>
+    </label>
+    <input type="number" id="reach" min="0" placeholder="ex: 1200" required/>
+
+    <label>Impressões
+      <span class="hint">Insights → Impressões</span>
+    </label>
+    <input type="number" id="impressions" min="0" placeholder="ex: 3400" required/>
+
+    <label>Salvamentos
+      <span class="hint">Insights → Conteúdo → somar salvamentos da semana</span>
+    </label>
+    <input type="number" id="saves" min="0" placeholder="ex: 45" required/>
+
+    <label>Visitas ao perfil
+      <span class="hint">Insights → Visitas ao perfil</span>
+    </label>
+    <input type="number" id="profileVisits" min="0" placeholder="ex: 280" required/>
+
+    <hr class="divider"/>
+    <button type="submit">Salvar no painel</button>
+  </form>
+
+  <div class="status" id="status"></div>
+  <a class="back" href="index.html">← Voltar ao painel</a>
+</div>
+
+<script>
+  const now = new Date();
+  const day = now.getDay();
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - ((day + 6) % 7));
+  const sunday = new Date(monday);
+  sunday.setDate(monday.getDate() + 6);
+  const fmt = d => d.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' });
+  document.getElementById('week-label').textContent = `Semana de ${fmt(monday)} a ${fmt(sunday)}`;
+
+  document.getElementById('insights-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const status = document.getElementById('status');
+
+    const insights = {
+      week: monday.toISOString().slice(0, 10),
+      reach: parseInt(document.getElementById('reach').value) || 0,
+      impressions: parseInt(document.getElementById('impressions').value) || 0,
+      saves: parseInt(document.getElementById('saves').value) || 0,
+      profileVisits: parseInt(document.getElementById('profileVisits').value) || 0,
+      updatedAt: new Date().toISOString(),
+    };
+
+    localStorage.setItem('latest_insights', JSON.stringify(insights));
+
+    const blob = new Blob([JSON.stringify(insights, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'insights.json';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    status.className = 'status ok';
+    status.innerHTML = '✅ insights.json baixado! Faça upload em <strong>dashboard/data/</strong> no GitHub para atualizar o painel.';
+  });
+</script>
+</body>
+</html>
