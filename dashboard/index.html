@@ -5,48 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel de Agentes — @karenlira.adv</title>
   <style>
-    :root {
-      --accent: #7C5CBF;
-      --accent-light: #f0ebfa;
-      --text: #1a1a2e;
-      --muted: #6b7280;
-      --border: #e5e7eb;
-      --card-shadow: 0 2px 12px rgba(124,92,191,0.08);
-    }
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --text: #1a1a2e; --muted: #6b7280; --border: #e5e7eb; --card-shadow: 0 2px 12px rgba(124,92,191,0.08); }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); min-height: 100vh; }
     header { background: white; border-bottom: 1px solid var(--border); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
-    header h1 { font-size: 1.1rem; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
+    header h1 { font-size: 1.1rem; font-weight: 700; color: var(--accent); }
     header span { font-size: 0.78rem; color: var(--muted); }
-    main { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+    .insights-link { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
+    main { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
 
+    /* Stats grid */
     .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 16px; }
-    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
-    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(124,92,191,0.14); }
+    .stat-card { background: white; border-radius: 14px; padding: 20px 22px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; }
+    .stat-card:hover { transform: translateY(-2px); }
     .stat-card .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
-    .stat-card .value { font-size: 1.7rem; font-weight: 700; color: var(--text); }
+    .stat-card .value { font-size: 1.7rem; font-weight: 700; }
     .stat-card .sub { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 
-    /* Insights row */
-    .insights-row { display: none; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 32px; }
-    .ins-card { background: var(--accent-light); border-radius: 12px; padding: 14px 18px; }
-    .ins-card .label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 6px; }
-    .ins-card .value { font-size: 1.2rem; font-weight: 700; color: var(--text); }
-    .ins-card .sub { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+    /* Insights section */
+    .insights-section { display: none; margin-bottom: 32px; }
+    .insights-section.visible { display: block; }
+    .insights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px; }
+    .ins-card { background: white; border-radius: 14px; padding: 18px; box-shadow: var(--card-shadow); }
+    .ins-card .label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 8px; }
+    .ins-card .value { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .ins-card .sub { font-size: 0.7rem; color: var(--muted); margin-top: 3px; }
 
-    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted); margin-bottom: 14px; }
+    /* Charts grid */
+    .charts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 32px; }
+    .chart-card { background: white; border-radius: 14px; padding: 18px; box-shadow: var(--card-shadow); }
+    .chart-card .chart-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 14px; }
+
+    /* Donut chart */
+    .donut-wrap { display: flex; align-items: center; gap: 14px; }
+    .donut { width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0; }
+    .donut-legend { flex: 1; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.72rem; margin-bottom: 5px; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Bar chart */
+    .bar-list { display: flex; flex-direction: column; gap: 8px; }
+    .bar-item .bar-label { display: flex; justify-content: space-between; font-size: 0.72rem; margin-bottom: 3px; }
+    .bar-item .bar-label span:last-child { font-weight: 600; color: var(--accent); }
+    .bar-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+
+    /* Agents */
     .agents-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 32px; }
-    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
-    .agent-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(124,92,191,0.16); }
+    .agent-card { background: white; border-radius: 14px; padding: 20px 16px; box-shadow: var(--card-shadow); cursor: pointer; transition: transform 0.15s; position: relative; overflow: hidden; }
+    .agent-card:hover { transform: translateY(-3px); }
     .agent-card .icon { font-size: 1.6rem; margin-bottom: 10px; }
     .agent-card .name { font-size: 0.82rem; font-weight: 700; margin-bottom: 4px; }
     .agent-card .role { font-size: 0.7rem; color: var(--muted); margin-bottom: 12px; line-height: 1.4; }
     .agent-card .metric { font-size: 0.68rem; color: var(--accent); font-weight: 600; }
     .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; position: absolute; top: 14px; right: 14px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)} }
     .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 10px; overflow: hidden; }
-    .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; animation: fillBar 2.5s ease-in-out infinite alternate; }
-    @keyframes fillBar { from { width: 30%; } to { width: 95%; } }
+    .progress-fill { height: 100%; background: var(--accent); animation: fillBar 2.5s ease-in-out infinite alternate; }
+    @keyframes fillBar { from{width:30%} to{width:95%} }
 
     .section { background: white; border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
     .section-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; }
@@ -72,13 +89,9 @@
     .modal { background: white; border-radius: 18px; padding: 32px; max-width: 560px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
     .modal h3 { font-size: 1.1rem; margin-bottom: 6px; }
     .modal p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
-    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; color: var(--text); }
+    .modal ul { padding-left: 18px; font-size: 0.82rem; line-height: 1.8; }
     .modal-close { float: right; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--muted); }
-    .insights-link { font-size: 0.72rem; color: var(--accent); text-decoration: none; }
-    @media (max-width: 768px) {
-      .stats-grid, .insights-row, .agents-grid { grid-template-columns: repeat(2, 1fr); }
-      .posts-grid { grid-template-columns: 1fr; }
-    }
+    @media(max-width:768px){.stats-grid,.insights-grid,.charts-grid,.agents-grid{grid-template-columns:repeat(2,1fr)}.posts-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -90,135 +103,80 @@
   </div>
 </header>
 <main>
-  <!-- Stats bar -->
+
+  <!-- Stats -->
   <div class="stats-grid">
-    <div class="stat-card" onclick="openModal('stat-followers')">
-      <div class="label">Seguidores</div>
-      <div class="value" id="stat-followers">—</div>
-      <div class="sub">total atual</div>
-    </div>
-    <div class="stat-card" onclick="openModal('stat-posts')">
-      <div class="label">Posts publicados</div>
-      <div class="value" id="stat-posts">—</div>
-      <div class="sub">histórico completo</div>
-    </div>
-    <div class="stat-card" onclick="openModal('stat-views')">
-      <div class="label">Visualizações</div>
-      <div class="value" id="stat-views">—</div>
-      <div class="sub" id="stat-views-label">em vídeos</div>
-    </div>
-    <div class="stat-card" onclick="openModal('stat-likes')">
-      <div class="label">Total de likes</div>
-      <div class="value" id="stat-likes">—</div>
-      <div class="sub">+ <span id="stat-comments">—</span> comentários</div>
-    </div>
-    <div class="stat-card" onclick="openModal('stat-top')">
-      <div class="label">Top post (views)</div>
-      <div class="value" id="stat-top">—</div>
-      <div class="sub" id="stat-top-caption">—</div>
-    </div>
+    <div class="stat-card" onclick="openModal('stat-followers')"><div class="label">Seguidores</div><div class="value" id="stat-followers">—</div><div class="sub">total atual</div></div>
+    <div class="stat-card" onclick="openModal('stat-posts')"><div class="label">Posts publicados</div><div class="value" id="stat-posts">—</div><div class="sub">histórico completo</div></div>
+    <div class="stat-card" onclick="openModal('stat-views')"><div class="label">Visualizações</div><div class="value" id="stat-views">—</div><div class="sub" id="stat-views-label">em vídeos</div></div>
+    <div class="stat-card" onclick="openModal('stat-likes')"><div class="label">Total de likes</div><div class="value" id="stat-likes">—</div><div class="sub">+ <span id="stat-comments">—</span> comentários</div></div>
+    <div class="stat-card" onclick="openModal('stat-top')"><div class="label">Top post</div><div class="value" id="stat-top">—</div><div class="sub" id="stat-top-caption">—</div></div>
   </div>
 
-  <!-- Insights row (shown when insights.json loaded) -->
-  <div class="insights-row" id="insights-row">
-    <div class="ins-card">
-      <div class="label">Alcance</div>
-      <div class="value" id="ins-reach">—</div>
-      <div class="sub">contas alcançadas</div>
+  <!-- Insights section -->
+  <div class="insights-section" id="insights-section">
+    <h2>Insights — últimos 30 dias <span id="ins-week-label" style="font-size:0.75rem;color:var(--muted);text-transform:none;letter-spacing:0;"></span></h2>
+
+    <!-- KPI cards -->
+    <div class="insights-grid">
+      <div class="ins-card"><div class="label">Alcance</div><div class="value" id="ins-reach">—</div><div class="sub">contas alcançadas</div></div>
+      <div class="ins-card"><div class="label">Interações</div><div class="value" id="ins-interactions">—</div><div class="sub">contas engajadas: <span id="ins-engaged">—</span></div></div>
+      <div class="ins-card"><div class="label">Salvamentos</div><div class="value" id="ins-saves">—</div><div class="sub">posts salvos</div></div>
+      <div class="ins-card"><div class="label">Visitas ao perfil</div><div class="value" id="ins-profile">—</div><div class="sub">toques em link: <span id="ins-links">—</span></div></div>
     </div>
-    <div class="ins-card">
-      <div class="label">Interações</div>
-      <div class="value" id="ins-interactions">—</div>
-      <div class="sub">likes + comentários</div>
-    </div>
-    <div class="ins-card">
-      <div class="label">Visitas ao perfil</div>
-      <div class="value" id="ins-profile">—</div>
-      <div class="sub">nos últimos 30 dias</div>
-    </div>
-    <div class="ins-card">
-      <div class="label">Views via Stories</div>
-      <div class="value" id="ins-stories">—</div>
-      <div class="sub" id="ins-week"></div>
-    </div>
-    <div class="ins-card">
-      <div class="label">Pico de atividade</div>
-      <div class="value" id="ins-peak">—</div>
-      <div class="sub">melhor horário</div>
+
+    <!-- Charts -->
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-title">Views por audiência</div>
+        <div class="donut-wrap">
+          <div class="donut" id="donut-views-audience"></div>
+          <div class="donut-legend" id="legend-views-audience"></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Views por tipo de conteúdo</div>
+        <div class="bar-list" id="bars-views-content"></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Interações por audiência</div>
+        <div class="donut-wrap">
+          <div class="donut" id="donut-int-audience"></div>
+          <div class="donut-legend" id="legend-int-audience"></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Interações por tipo de conteúdo</div>
+        <div class="bar-list" id="bars-int-content"></div>
+      </div>
     </div>
   </div>
 
   <!-- Agents -->
   <h2>Agentes ativos</h2>
   <div class="agents-grid">
-    <div class="agent-card" onclick="openAgentModal('ideator')">
-      <div class="pulse-dot"></div>
-      <div class="icon">💡</div>
-      <div class="name">Ideador</div>
-      <div class="role">Garimpa tendências e gaps dos concorrentes</div>
-      <div class="metric" id="ideator-metric">5 ideias prontas</div>
-      <div class="progress-bar"><div class="progress-fill"></div></div>
-    </div>
-    <div class="agent-card" onclick="openAgentModal('hook')">
-      <div class="pulse-dot" style="animation-delay:0.4s"></div>
-      <div class="icon">✍️</div>
-      <div class="name">Hook & Script</div>
-      <div class="role">Escreve hooks e roteiros de Reels</div>
-      <div class="metric">1 roteiro gerado</div>
-      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.3s"></div></div>
-    </div>
-    <div class="agent-card" onclick="openAgentModal('planner')">
-      <div class="pulse-dot" style="animation-delay:0.8s"></div>
-      <div class="icon">📅</div>
-      <div class="name">Planejador</div>
-      <div class="role">Monta o calendário semanal de posts</div>
-      <div class="metric">7 dias planejados</div>
-      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.6s"></div></div>
-    </div>
-    <div class="agent-card" onclick="openAgentModal('analyst')">
-      <div class="pulse-dot" style="animation-delay:1.2s"></div>
-      <div class="icon">📊</div>
-      <div class="name">Analista</div>
-      <div class="role">Analisa seus stats e benchmarks</div>
-      <div class="metric" id="analyst-metric">—</div>
-      <div class="progress-bar"><div class="progress-fill" style="animation-delay:0.9s"></div></div>
-    </div>
-    <div class="agent-card" onclick="openAgentModal('dm')">
-      <div class="pulse-dot" style="animation-delay:1.6s"></div>
-      <div class="icon">💬</div>
-      <div class="name">DM Manager</div>
-      <div class="role">Rascunha respostas para DMs comuns</div>
-      <div class="metric">3 templates prontos</div>
-      <div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div>
-    </div>
+    <div class="agent-card" onclick="openAgentModal('ideator')"><div class="pulse-dot"></div><div class="icon">💡</div><div class="name">Ideador</div><div class="role">Garimpa tendências e gaps dos concorrentes</div><div class="metric" id="ideator-metric">5 ideias prontas</div><div class="progress-bar"><div class="progress-fill"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('hook')"><div class="pulse-dot" style="animation-delay:.4s"></div><div class="icon">✍️</div><div class="name">Hook & Script</div><div class="role">Escreve hooks e roteiros de Reels</div><div class="metric">1 roteiro gerado</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.3s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('planner')"><div class="pulse-dot" style="animation-delay:.8s"></div><div class="icon">📅</div><div class="name">Planejador</div><div class="role">Monta o calendário semanal de posts</div><div class="metric">7 dias planejados</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.6s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('analyst')"><div class="pulse-dot" style="animation-delay:1.2s"></div><div class="icon">📊</div><div class="name">Analista</div><div class="role">Analisa seus stats e benchmarks</div><div class="metric" id="analyst-metric">—</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:.9s"></div></div></div>
+    <div class="agent-card" onclick="openAgentModal('dm')"><div class="pulse-dot" style="animation-delay:1.6s"></div><div class="icon">💬</div><div class="name">DM Manager</div><div class="role">Rascunha respostas para DMs comuns</div><div class="metric">3 templates prontos</div><div class="progress-bar"><div class="progress-fill" style="animation-delay:1.2s"></div></div></div>
   </div>
 
-  <div class="section">
-    <div class="section-title">Seus top 6 posts</div>
-    <div class="posts-grid" id="posts-grid"></div>
-  </div>
+  <div class="section"><div class="section-title">Seus top 6 posts</div><div class="posts-grid" id="posts-grid"></div></div>
 
   <div class="section">
     <div class="section-title">Benchmarks — concorrentes</div>
-    <table>
-      <thead><tr>
-        <th>Perfil</th><th>Posts</th><th>Total views</th><th>Total likes</th><th>Top post</th><th class="bar-cell">Volume relativo</th>
-      </tr></thead>
-      <tbody id="competitors-tbody"></tbody>
-    </table>
+    <table><thead><tr><th>Perfil</th><th>Posts</th><th>Total views</th><th>Total likes</th><th>Top post</th><th class="bar-cell">Volume relativo</th></tr></thead>
+    <tbody id="competitors-tbody"></tbody></table>
   </div>
 </main>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('modal-overlay').classList.remove('open')">×</button>
-    <h3 id="modal-title"></h3>
-    <p id="modal-body"></p>
-    <ul id="modal-list"></ul>
+    <h3 id="modal-title"></h3><p id="modal-body"></p><ul id="modal-list"></ul>
   </div>
 </div>
-
 <script src="agents.js"></script>
 <script src="dashboard.js"></script>
-</body>
-</html>
+</body></html>

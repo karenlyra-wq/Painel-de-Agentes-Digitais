@@ -8,6 +8,25 @@
   "interactions": 679,
   "accountsEngaged": 102,
   "followers": 829,
+  "viewsByAudience": {
+    "seguidores": 73.7,
+    "naoSeguidores": 26.3
+  },
+  "viewsByContent": {
+    "Stories": 96.6,
+    "Posts": 3.2,
+    "Reels": 0.1,
+    "Vídeos": 0.1
+  },
+  "interactionsByAudience": {
+    "seguidores": 98.4,
+    "naoSeguidores": 1.6
+  },
+  "interactionsByContent": {
+    "Stories": 100,
+    "Posts": 0,
+    "Reels": 0
+  },
   "contentBreakdown": {
     "stories": 96.6,
     "posts": 3.2,
