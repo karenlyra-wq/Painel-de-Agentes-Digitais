@@ -1,0 +1,60 @@
+{
+  "myChannel": {
+    "handle": "karenlira.adv",
+    "followers": 3119,
+    "following": 3710,
+    "likes": 902,
+    "videoViews": 1,
+    "profileViews": 2,
+    "videos": 0,
+    "period": "31 mai – 21 jun 2026",
+    "daily": [
+      {"date":"31 de maio","videoViews":0,"profileViews":1,"likes":0,"comments":0,"shares":0},
+      {"date":"1 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"2 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"3 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"4 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"5 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"6 de junho","videoViews":0,"profileViews":1,"likes":0,"comments":0,"shares":0},
+      {"date":"7 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"8 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"9 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"10 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"11 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"12 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"13 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"14 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"15 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"16 de junho","videoViews":1,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"17 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"18 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"19 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"20 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0},
+      {"date":"21 de junho","videoViews":0,"profileViews":0,"likes":0,"comments":0,"shares":0}
+    ]
+  },
+  "competitors": [
+    {
+      "handle": "abarbara.torres",
+      "name": "Bárbara Torres",
+      "followers": null,
+      "likes": null,
+      "topVideos": []
+    },
+    {
+      "handle": "leanadeeb",
+      "name": "Leana Deeb",
+      "followers": null,
+      "likes": null,
+      "topVideos": []
+    },
+    {
+      "handle": "marianagoncalvesadvogada",
+      "name": "Mariana Gonçalves",
+      "followers": null,
+      "likes": null,
+      "topVideos": []
+    }
+  ],
+  "updatedAt": "2026-06-23T00:00:00.000Z"
+}
