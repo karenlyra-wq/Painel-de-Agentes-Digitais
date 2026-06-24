@@ -35,7 +35,8 @@
     .plat-ico.ig { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
     .plat-ico.yt { background: #ff0000; }
     .plat-ico.tk { background: #010101; }
-    .platforms { grid-template-columns: repeat(3, 1fr) !important; }
+    .plat-ico.ss { background: #FF6719; }
+    .platforms { grid-template-columns: repeat(2, 1fr) !important; }
     .plat-name { font-weight: 700; font-size: 0.9rem; }
     .plat-handle { font-size: 0.7rem; color: var(--muted); }
     .plat-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -68,6 +69,7 @@
   <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
   <a href="./youtube.html" class="nav-tab">▶ YouTube</a>
   <a href="./tiktok.html" class="nav-tab">🎵 TikTok</a>
+  <a href="./substack.html" class="nav-tab">📩 Substack</a>
 </nav>
 <div class="wrap">
   <div class="profile">
@@ -78,6 +80,7 @@
         <span class="handle-chip">📸 @karenlira.adv</span>
         <span class="handle-chip">▶ @kah_lira</span>
         <span class="handle-chip">🎵 @karenlira.adv</span>
+        <span class="handle-chip">📩 karenliraadv.substack.com</span>
       </div>
       <p class="bio">Advogada especialista em soluções extrajudiciais, planejamento jurídico patrimonial e direito imobiliário para clientes premium.</p>
       <div class="niches">
@@ -123,6 +126,19 @@
     </div>
     <div class="plat-card">
       <div class="plat-head">
+        <div class="plat-ico ss">📩</div>
+        <div><div class="plat-name">Substack</div><div class="plat-handle">karenliraadv</div></div>
+      </div>
+      <div class="plat-metrics">
+        <div><div class="pm-val" id="ss-subscribers">—</div><div class="pm-lbl">Assinantes</div></div>
+        <div><div class="pm-val" id="ss-openrate">—</div><div class="pm-lbl">Taxa abertura</div></div>
+        <div><div class="pm-val" id="ss-posts">—</div><div class="pm-lbl">Edições</div></div>
+        <div><div class="pm-val">—</div><div class="pm-lbl">Pago</div></div>
+      </div>
+      <a href="./substack.html" class="plat-link">→ Ver dashboard Substack</a>
+    </div>
+    <div class="plat-card">
+      <div class="plat-head">
         <div class="plat-ico tk">🎵</div>
         <div><div class="plat-name">TikTok</div><div class="plat-handle">@karenlira.adv</div></div>
       </div>
@@ -155,6 +171,7 @@ async function load() {
   try{yt=await fetch('data/youtube.json').then(r=>r.json());}catch(e){}
   try{ins=await fetch('data/insights.json').then(r=>r.json());}catch(e){}
   try{tk=await fetch('data/tiktok.json').then(r=>r.json());}catch(e){}
+  let ss=null; try{ss=await fetch('data/substack.json').then(r=>r.json());}catch(e){}
   const igFollowers=ins?.followers??ig?.myProfile?.followers??0;
   const ytSubs=yt?.myChannel?.subscribers??0;
   const tkFollowers=tk?.myChannel?.followers??0;
@@ -173,6 +190,10 @@ async function load() {
   document.getElementById('tk-likes').textContent=fmt(tk?.myChannel?.likes??0);
   document.getElementById('tk-views').textContent=fmt(tk?.myChannel?.videoViews??0);
   document.getElementById('tk-videos').textContent=fmt(tk?.myChannel?.videos??0);
+  const ssFollowers=ss?.publication?.subscribers??0;
+  document.getElementById('ss-subscribers').textContent=fmt(ssFollowers);
+  document.getElementById('ss-openrate').textContent=ss?.publication?.openRate!=null?ss.publication.openRate+'%':'—';
+  document.getElementById('ss-posts').textContent=fmt(ss?.publication?.posts??0);
   if(ins?.peakHours){
     const vals=Object.values(ins.peakHours),max=Math.max(...vals);
     document.getElementById('peak-chart').innerHTML=Object.entries(ins.peakHours).map(([h,v])=>`<div class="pb-wrap"><div class="pb${v===max?' top':''}" style="height:${Math.round(v/max*100)}%"></div><div class="pb-lbl">${h}</div></div>`).join('');
