@@ -1,0 +1,31 @@
+name: Pautas do Dia
+
+on:
+  schedule:
+    # 10:00 UTC = 07:00 BRT (UTC-3)
+    - cron: '0 10 * * *'
+  workflow_dispatch:   # permite rodar manualmente pelo GitHub Actions
+
+jobs:
+  enviar-pautas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Gerar e enviar Pautas do Dia
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: node scripts/pautas-do-dia.js
