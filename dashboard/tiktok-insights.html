@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atualizar TikTok — Karen Lira</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --border: #e5e7eb; --text: #1a1a2e; --muted: #6b7280; --shadow: 0 2px 14px rgba(124,92,191,0.09); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .wrap { max-width: 700px; margin: 0 auto; padding: 32px 20px 48px; }
+    .card { background: white; border-radius: 16px; padding: 28px 32px; box-shadow: var(--shadow); margin-bottom: 20px; }
+    h1 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+    .steps { margin-bottom: 20px; }
+    .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: white; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-text { font-size: 0.82rem; line-height: 1.55; }
+    .step-text strong { color: var(--text); }
+    .drop-zone { border: 2px dashed var(--border); border-radius: 12px; padding: 40px; text-align: center; cursor: pointer; transition: border-color 0.15s; margin-bottom: 20px; }
+    .drop-zone:hover, .drop-zone.drag-over { border-color: var(--accent); background: var(--accent-light); }
+    .drop-zone .icon { font-size: 2.5rem; margin-bottom: 10px; }
+    .drop-zone p { font-size: 0.82rem; color: var(--muted); }
+    .drop-zone strong { color: var(--accent); }
+    #file-input { display: none; }
+    .manual-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+    .field input { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 0.88rem; font-family: inherit; outline: none; }
+    .field input:focus { border-color: var(--accent); }
+    .btn-row { display: flex; gap: 10px; }
+    .btn { padding: 12px 22px; border-radius: 10px; border: none; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s; font-family: inherit; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary { background: var(--accent-light); color: var(--accent); }
+    .btn-secondary:hover { opacity: 0.85; }
+    #result { display: none; }
+    #result.show { display: block; }
+    .result-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 20px; font-size: 0.82rem; }
+    .result-box h3 { font-size: 0.88rem; font-weight: 700; color: #166534; margin-bottom: 10px; }
+    pre { background: #f3f4f6; border-radius: 8px; padding: 14px; font-size: 0.72rem; overflow-x: auto; margin: 12px 0; max-height: 300px; }
+    .download-btn { display: inline-block; background: var(--accent); color: white; padding: 10px 18px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; font-family: inherit; }
+    .note { font-size: 0.75rem; color: var(--muted); margin-top: 12px; line-height: 1.5; background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 12px 14px; }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab">▶ YouTube</a>
+  <a href="./tiktok.html" class="nav-tab">🎵 TikTok</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <h1>🎵 Atualizar dados TikTok</h1>
+    <p class="sub">Faça o upload do arquivo <strong>Overview.xlsx</strong> exportado do TikTok Analytics para atualizar seu dashboard automaticamente.</p>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">No TikTok app ou desktop, acesse <strong>Analytics → Overview</strong> e clique em <strong>Exportar dados</strong> (ícone de download no canto superior direito).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Selecione o período desejado (máx. 60 dias) e baixe o arquivo <strong>Overview.xlsx</strong>.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Arraste o arquivo abaixo ou clique para selecionar. O painel processa tudo no seu navegador — nenhum dado sai do seu dispositivo.</div></div>
+    </div>
+
+    <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+      <div class="icon">📂</div>
+      <p><strong>Clique para selecionar</strong> ou arraste o arquivo aqui</p>
+      <p style="margin-top:6px;font-size:0.72rem;">Aceita: Overview.xlsx</p>
+    </div>
+    <input type="file" id="file-input" accept=".xlsx,.xls"/>
+
+    <hr style="margin: 20px 0; border: none; border-top: 1px solid var(--border);">
+    <p style="font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:14px;">Ou preencha manualmente:</p>
+    <div class="manual-fields">
+      <div class="field"><label>Seguidores</label><input type="number" id="m-followers" placeholder="3119"/></div>
+      <div class="field"><label>Curtidas totais</label><input type="number" id="m-likes" placeholder="902"/></div>
+      <div class="field"><label>Vídeos publicados</label><input type="number" id="m-videos" placeholder="0"/></div>
+      <div class="field"><label>Período (ex: jun 2026)</label><input type="text" id="m-period" placeholder="jun 2026"/></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="saveManual()">💾 Gerar tiktok.json</button>
+    </div>
+  </div>
+
+  <div id="result">
+    <div class="result-box">
+      <h3>✅ Arquivo gerado com sucesso!</h3>
+      <p>Copie o conteúdo abaixo e substitua o arquivo <code>dashboard/data/tiktok.json</code> no seu repositório.</p>
+      <pre id="json-preview"></pre>
+      <button class="download-btn" onclick="downloadJson()">⬇ Baixar tiktok.json</button>
+      <div class="note">
+        💡 <strong>Como atualizar o painel:</strong> Faça o download, substitua o arquivo no GitHub em <code>dashboard/data/tiktok.json</code> e o painel será atualizado automaticamente.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script>
+let generatedJson = null;
+
+const dropZone = document.getElementById('drop-zone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  const f = e.dataTransfer.files[0];
+  if (f) processFile(f);
+});
+document.getElementById('file-input').addEventListener('change', e => {
+  if (e.target.files[0]) processFile(e.target.files[0]);
+});
+
+function processFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const wb = XLSX.read(e.target.result, { type: 'array' });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: 0 });
+      // rows[0] = headers, rows[1..] = data
+      const headers = rows[0];
+      const daily = rows.slice(1).filter(r => r[0]).map(r => ({
+        date: String(r[0]),
+        videoViews: Number(r[1]) || 0,
+        profileViews: Number(r[2]) || 0,
+        likes: Number(r[3]) || 0,
+        comments: Number(r[4]) || 0,
+        shares: Number(r[5]) || 0,
+      }));
+      const totalViews = daily.reduce((s, d) => s + d.videoViews, 0);
+      const firstDate = daily[0]?.date || '';
+      const lastDate = daily[daily.length - 1]?.date || '';
+      buildJson({ daily, totalViews, period: `${firstDate} – ${lastDate}` });
+    } catch(err) {
+      alert('Erro ao processar o arquivo: ' + err.message);
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function buildJson({ daily, totalViews, period, followers, likes, videos } = {}) {
+  const f = v => v !== undefined ? v : null;
+  const data = {
+    myChannel: {
+      handle: 'karenlira.adv',
+      followers: f(followers) ?? Number(document.getElementById('m-followers').value) || null,
+      following: null,
+      likes: f(likes) ?? Number(document.getElementById('m-likes').value) || null,
+      videoViews: totalViews ?? 0,
+      profileViews: null,
+      videos: f(videos) ?? Number(document.getElementById('m-videos').value) || null,
+      period: period ?? document.getElementById('m-period').value || '',
+      daily: daily ?? [],
+    },
+    competitors: [
+      { handle: 'abarbara.torres', name: 'Bárbara Torres', followers: null, likes: null, topVideos: [] },
+      { handle: 'leanadeeb', name: 'Leana Deeb', followers: null, likes: null, topVideos: [] },
+      { handle: 'marianagoncalvesadvogada', name: 'Mariana Gonçalves', followers: null, likes: null, topVideos: [] },
+    ],
+    updatedAt: new Date().toISOString(),
+  };
+  generatedJson = JSON.stringify(data, null, 2);
+  document.getElementById('json-preview').textContent = generatedJson;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+
+function saveManual() {
+  buildJson({});
+}
+
+function downloadJson() {
+  if (!generatedJson) return;
+  const blob = new Blob([generatedJson], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'tiktok.json';
+  a.click();
+}
+</script>
+</body>
+</html>

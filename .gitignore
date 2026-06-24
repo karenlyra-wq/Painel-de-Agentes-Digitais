@@ -1,3 +1,5 @@
-node_modules/
 .env
 .env.local
+node_modules/
+dashboard/data/data.json
+dashboard/data/youtube.json

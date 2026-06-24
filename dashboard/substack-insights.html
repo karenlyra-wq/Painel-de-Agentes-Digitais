@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atualizar Substack — Karen Lira</title>
+  <style>
+    :root { --accent: #7C5CBF; --accent-light: #f0ebfa; --border: #e5e7eb; --text: #1a1a2e; --muted: #6b7280; --shadow: 0 2px 14px rgba(124,92,191,0.09); --ss: #FF6719; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f7fc; color: var(--text); }
+    .top-nav { background: white; border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-weight: 700; color: var(--accent); font-size: 0.85rem; padding: 16px 12px 16px 0; text-decoration: none; white-space: nowrap; }
+    .nav-divider { width: 1px; height: 20px; background: var(--border); margin-right: 4px; flex-shrink: 0; }
+    .nav-tab { padding: 16px 13px 14px; font-size: 0.82rem; font-weight: 600; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; transition: all 0.15s; white-space: nowrap; }
+    .nav-tab:hover { color: var(--accent); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .wrap { max-width: 700px; margin: 0 auto; padding: 32px 20px 48px; }
+    .card { background: white; border-radius: 16px; padding: 28px 32px; box-shadow: var(--shadow); margin-bottom: 20px; }
+    h1 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; line-height: 1.6; }
+    .steps { margin-bottom: 24px; }
+    .step { display: flex; gap: 14px; margin-bottom: 14px; align-items: flex-start; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--ss); color: white; font-size: 0.78rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step-text { font-size: 0.82rem; line-height: 1.55; }
+    .step-text strong { color: var(--text); }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: 0.72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; }
+    .field input { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 0.88rem; font-family: inherit; outline: none; }
+    .field input:focus { border-color: var(--accent); }
+    .post-entry { background: #f8f7fc; border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .post-entry .post-fields { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 10px; }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { padding: 11px 22px; border-radius: 10px; border: none; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: opacity 0.15s; font-family: inherit; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary { background: var(--accent-light); color: var(--accent); }
+    .btn-ghost { background: none; border: 1px solid var(--border); color: var(--muted); }
+    #result { display: none; }
+    #result.show { display: block; }
+    .result-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 20px; font-size: 0.82rem; }
+    .result-box h3 { font-size: 0.88rem; font-weight: 700; color: #166534; margin-bottom: 10px; }
+    pre { background: #f3f4f6; border-radius: 8px; padding: 14px; font-size: 0.72rem; overflow-x: auto; margin: 12px 0; max-height: 300px; }
+    .download-btn { background: var(--accent); color: white; padding: 10px 18px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; border: none; cursor: pointer; font-family: inherit; }
+    .note { font-size: 0.75rem; color: var(--muted); margin-top: 12px; line-height: 1.5; background: #fefce8; border: 1px solid #fde047; border-radius: 8px; padding: 12px 14px; }
+    .sec-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; }
+  </style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="./" class="nav-brand">Painel de Agentes</a>
+  <div class="nav-divider"></div>
+  <a href="./" class="nav-tab">🏠 Visão Geral</a>
+  <a href="./instagram.html" class="nav-tab">📸 Instagram</a>
+  <a href="./youtube.html" class="nav-tab">▶ YouTube</a>
+  <a href="./tiktok.html" class="nav-tab">🎵 TikTok</a>
+  <a href="./substack.html" class="nav-tab">📩 Substack</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <h1>📩 Atualizar dados Substack</h1>
+    <p class="sub">O Substack não exporta dados em arquivo. Preencha os números manualmente a partir do seu <strong>Dashboard → Stats</strong> no Substack.</p>
+
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-text">Acesse <strong>karenliraadv.substack.com/publish/stats</strong> e anote os números principais.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Preencha os campos abaixo. Os posts são opcionais — preencha os mais recentes se quiser ver o histórico no painel.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Clique em <strong>Gerar substack.json</strong>, baixe e substitua o arquivo em <code>dashboard/data/substack.json</code> no GitHub.</div></div>
+    </div>
+
+    <div class="fields">
+      <div class="field"><label>Assinantes totais</label><input type="number" id="f-subscribers" placeholder="0"/></div>
+      <div class="field"><label>Posts publicados</label><input type="number" id="f-posts" placeholder="0"/></div>
+      <div class="field"><label>Taxa de abertura média (%)</label><input type="number" id="f-openrate" placeholder="ex: 45" step="0.1"/></div>
+      <div class="field"><label>Período (ex: jun 2026)</label><input type="text" id="f-period" placeholder="jun 2026"/></div>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <div class="sec-title">
+        <span>Posts recentes (opcional)</span>
+        <button class="btn btn-ghost" onclick="addPost()" style="font-size:0.72rem;padding:5px 12px;">+ Adicionar post</button>
+      </div>
+      <div id="posts-container"></div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="generate()">💾 Gerar substack.json</button>
+    </div>
+  </div>
+
+  <div id="result">
+    <div class="result-box">
+      <h3>✅ Arquivo gerado!</h3>
+      <p>Baixe e substitua o arquivo <code>dashboard/data/substack.json</code> no repositório.</p>
+      <pre id="json-preview"></pre>
+      <button class="download-btn" onclick="downloadJson()">⬇ Baixar substack.json</button>
+      <div class="note">💡 Após substituir o arquivo no GitHub, o painel atualiza automaticamente na próxima visita.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let postCount = 0;
+let generatedJson = null;
+
+function addPost() {
+  postCount++;
+  const id = `post-${postCount}`;
+  const div = document.createElement('div');
+  div.className = 'post-entry';
+  div.id = id;
+  div.innerHTML = `
+    <div class="post-fields">
+      <input type="text" placeholder="Título do post" data-field="title"/>
+      <input type="text" placeholder="Data (ex: 10 jun)" data-field="date"/>
+      <input type="number" placeholder="Aberturas" data-field="opens"/>
+      <input type="number" placeholder="Abertura %" data-field="openRate" step="0.1"/>
+    </div>
+    <button onclick="document.getElementById('${id}').remove()" style="margin-top:8px;font-size:0.72rem;background:none;border:none;color:#9ca3af;cursor:pointer;">✕ remover</button>`;
+  document.getElementById('posts-container').appendChild(div);
+}
+
+function generate() {
+  const posts = [];
+  document.querySelectorAll('.post-entry').forEach(el => {
+    const t = el.querySelector('[data-field="title"]').value;
+    if (!t) return;
+    posts.push({
+      title: t,
+      date: el.querySelector('[data-field="date"]').value || null,
+      opens: Number(el.querySelector('[data-field="opens"]').value) || null,
+      openRate: Number(el.querySelector('[data-field="openRate"]').value) || null,
+      clicks: null,
+    });
+  });
+
+  const data = {
+    publication: {
+      handle: 'karenliraadv',
+      name: 'Karen Lira',
+      url: 'https://karenliraadv.substack.com',
+      subscribers: Number(document.getElementById('f-subscribers').value) || 0,
+      posts: Number(document.getElementById('f-posts').value) || 0,
+      openRate: Number(document.getElementById('f-openrate').value) || null,
+      period: document.getElementById('f-period').value || null,
+    },
+    posts,
+    updatedAt: new Date().toISOString(),
+  };
+
+  generatedJson = JSON.stringify(data, null, 2);
+  document.getElementById('json-preview').textContent = generatedJson;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+}
+
+function downloadJson() {
+  if (!generatedJson) return;
+  const blob = new Blob([generatedJson], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'substack.json';
+  a.click();
+}
+</script>
+</body>
+</html>
