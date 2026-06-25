@@ -9,23 +9,26 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0a0a0f;
-      --surface: #12121a;
-      --surface2: #1a1a28;
+      --bg: #070710;
+      --surface: rgba(16,16,28,0.82);
+      --surface-solid: #10101c;
+      --surface2: rgba(24,24,42,0.75);
       --neon: #7c3aed;
       --neon2: #06b6d4;
       --text: #e2e8f0;
       --text-soft: #64748b;
-      --border: rgba(255,255,255,0.08);
-      --radius: 12px;
-      --sidebar-w: 60px;
-      --sidebar-expanded: 200px;
-      --panel-w: 280px;
-      --header-h: 56px;
-      --footer-h: 40px;
+      --border: rgba(124,58,237,0.18);
+      --border2: rgba(255,255,255,0.06);
+      --radius: 14px;
+      --sidebar-w: 68px;
+      --sidebar-exp: 220px;
+      --panel-w: 285px;
+      --hh: 56px;
+      --fh: 40px;
+      --gap: 10px;
     }
 
-    html, body { height: 100%; }
+    html, body { height: 100%; overflow: hidden; }
 
     body {
       background: var(--bg);
@@ -33,108 +36,262 @@
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       line-height: 1.5;
-      overflow-x: hidden;
+    }
+
+    /* ── NEURAL CANVAS ── */
+    #neural-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
     }
 
     /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.3); border-radius: 4px; }
 
     /* ── HEADER ── */
     #header {
       position: fixed;
       inset: 0 0 auto 0;
-      height: var(--header-h);
-      background: rgba(18,18,26,0.96);
-      backdrop-filter: blur(12px);
+      height: var(--hh);
+      background: rgba(7,7,16,0.92);
+      backdrop-filter: blur(20px) saturate(1.4);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(124,58,237,0.12), 0 4px 24px rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px 0 calc(var(--sidebar-w) + 16px);
-      z-index: 200;
+      padding: 0 22px 0 calc(var(--sidebar-w) + var(--gap) * 2 + 10px);
+      z-index: 300;
     }
 
     #header h1 {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     #header h1 em {
       font-style: normal;
-      color: var(--neon);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .brain-pulse {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--neon);
+      box-shadow: 0 0 8px var(--neon), 0 0 20px rgba(124,58,237,0.5);
+      animation: corePulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes corePulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 8px var(--neon), 0 0 20px rgba(124,58,237,0.5); }
+      50%     { transform: scale(1.4); box-shadow: 0 0 14px var(--neon), 0 0 32px rgba(124,58,237,0.7); }
     }
 
     #clock {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-soft);
+      letter-spacing: 0.04em;
     }
 
     /* ── SIDEBAR ── */
     #sidebar {
       position: fixed;
-      top: var(--header-h);
-      left: 0;
-      bottom: var(--footer-h);
+      top: calc(var(--hh) + var(--gap));
+      left: var(--gap);
+      bottom: calc(var(--fh) + var(--gap));
       width: var(--sidebar-w);
-      background: var(--surface);
-      border-right: 1px solid var(--border);
+      background: rgba(10,10,20,0.88);
+      backdrop-filter: blur(24px) saturate(1.3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow:
+        0 8px 40px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(124,58,237,0.08) inset,
+        0 0 30px rgba(124,58,237,0.06);
       display: flex;
       flex-direction: column;
-      padding: 10px 0;
-      z-index: 150;
+      align-items: center;
+      padding: 14px 0;
+      z-index: 200;
       overflow: hidden;
-      transition: width 0.2s cubic-bezier(0.4,0,0.2,1);
+      transition: width 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s;
     }
 
-    #sidebar:hover { width: var(--sidebar-expanded); }
+    #sidebar:hover {
+      width: var(--sidebar-exp);
+      box-shadow:
+        0 8px 48px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(124,58,237,0.2) inset,
+        0 0 40px rgba(124,58,237,0.12);
+    }
+
+    /* Axon connector line */
+    .sidebar-axon {
+      position: absolute;
+      left: 33px;
+      top: 48px;
+      bottom: 48px;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(124,58,237,0.5) 15%,
+        rgba(6,182,212,0.3) 50%,
+        rgba(124,58,237,0.5) 85%,
+        transparent
+      );
+      border-radius: 2px;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .sidebar-axon::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(124,58,237,0.9),
+        rgba(6,182,212,0.7),
+        transparent
+      );
+      animation: axonPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes axonPulse {
+      0%   { top: -40%; }
+      100% { top: 140%; }
+    }
 
     .nav-item {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 18px;
+      gap: 12px;
+      width: 100%;
+      padding: 10px 14px;
       cursor: pointer;
-      color: var(--text-soft);
       white-space: nowrap;
-      border-left: 2px solid transparent;
-      transition: background 0.12s, color 0.12s, border-color 0.12s;
+      color: var(--text-soft);
+      transition: color 0.15s;
       user-select: none;
     }
 
-    .nav-item:hover { background: var(--surface2); color: var(--text); }
+    .nav-item:hover { color: var(--text); }
 
-    .nav-item.active {
-      color: var(--neon);
-      border-left-color: var(--neon);
-      background: rgba(124,58,237,0.07);
+    /* Neural node dot */
+    .nav-node {
+      position: relative;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .nav-icon { font-size: 17px; min-width: 22px; text-align: center; }
+    .nav-node-core {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 1.5px solid rgba(124,58,237,0.4);
+      transition: all 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-node-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .nav-item:hover .nav-node-core {
+      background: rgba(124,58,237,0.5);
+      border-color: var(--neon);
+      box-shadow: 0 0 10px rgba(124,58,237,0.8);
+    }
+
+    .nav-item.active .nav-node-core {
+      background: var(--neon);
+      border-color: var(--neon);
+      box-shadow: 0 0 10px var(--neon), 0 0 22px rgba(124,58,237,0.5);
+    }
+
+    .nav-item.active .nav-node-ring {
+      border-color: rgba(124,58,237,0.35);
+      animation: nodeRing 2s ease-in-out infinite;
+    }
+
+    @keyframes nodeRing {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%     { transform: scale(1.5); opacity: 0; }
+    }
+
+    .nav-icon {
+      font-size: 16px;
+      min-width: 22px;
+      text-align: center;
+      flex-shrink: 0;
+      transition: filter 0.2s;
+    }
+
+    .nav-item.active .nav-icon,
+    .nav-item:hover .nav-icon {
+      filter: drop-shadow(0 0 6px rgba(124,58,237,0.8));
+    }
 
     .nav-label {
       font-size: 13px;
       font-weight: 500;
       opacity: 0;
-      transition: opacity 0.15s;
+      transition: opacity 0.18s;
       pointer-events: none;
     }
 
     #sidebar:hover .nav-label { opacity: 1; }
 
+    /* area accent on active */
+    .nav-item.active[data-view="trabalho"]        .nav-node-core { background:#7c3aed; border-color:#7c3aed; box-shadow:0 0 12px #7c3aed; }
+    .nav-item.active[data-view="saude"]           .nav-node-core { background:#10b981; border-color:#10b981; box-shadow:0 0 12px #10b981; }
+    .nav-item.active[data-view="relacionamentos"] .nav-node-core { background:#f59e0b; border-color:#f59e0b; box-shadow:0 0 12px #f59e0b; }
+    .nav-item.active[data-view="lazer"]           .nav-node-core { background:#ec4899; border-color:#ec4899; box-shadow:0 0 12px #ec4899; }
+    .nav-item.active[data-view="academico"]       .nav-node-core { background:#06b6d4; border-color:#06b6d4; box-shadow:0 0 12px #06b6d4; }
+    .nav-item.active[data-view="financeiro"]      .nav-node-core { background:#3b82f6; border-color:#3b82f6; box-shadow:0 0 12px #3b82f6; }
+
     /* ── MAIN ── */
     #main {
       position: fixed;
-      top: var(--header-h);
-      left: var(--sidebar-w);
+      top: var(--hh);
+      left: calc(var(--sidebar-w) + var(--gap) * 2);
       right: 0;
-      bottom: var(--footer-h);
+      bottom: var(--fh);
       overflow-y: auto;
       padding: 24px;
-      transition: right 0.2s cubic-bezier(0.4,0,0.2,1);
+      z-index: 10;
+      transition: right 0.25s cubic-bezier(0.4,0,0.2,1);
     }
 
     #main.panel-open { right: var(--panel-w); }
@@ -152,19 +309,29 @@
       margin-bottom: 22px;
     }
 
+    /* ── GLASS CARD base ── */
+    .glass {
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+    }
+
     /* ── BRAINDUMP ── */
     .dump-box {
       background: var(--surface);
-      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border2);
       border-radius: var(--radius);
       padding: 20px;
       margin-bottom: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
     }
 
     #braindump-text {
       width: 100%;
-      min-height: 150px;
-      max-height: 320px;
+      min-height: 140px;
+      max-height: 300px;
       background: transparent;
       border: none;
       outline: none;
@@ -182,12 +349,12 @@
       gap: 10px;
       margin-top: 14px;
       padding-top: 14px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border2);
     }
 
     #dump-results {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
       gap: 12px;
     }
 
@@ -197,28 +364,29 @@
       color: #fff;
       border: none;
       padding: 9px 18px;
-      border-radius: 8px;
+      border-radius: 9px;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 500;
       cursor: pointer;
-      transition: box-shadow 0.15s, filter 0.15s;
+      transition: box-shadow 0.18s, filter 0.18s;
+      position: relative;
     }
 
     .btn:hover {
-      box-shadow: 0 0 18px rgba(124,58,237,0.45);
-      filter: brightness(1.08);
+      box-shadow: 0 0 20px rgba(124,58,237,0.55), 0 0 8px rgba(124,58,237,0.3);
+      filter: brightness(1.1);
     }
 
     .btn-ghost {
       background: transparent;
       color: var(--text-soft);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
     }
 
     .btn-ghost:hover {
       color: var(--text);
-      border-color: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.15);
       box-shadow: none;
       filter: none;
     }
@@ -226,15 +394,17 @@
     /* ── DUMP CARDS ── */
     .dump-card {
       background: var(--surface);
-      border: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border2);
       border-radius: var(--radius);
       padding: 14px 16px;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
     }
 
     .dump-card:hover {
-      border-color: rgba(124,58,237,0.3);
-      box-shadow: 0 0 14px rgba(124,58,237,0.07);
+      transform: translateY(-2px);
+      border-color: rgba(124,58,237,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 16px rgba(124,58,237,0.08);
     }
 
     .dump-card-header {
@@ -251,7 +421,7 @@
       font-size: 10px;
       padding: 2px 6px;
       border-radius: 4px;
-      background: var(--surface2);
+      background: rgba(255,255,255,0.06);
       color: var(--text-soft);
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -272,7 +442,7 @@
 
     .card-btn {
       background: transparent;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       color: var(--text-soft);
       padding: 4px 10px;
       border-radius: 5px;
@@ -282,18 +452,17 @@
       transition: color 0.12s, border-color 0.12s;
     }
 
-    .card-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .card-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
     .card-btn.arch:hover { color: #ef4444; border-color: rgba(239,68,68,0.35); }
     .card-btn.promo:hover { color: var(--neon2); border-color: rgba(6,182,212,0.35); }
 
-    /* area left-border colors */
-    .area-trabalho       { border-left: 3px solid #7c3aed; }
-    .area-saude          { border-left: 3px solid #10b981; }
-    .area-relacionamentos{ border-left: 3px solid #f59e0b; }
-    .area-lazer          { border-left: 3px solid #ec4899; }
-    .area-academico      { border-left: 3px solid #06b6d4; }
-    .area-financeiro     { border-left: 3px solid #3b82f6; }
-    .area-geral          { border-left: 3px solid #64748b; }
+    .area-trabalho        { border-left: 3px solid #7c3aed; }
+    .area-saude           { border-left: 3px solid #10b981; }
+    .area-relacionamentos { border-left: 3px solid #f59e0b; }
+    .area-lazer           { border-left: 3px solid #ec4899; }
+    .area-academico       { border-left: 3px solid #06b6d4; }
+    .area-financeiro      { border-left: 3px solid #3b82f6; }
+    .area-geral           { border-left: 3px solid #475569; }
 
     /* ── SECTION VIEW ── */
     .quick-add-row {
@@ -305,19 +474,20 @@
     .text-input {
       flex: 1;
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border2);
+      border-radius: 9px;
       padding: 9px 14px;
       color: var(--text);
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       outline: none;
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.18s, box-shadow 0.18s;
     }
 
     .text-input:focus {
       border-color: rgba(124,58,237,0.5);
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.1), 0 0 16px rgba(124,58,237,0.08);
     }
 
     .text-input::placeholder { color: var(--text-soft); }
@@ -330,10 +500,12 @@
 
     .col-box {
       background: var(--surface);
-      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border2);
       border-radius: var(--radius);
       padding: 16px;
       min-height: 180px;
+      transition: border-color 0.18s;
     }
 
     .col-header {
@@ -355,7 +527,7 @@
     .col-count {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px;
-      background: var(--surface2);
+      background: rgba(255,255,255,0.05);
       color: var(--text-soft);
       padding: 2px 7px;
       border-radius: 4px;
@@ -364,15 +536,14 @@
     .col-items { display: flex; flex-direction: column; gap: 9px; }
 
     .col-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border2);
+      border-radius: 9px;
       padding: 11px 12px;
-      transition: border-color 0.12s;
+      transition: border-color 0.15s, transform 0.15s;
     }
 
-    .col-card:hover { border-color: rgba(124,58,237,0.28); }
-
+    .col-card:hover { border-color: rgba(124,58,237,0.28); transform: translateY(-1px); }
     .col-card-text { font-size: 13px; color: var(--text); line-height: 1.5; }
 
     .col-card-btns {
@@ -384,7 +555,7 @@
 
     .col-card-btn {
       background: transparent;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border2);
       color: var(--text-soft);
       padding: 3px 8px;
       border-radius: 4px;
@@ -394,7 +565,7 @@
       transition: color 0.12s, border-color 0.12s;
     }
 
-    .col-card-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+    .col-card-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
     .col-card-btn.del:hover { color: #ef4444; border-color: rgba(239,68,68,0.35); }
 
     .empty-state {
@@ -402,7 +573,7 @@
       font-size: 12px;
       text-align: center;
       padding: 18px 8px;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* ── AGENDA ── */
@@ -414,17 +585,21 @@
 
     .day-card {
       background: var(--surface);
-      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border2);
       border-radius: var(--radius);
       padding: 14px;
       min-height: 130px;
       display: flex;
       flex-direction: column;
+      transition: border-color 0.18s, box-shadow 0.18s;
     }
 
+    .day-card:hover { border-color: rgba(124,58,237,0.25); }
+
     .day-card.today {
-      border-color: rgba(124,58,237,0.45);
-      box-shadow: 0 0 18px rgba(124,58,237,0.09);
+      border-color: rgba(124,58,237,0.5);
+      box-shadow: 0 0 20px rgba(124,58,237,0.12), inset 0 0 20px rgba(124,58,237,0.04);
     }
 
     .day-name {
@@ -443,7 +618,7 @@
       line-height: 1;
     }
 
-    .day-card.today .day-num { color: var(--neon); }
+    .day-card.today .day-num { color: var(--neon); text-shadow: 0 0 12px rgba(124,58,237,0.6); }
 
     .day-events { display: flex; flex-direction: column; gap: 5px; flex: 1; }
 
@@ -452,7 +627,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-      background: var(--surface2);
+      background: rgba(255,255,255,0.04);
       border-radius: 5px;
       padding: 5px 8px;
       font-size: 12px;
@@ -476,7 +651,7 @@
       width: 100%;
       background: transparent;
       border: none;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border2);
       color: var(--text);
       font-family: 'Inter', sans-serif;
       font-size: 12px;
@@ -492,34 +667,40 @@
       position: fixed;
       top: calc(50% - 20px);
       right: 0;
-      background: var(--surface2);
+      background: rgba(14,14,26,0.9);
+      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
       border-right: none;
-      border-radius: 8px 0 0 8px;
+      border-radius: 10px 0 0 10px;
       color: var(--text-soft);
-      padding: 10px 7px;
+      padding: 11px 7px;
       cursor: pointer;
       font-size: 11px;
-      z-index: 160;
-      transition: right 0.2s cubic-bezier(0.4,0,0.2,1), color 0.12s;
+      z-index: 250;
+      transition: right 0.25s cubic-bezier(0.4,0,0.2,1), color 0.12s, box-shadow 0.15s;
       line-height: 1;
     }
 
-    #panel-toggle:hover { color: var(--neon); }
+    #panel-toggle:hover {
+      color: var(--neon);
+      box-shadow: -4px 0 16px rgba(124,58,237,0.2);
+    }
 
     #right-panel {
       position: fixed;
-      top: var(--header-h);
+      top: var(--hh);
       right: 0;
-      bottom: var(--footer-h);
+      bottom: var(--fh);
       width: var(--panel-w);
-      background: var(--surface);
+      background: rgba(9,9,18,0.9);
+      backdrop-filter: blur(24px) saturate(1.3);
       border-left: 1px solid var(--border);
       padding: 20px 16px;
-      z-index: 140;
+      z-index: 240;
       overflow-y: auto;
       transform: translateX(100%);
-      transition: transform 0.2s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+      box-shadow: -8px 0 40px rgba(0,0,0,0.5);
     }
 
     #right-panel.open { transform: translateX(0); }
@@ -537,9 +718,9 @@
 
     .panel-textarea {
       width: 100%;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border2);
+      border-radius: 9px;
       padding: 10px 12px;
       color: var(--text);
       font-family: 'Inter', sans-serif;
@@ -548,10 +729,14 @@
       resize: none;
       outline: none;
       min-height: 70px;
-      transition: border-color 0.15s;
+      transition: border-color 0.18s;
     }
 
-    .panel-textarea:focus { border-color: rgba(124,58,237,0.45); }
+    .panel-textarea:focus {
+      border-color: rgba(124,58,237,0.45);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.08);
+    }
+
     .panel-textarea::placeholder { color: var(--text-soft); }
 
     .panel-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
@@ -589,15 +774,15 @@
     .panel-add {
       width: 100%;
       background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 6px;
+      border: 1px solid var(--border2);
+      border-radius: 7px;
       padding: 7px 10px;
       color: var(--text);
       font-family: 'Inter', sans-serif;
       font-size: 12px;
       outline: none;
       margin-top: 9px;
-      transition: border-color 0.15s;
+      transition: border-color 0.18s;
     }
 
     .panel-add:focus { border-color: rgba(124,58,237,0.45); }
@@ -607,14 +792,15 @@
     #footer {
       position: fixed;
       inset: auto 0 0 0;
-      height: var(--footer-h);
-      background: rgba(18,18,26,0.96);
+      height: var(--fh);
+      background: rgba(7,7,16,0.92);
+      backdrop-filter: blur(20px);
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px 0 calc(var(--sidebar-w) + 16px);
-      z-index: 200;
+      padding: 0 22px 0 calc(var(--sidebar-w) + var(--gap) * 2 + 10px);
+      z-index: 300;
     }
 
     #last-updated {
@@ -637,7 +823,13 @@
       height: 6px;
       border-radius: 50%;
       background: #10b981;
-      box-shadow: 0 0 7px rgba(16,185,129,0.65);
+      box-shadow: 0 0 8px rgba(16,185,129,0.7);
+      animation: statusBlink 3s ease-in-out infinite;
+    }
+
+    @keyframes statusBlink {
+      0%,100% { opacity:1; }
+      50%      { opacity:0.5; }
     }
 
     /* ── RESPONSIVE ── */
@@ -656,36 +848,52 @@
 </head>
 <body>
 
+<!-- NEURAL BACKGROUND -->
+<canvas id="neural-bg"></canvas>
+
 <!-- HEADER -->
 <header id="header">
-  <h1>Second <em>Brain</em></h1>
+  <h1>
+    <span class="brain-pulse"></span>
+    Second <em>Brain</em>
+  </h1>
   <div id="clock"></div>
 </header>
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
+  <div class="sidebar-axon"></div>
+
   <div class="nav-item active" data-view="braindump">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">🧠</span><span class="nav-label">Braindump</span>
   </div>
   <div class="nav-item" data-view="trabalho">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">💼</span><span class="nav-label">Trabalho</span>
   </div>
   <div class="nav-item" data-view="saude">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">🩺</span><span class="nav-label">Saúde</span>
   </div>
   <div class="nav-item" data-view="relacionamentos">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">🤝</span><span class="nav-label">Relacionamentos</span>
   </div>
   <div class="nav-item" data-view="lazer">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">🎯</span><span class="nav-label">Lazer</span>
   </div>
   <div class="nav-item" data-view="academico">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">📚</span><span class="nav-label">Acadêmico</span>
   </div>
   <div class="nav-item" data-view="financeiro">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">💰</span><span class="nav-label">Financeiro</span>
   </div>
   <div class="nav-item" data-view="agenda">
+    <span class="nav-node"><span class="nav-node-core"></span><span class="nav-node-ring"></span></span>
     <span class="nav-icon">📅</span><span class="nav-label">Agenda</span>
   </div>
 </nav>
@@ -693,7 +901,6 @@
 <!-- MAIN -->
 <main id="main">
 
-  <!-- BRAINDUMP -->
   <div class="view active" id="view-braindump">
     <div class="dump-box">
       <textarea id="braindump-text" placeholder="Despeje tudo aqui..."></textarea>
@@ -705,7 +912,6 @@
     <div id="dump-results"></div>
   </div>
 
-  <!-- SECTION VIEWS -->
   <div class="view" id="view-trabalho">
     <div class="view-title"><span>💼</span> Trabalho</div>
     <div class="quick-add-row">
@@ -760,7 +966,6 @@
     <div class="columns" id="cols-financeiro"></div>
   </div>
 
-  <!-- AGENDA -->
   <div class="view" id="view-agenda">
     <div class="view-title"><span>📅</span> Agenda</div>
     <div class="week-grid" id="week-grid"></div>
@@ -768,10 +973,9 @@
 
 </main>
 
-<!-- RIGHT PANEL TOGGLE -->
+<!-- PANEL TOGGLE & RIGHT PANEL -->
 <button id="panel-toggle" onclick="App.togglePanel()" title="Painel lateral">◀</button>
 
-<!-- RIGHT PANEL -->
 <aside id="right-panel">
   <div class="panel-sec">
     <div class="panel-sec-title">Foco desta semana</div>
@@ -802,24 +1006,149 @@
 'use strict';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// NEURAL CANVAS ANIMATION
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+(function NeuralBrain() {
+  const canvas = document.getElementById('neural-bg');
+  const ctx    = canvas.getContext('2d');
+
+  const CFG = {
+    count:     52,
+    maxDist:   170,
+    speed:     0.35,
+    pSpeed:    0.007,
+    pSpawn:    0.00028,
+  };
+
+  let nodes = [], particles = [], W = 0, H = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function mkNode() {
+    const isCyan = Math.random() < 0.22;
+    return {
+      x: Math.random() * W,
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * CFG.speed,
+      vy: (Math.random() - 0.5) * CFG.speed,
+      r: Math.random() * 1.6 + 0.7,
+      phase: Math.random() * Math.PI * 2,
+      phaseV: 0.012 + Math.random() * 0.01,
+      cyan: isCyan,
+      rgb: isCyan ? '6,182,212' : '124,58,237',
+    };
+  }
+
+  function init() {
+    resize();
+    nodes = Array.from({ length: CFG.count }, mkNode);
+  }
+
+  function spawnParticle(ai, bi) {
+    particles.push({ ai, bi, t: 0, speed: CFG.pSpeed + Math.random() * CFG.pSpeed });
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Move nodes
+    nodes.forEach(n => {
+      n.x += n.vx; n.y += n.vy; n.phase += n.phaseV;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+    });
+
+    // Connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d2 = dx*dx + dy*dy;
+        if (d2 > CFG.maxDist * CFG.maxDist) continue;
+        const dist  = Math.sqrt(d2);
+        const alpha = (1 - dist / CFG.maxDist) * 0.22;
+
+        ctx.beginPath();
+        const grd = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+        grd.addColorStop(0, `rgba(${a.rgb},${alpha})`);
+        grd.addColorStop(1, `rgba(${b.rgb},${alpha})`);
+        ctx.strokeStyle = grd;
+        ctx.lineWidth   = 0.7;
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+
+        if (Math.random() < CFG.pSpawn) spawnParticle(i, j);
+      }
+    }
+
+    // Nodes
+    nodes.forEach(n => {
+      const pulse = Math.sin(n.phase) * 0.5 + 0.5;
+      const r     = n.r + pulse * 1.1;
+
+      // Halo
+      const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 7);
+      g.addColorStop(0, `rgba(${n.rgb},${0.22 * pulse})`);
+      g.addColorStop(1, `rgba(${n.rgb},0)`);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, r * 7, 0, Math.PI * 2);
+      ctx.fillStyle = g;
+      ctx.fill();
+
+      // Core
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${n.rgb},${0.55 + pulse * 0.45})`;
+      ctx.fill();
+    });
+
+    // Particles
+    particles = particles.filter(p => {
+      p.t += p.speed;
+      if (p.t >= 1) return false;
+      const a = nodes[p.ai], b = nodes[p.bi];
+      if (!a || !b) return false;
+      const x = a.x + (b.x - a.x) * p.t;
+      const y = a.y + (b.y - a.y) * p.t;
+      const fade = 1 - Math.abs(p.t - 0.5) * 2;
+      ctx.beginPath();
+      ctx.arc(x, y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${a.rgb},${0.9 * fade})`;
+      ctx.fill();
+      return true;
+    });
+
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', resize);
+  init();
+  frame();
+})();
+
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // STORAGE
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const STORE_KEY = 'sb-karen-lira-v1';
+const STORE_KEY = 'sb-karen-lira-v2';
 
 function freshState() {
   return {
-    dumpText: '',
-    dumpCards: [],
+    dumpText: '', dumpCards: [],
     sections: {
-      trabalho:        { andamento: [], pendente: [], concluido: [] },
-      saude:           { andamento: [], pendente: [], concluido: [] },
-      relacionamentos: { andamento: [], pendente: [], concluido: [] },
-      lazer:           { andamento: [], pendente: [], concluido: [] },
-      academico:       { andamento: [], pendente: [], concluido: [] },
-      financeiro:      { andamento: [], pendente: [], concluido: [] },
+      trabalho:        { andamento:[], pendente:[], concluido:[] },
+      saude:           { andamento:[], pendente:[], concluido:[] },
+      relacionamentos: { andamento:[], pendente:[], concluido:[] },
+      lazer:           { andamento:[], pendente:[], concluido:[] },
+      academico:       { andamento:[], pendente:[], concluido:[] },
+      financeiro:      { andamento:[], pendente:[], concluido:[] },
     },
     agenda: {},
-    panel: { focus: '', pending: [], ideas: [] },
+    panel: { focus:'', pending:[], ideas:[] },
     panelOpen: false,
     lastSaved: null,
   };
@@ -827,19 +1156,16 @@ function freshState() {
 
 let S = (function load() {
   try { return Object.assign(freshState(), JSON.parse(localStorage.getItem(STORE_KEY)) || {}); }
-  catch (_) { return freshState(); }
+  catch(_) { return freshState(); }
 })();
 
 function save() {
   S.lastSaved = new Date().toISOString();
-  try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch (_) {}
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(S)); } catch(_) {}
   renderFooter();
 }
 
-function uid() {
-  return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-}
-
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 function esc(s) {
   return String(s)
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
@@ -849,65 +1175,59 @@ function esc(s) {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // CLOCK & FOOTER
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const DAYS_PT   = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
-const MONTHS_PT = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const DAYS   = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const MONTHS = ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 
 function renderClock() {
   const n = new Date();
-  const date = `${DAYS_PT[n.getDay()]}, ${n.getDate()} ${MONTHS_PT[n.getMonth()]} ${n.getFullYear()}`;
-  const time = n.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-  document.getElementById('clock').textContent = `${date} · ${time}`;
+  document.getElementById('clock').textContent =
+    `${DAYS[n.getDay()]}, ${n.getDate()} ${MONTHS[n.getMonth()]} · ${n.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',second:'2-digit'})}`;
 }
 
 function renderFooter() {
-  const el = document.getElementById('last-updated');
   if (S.lastSaved) {
     const d = new Date(S.lastSaved);
-    el.textContent = `Salvo ${d.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' })}`;
-  } else {
-    el.textContent = '—';
+    document.getElementById('last-updated').textContent =
+      `Salvo ${d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
   }
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // NAVIGATION
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const SECTION_AREAS = ['trabalho','saude','relacionamentos','lazer','academico','financeiro'];
+const SECTIONS = ['trabalho','saude','relacionamentos','lazer','academico','financeiro'];
 
 function navigate(view) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  const el = document.getElementById('view-' + view);
-  if (el) el.classList.add('active');
-  const nav = document.querySelector('[data-view="' + view + '"]');
-  if (nav) nav.classList.add('active');
-
+  document.getElementById('view-' + view)?.classList.add('active');
+  document.querySelector('[data-view="' + view + '"]')?.classList.add('active');
   if (view === 'agenda') renderAgenda();
-  else if (SECTION_AREAS.includes(view)) renderSection(view);
+  else if (SECTIONS.includes(view)) renderSection(view);
 }
 
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', () => navigate(item.dataset.view));
-});
+document.querySelectorAll('.nav-item').forEach(el =>
+  el.addEventListener('click', () => navigate(el.dataset.view))
+);
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // CLASSIFIER
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const AREA_KW = {
   trabalho:        ['trabalho','projeto','reunião','reuniao','cliente','contrato','email','prazo','entrega','proposta','ofício','oficio','escritório','escritorio','advocacia','jurídico','juridico','audiência','audiencia','petição','peticao','processo','tarefa','demanda'],
-  saude:           ['médico','medico','exercício','exercicio','academia','dieta','consulta','remédio','remedio','dormir','sono','saúde','saude','treino','alimentação','alimentacao','psicólogo','psicologo','exame','vacina','dor','hospital','farmácia','farmacia'],
-  relacionamentos: ['família','familia','amigo','amiga','namoro','encontro','ligar para','jantar','visitar','aniversário','aniversario','filho','marido','esposa','mãe','mae','pai','irmão','irmao','irmã','irma','sogra','sogro','relacionamento'],
-  lazer:           ['viagem','filme','série','serie','livro','restaurante','passeio','férias','ferias','show','teatro','fim de semana','netflix','música','musica','hobby','descanso','lazer','viajar','praia','parque'],
-  academico:       ['estudo','estudar','curso','prova','aula','pesquisa','leitura','artigo','faculdade','pós','pos','certificação','certificacao','aprender','capacitação','capacitacao','graduação','graduacao','seminário','seminario','treinamento'],
-  financeiro:      ['pagar','receber','conta','fatura','investimento','banco','imposto','financeiro','dinheiro','despesa','receita','orçamento','orcamento','cartão','cartao','transferência','transferencia','boleto','parcelar','salário','salario','divida','dívida'],
+  saude:           ['médico','medico','exercício','exercicio','academia','dieta','consulta','remédio','remedio','dormir','sono','saúde','saude','treino','alimentação','alimentacao','psicólogo','psicologo','exame','vacina','hospital','farmácia','farmacia'],
+  relacionamentos: ['família','familia','amigo','amiga','namoro','encontro','ligar','jantar','visitar','aniversário','aniversario','filho','marido','esposa','mãe','mae','pai','irmão','irmao','irmã','irma','sogra','sogro'],
+  lazer:           ['viagem','filme','série','serie','livro','restaurante','passeio','férias','ferias','show','teatro','fim de semana','netflix','música','musica','hobby','descanso','praia','parque'],
+  academico:       ['estudo','estudar','curso','prova','aula','pesquisa','leitura','artigo','faculdade','pós','pos','certificação','certificacao','aprender','capacitação','capacitacao','seminário','seminario','treinamento'],
+  financeiro:      ['pagar','receber','conta','fatura','investimento','banco','imposto','dinheiro','despesa','receita','orçamento','orcamento','cartão','cartao','transferência','transferencia','boleto','parcelar','salário','salario','divida','dívida'],
 };
 
 const TYPE_KW = {
   tarefa:    ['fazer','completar','enviar','ligar','ir a','ir ao','comparecer','resolver','finalizar','entregar','agendar','comprar','buscar'],
-  ideia:     ['e se','ideia','pensar em','poderia','quero','gostaria','explorar','testar','tentar','seria','imagina'],
+  ideia:     ['e se','ideia','pensar','poderia','quero','gostaria','explorar','testar','tentar','seria','imagina'],
   projeto:   ['projeto','iniciar','desenvolver','criar','lançar','lancar','implementar','planejar','estruturar','montar'],
-  pendência: ['pendente','falta','precisa','atrasado','pendência','pendencia','não fiz','nao fiz','esqueci','lembrar','cobrar','verificar','checar'],
-  insight:   ['aprendi','percebi','insight','observei','descobri','entendi','notei','refleti','percebi','concluí','concluei'],
+  pendência: ['pendente','falta','precisa','atrasado','não fiz','nao fiz','esqueci','lembrar','cobrar','verificar'],
+  insight:   ['aprendi','percebi','insight','observei','descobri','entendi','notei','refleti','concluí'],
 };
 
 const AREA_ICONS = {
@@ -915,38 +1235,26 @@ const AREA_ICONS = {
   lazer:'🎯', academico:'📚', financeiro:'💰', geral:'📌',
 };
 
-function classifyArea(text) {
+function classify(text, map) {
   const t = text.toLowerCase();
-  let best = 'geral', bestScore = 0;
-  for (const [area, kws] of Object.entries(AREA_KW)) {
-    const score = kws.reduce((n, k) => n + (t.includes(k) ? 1 : 0), 0);
-    if (score > bestScore) { bestScore = score; best = area; }
+  let best = Object.keys(map)[0], top = -1;
+  for (const [k,kws] of Object.entries(map)) {
+    const s = kws.reduce((n,w) => n + (t.includes(w) ? 1 : 0), 0);
+    if (s > top) { top = s; best = k; }
   }
-  return best;
-}
-
-function classifyType(text) {
-  const t = text.toLowerCase();
-  let best = 'item', bestScore = 0;
-  for (const [type, kws] of Object.entries(TYPE_KW)) {
-    const score = kws.reduce((n, k) => n + (t.includes(k) ? 1 : 0), 0);
-    if (score > bestScore) { bestScore = score; best = type; }
-  }
-  return best;
+  return top === 0 ? (map === AREA_KW ? 'geral' : 'item') : best;
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// BRAINDUMP
+// BRAINDUMP RENDER
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function renderDumpCards() {
   const el = document.getElementById('dump-results');
-  const cards = S.dumpCards;
-  if (!cards.length) { el.innerHTML = ''; return; }
-
-  el.innerHTML = cards.map(c => `
+  if (!S.dumpCards.length) { el.innerHTML = ''; return; }
+  el.innerHTML = S.dumpCards.map(c => `
     <div class="dump-card area-${c.area}">
       <div class="dump-card-header">
-        <span class="area-icon">${AREA_ICONS[c.area] || '📌'}</span>
+        <span class="area-icon">${AREA_ICONS[c.area]||'📌'}</span>
         <span class="type-badge">${esc(c.type)}</span>
       </div>
       <div class="dump-card-text">${esc(c.text)}</div>
@@ -954,8 +1262,7 @@ function renderDumpCards() {
         <button class="card-btn arch" onclick="App.archiveDump('${c.id}')">× Arquivar</button>
         <button class="card-btn promo" onclick="App.promoteDump('${c.id}')">→ Promover</button>
       </div>
-    </div>
-  `).join('');
+    </div>`).join('');
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -965,63 +1272,48 @@ const COL_LABELS = { andamento:'Em andamento', pendente:'Pendente', concluido:'C
 const COLS = ['andamento','pendente','concluido'];
 
 function renderSection(area) {
-  const container = document.getElementById('cols-' + area);
   const data = S.sections[area];
-
-  container.innerHTML = COLS.map(col => {
-    const items = data[col] || [];
+  document.getElementById('cols-' + area).innerHTML = COLS.map(col => {
+    const items  = data[col] || [];
     const others = COLS.filter(c => c !== col);
-
-    const cardsHtml = items.length
-      ? items.map(item => `
+    const cards  = items.length
+      ? items.map(it => `
           <div class="col-card">
-            <div class="col-card-text">${esc(item.text)}</div>
+            <div class="col-card-text">${esc(it.text)}</div>
             <div class="col-card-btns">
-              ${others.map(o => `
-                <button class="col-card-btn" onclick="App.moveCard('${area}','${item.id}','${col}','${o}')">
-                  → ${esc(COL_LABELS[o])}
-                </button>`).join('')}
-              <button class="col-card-btn del" onclick="App.deleteCard('${area}','${item.id}','${col}')">× Remover</button>
+              ${others.map(o => `<button class="col-card-btn" onclick="App.moveCard('${area}','${it.id}','${col}','${o}')">→ ${esc(COL_LABELS[o])}</button>`).join('')}
+              <button class="col-card-btn del" onclick="App.deleteCard('${area}','${it.id}','${col}')">× Remover</button>
             </div>
           </div>`).join('')
       : `<div class="empty-state">Nenhuma pendência registrada.<br>Use o Braindump para capturar.</div>`;
-
     return `
       <div class="col-box">
         <div class="col-header">
           <span class="col-title">${COL_LABELS[col]}</span>
           <span class="col-count">${items.length}</span>
         </div>
-        <div class="col-items">${cardsHtml}</div>
+        <div class="col-items">${cards}</div>
       </div>`;
   }).join('');
-
-  // Enter key on quick-add
   const inp = document.getElementById('qi-' + area);
-  if (inp) inp.onkeydown = e => { if (e.key === 'Enter') App.quickAdd(area); };
+  if (inp) inp.onkeydown = e => { if (e.key==='Enter') App.quickAdd(area); };
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // AGENDA
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function renderAgenda() {
-  const grid = document.getElementById('week-grid');
-  const today = new Date();
-  today.setHours(0,0,0,0);
-
-  grid.innerHTML = Array.from({ length: 7 }, (_, i) => {
-    const d = new Date(today);
-    d.setDate(today.getDate() + i);
-    const key = d.toISOString().slice(0, 10);
-    const isToday = i === 0;
-    const events = S.agenda[key] || [];
-
+  const today = new Date(); today.setHours(0,0,0,0);
+  document.getElementById('week-grid').innerHTML = Array.from({length:7},(_,i) => {
+    const d = new Date(today); d.setDate(today.getDate() + i);
+    const key = d.toISOString().slice(0,10);
+    const evs = S.agenda[key] || [];
     return `
-      <div class="day-card${isToday ? ' today' : ''}">
-        <div class="day-name">${DAYS_PT[d.getDay()]}</div>
+      <div class="day-card${i===0?' today':''}">
+        <div class="day-name">${DAYS[d.getDay()]}</div>
         <div class="day-num">${d.getDate()}</div>
         <div class="day-events">
-          ${events.map((ev, idx) => `
+          ${evs.map((ev,idx)=>`
             <div class="day-event">
               <span>${esc(ev)}</span>
               <button class="day-event-rm" onclick="App.removeEvent('${key}',${idx})">×</button>
@@ -1036,50 +1328,43 @@ function renderAgenda() {
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // RIGHT PANEL
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-const PANEL_W = 280;
+const PANEL_W = 285;
 
-function applyPanelState() {
-  const panel   = document.getElementById('right-panel');
-  const toggle  = document.getElementById('panel-toggle');
-  const main    = document.getElementById('main');
-  panel.classList.toggle('open', S.panelOpen);
-  main.classList.toggle('panel-open', S.panelOpen);
-  toggle.style.right = S.panelOpen ? PANEL_W + 'px' : '0px';
-  toggle.textContent  = S.panelOpen ? '▶' : '◀';
+function applyPanel() {
+  document.getElementById('right-panel').classList.toggle('open', S.panelOpen);
+  document.getElementById('main').classList.toggle('panel-open', S.panelOpen);
+  const btn = document.getElementById('panel-toggle');
+  btn.style.right   = S.panelOpen ? PANEL_W + 'px' : '0px';
+  btn.textContent   = S.panelOpen ? '▶' : '◀';
 }
 
 function renderPanelList(type) {
-  const list = document.getElementById('p-' + type + '-list');
   const items = S.panel[type] || [];
-  list.innerHTML = items.map((it, i) => `
+  document.getElementById('p-' + type + '-list').innerHTML = items.map((it,i) => `
     <li class="panel-list-item">
-      <input type="checkbox" ${it.done ? 'checked' : ''} onchange="App.togglePanelItem('${type}',${i})">
-      <span class="panel-item-text${it.done ? ' done' : ''}">${esc(it.text)}</span>
+      <input type="checkbox" ${it.done?'checked':''} onchange="App.togglePanel2('${type}',${i})">
+      <span class="panel-item-text${it.done?' done':''}">${esc(it.text)}</span>
       <button class="panel-rm" onclick="App.removePanelItem('${type}',${i})">×</button>
     </li>`).join('');
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// APP (public API called from inline handlers)
+// APP PUBLIC API
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const App = {
 
-  // BRAINDUMP
   organizeDump() {
-    const ta = document.getElementById('braindump-text');
-    const raw = ta.value.trim();
+    const ta   = document.getElementById('braindump-text');
+    const raw  = ta.value.trim();
     if (!raw) return;
-    const lines = raw.split(/\n+/).map(l => l.trim()).filter(Boolean);
-    const newCards = lines.map(text => ({
-      id: uid(),
-      text,
-      area: classifyArea(text),
-      type: classifyType(text),
+    const newCards = raw.split(/\n+/).map(l=>l.trim()).filter(Boolean).map(text => ({
+      id: uid(), text,
+      area: classify(text, AREA_KW),
+      type: classify(text, TYPE_KW),
     }));
     S.dumpCards = [...S.dumpCards, ...newCards];
-    S.dumpText = ta.value;
-    save();
-    renderDumpCards();
+    S.dumpText  = ta.value;
+    save(); renderDumpCards();
   },
 
   clearDump() {
@@ -1090,8 +1375,7 @@ const App = {
 
   archiveDump(id) {
     S.dumpCards = S.dumpCards.filter(c => c.id !== id);
-    save();
-    renderDumpCards();
+    save(); renderDumpCards();
   },
 
   promoteDump(id) {
@@ -1099,73 +1383,56 @@ const App = {
     if (!card || card.area === 'geral') return;
     S.sections[card.area].pendente.push({ id: uid(), text: card.text });
     S.dumpCards = S.dumpCards.filter(c => c.id !== id);
-    save();
-    renderDumpCards();
+    save(); renderDumpCards();
   },
 
-  // SECTIONS
   quickAdd(area) {
-    const inp = document.getElementById('qi-' + area);
+    const inp  = document.getElementById('qi-' + area);
     const text = inp.value.trim();
     if (!text) return;
     S.sections[area].pendente.push({ id: uid(), text });
     inp.value = '';
-    save();
-    renderSection(area);
+    save(); renderSection(area);
   },
 
-  moveCard(area, itemId, fromCol, toCol) {
-    const data = S.sections[area];
-    const idx  = data[fromCol].findIndex(i => i.id === itemId);
+  moveCard(area, id, from, to) {
+    const idx = S.sections[area][from].findIndex(i => i.id === id);
     if (idx === -1) return;
-    const [item] = data[fromCol].splice(idx, 1);
-    data[toCol].push(item);
-    save();
-    renderSection(area);
+    const [item] = S.sections[area][from].splice(idx, 1);
+    S.sections[area][to].push(item);
+    save(); renderSection(area);
   },
 
-  deleteCard(area, itemId, col) {
-    S.sections[area][col] = S.sections[area][col].filter(i => i.id !== itemId);
-    save();
-    renderSection(area);
+  deleteCard(area, id, col) {
+    S.sections[area][col] = S.sections[area][col].filter(i => i.id !== id);
+    save(); renderSection(area);
   },
 
-  // AGENDA
   addEvent(key, input) {
-    const text = input.value.trim();
-    if (!text) return;
     if (!S.agenda[key]) S.agenda[key] = [];
-    S.agenda[key].push(text);
+    S.agenda[key].push(input.value.trim());
     input.value = '';
-    save();
-    renderAgenda();
+    save(); renderAgenda();
   },
 
   removeEvent(key, idx) {
-    if (S.agenda[key]) {
-      S.agenda[key].splice(idx, 1);
-      save();
-      renderAgenda();
-    }
+    S.agenda[key]?.splice(idx, 1);
+    save(); renderAgenda();
   },
 
-  // PANEL
   togglePanel() {
     S.panelOpen = !S.panelOpen;
-    applyPanelState();
-    save();
+    applyPanel(); save();
   },
 
-  togglePanelItem(type, idx) {
+  togglePanel2(type, idx) {
     S.panel[type][idx].done = !S.panel[type][idx].done;
-    save();
-    renderPanelList(type);
+    save(); renderPanelList(type);
   },
 
   removePanelItem(type, idx) {
     S.panel[type].splice(idx, 1);
-    save();
-    renderPanelList(type);
+    save(); renderPanelList(type);
   },
 };
 
@@ -1173,42 +1440,30 @@ const App = {
 // INIT
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (function init() {
-  // Clock
   renderClock();
   setInterval(renderClock, 1000);
 
-  // Restore braindump textarea
   document.getElementById('braindump-text').value = S.dumpText || '';
   renderDumpCards();
 
-  // Panel state
-  applyPanelState();
+  applyPanel();
 
-  // Panel focus textarea
   const focusEl = document.getElementById('p-focus');
   focusEl.value = S.panel.focus || '';
   focusEl.addEventListener('input', () => { S.panel.focus = focusEl.value; save(); });
 
-  // Panel list inputs
-  function panelListInput(type) {
-    const inp = document.getElementById('p-' + type + '-input');
-    inp.addEventListener('keydown', e => {
+  ['pending','ideas'].forEach(type => {
+    renderPanelList(type);
+    document.getElementById('p-' + type + '-input').addEventListener('keydown', e => {
       if (e.key !== 'Enter') return;
-      const text = inp.value.trim();
+      const text = e.target.value.trim();
       if (!text) return;
       S.panel[type].push({ text, done: false });
-      inp.value = '';
-      save();
-      renderPanelList(type);
+      e.target.value = '';
+      save(); renderPanelList(type);
     });
-  }
-  panelListInput('pending');
-  panelListInput('ideas');
+  });
 
-  renderPanelList('pending');
-  renderPanelList('ideas');
-
-  // Footer
   renderFooter();
 })();
 </script>
