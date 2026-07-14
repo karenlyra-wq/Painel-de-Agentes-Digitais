@@ -25,6 +25,6 @@ jobs:
 
       - name: Gerar e enviar Pautas do Dia
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: node scripts/pautas-do-dia.js
