@@ -1,13 +1,13 @@
 {
-  "scrapedAt": "2026-07-27T15:59:50.388Z",
+  "scrapedAt": "2026-08-03T09:46:00.276Z",
   "myProfile": {
     "handle": "karenlira.adv",
     "followers": 828,
     "totalPosts": 126,
-    "totalViews": 1485,
-    "totalLikes": 4659,
-    "totalComments": 316,
-    "engagementRate": "4.77",
+    "totalViews": 1494,
+    "totalLikes": 4664,
+    "totalComments": 306,
+    "engagementRate": "4.76",
     "topPosts": [
       {
         "url": "https://www.instagram.com/p/CGGtIbHhmyx/",
@@ -66,7 +66,7 @@
       {
         "url": "https://www.instagram.com/p/Cx3hq87uwkr/",
         "caption": "Hoje é o último dia da Renaissance World Tour, foram 56 shows e eu tive o prazer de estar presente em um deles com o @cacaairex, o melhor amigo que a ",
-        "likes": 114,
+        "likes": 115,
         "comments": 4,
         "views": null,
         "timestamp": "2023-10-01T19:16:14.000Z",
@@ -94,7 +94,7 @@
         "url": "https://www.instagram.com/p/Cu4iAReO36h/",
         "caption": "",
         "likes": 103,
-        "comments": 8,
+        "comments": 6,
         "views": null,
         "timestamp": "2023-07-19T15:04:12.000Z",
         "type": "Sidecar"
@@ -105,18 +105,18 @@
     {
       "handle": "advogadamarianagoncalves",
       "followers": null,
-      "totalPosts": 76,
-      "totalViews": 109809,
-      "totalLikes": 46,
-      "totalComments": 526,
+      "totalPosts": 80,
+      "totalViews": 119258,
+      "totalLikes": -80,
+      "totalComments": 530,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DXxTCnKP7Wc/",
           "caption": "Com você também é assim?",
           "likes": -1,
-          "comments": 11,
-          "views": 16635,
+          "comments": 12,
+          "views": 16646,
           "timestamp": "2026-04-30T21:06:26.000Z",
           "type": "Video"
         },
@@ -125,7 +125,7 @@
           "caption": "Porque estar bem apresentada é estar alinhada com a profissional que você decidiu ser. Quem concorda respira!",
           "likes": -1,
           "comments": 23,
-          "views": 12816,
+          "views": 12848,
           "timestamp": "2026-05-20T12:14:21.000Z",
           "type": "Video"
         },
@@ -134,7 +134,7 @@
           "caption": "Qual o teu hobby pra seguir firme na advocacia?",
           "likes": -1,
           "comments": 49,
-          "views": 11677,
+          "views": 11685,
           "timestamp": "2026-05-15T20:06:05.000Z",
           "type": "Video"
         },
@@ -142,8 +142,8 @@
           "url": "https://www.instagram.com/p/DU_snPEiRNb/",
           "caption": "E qua a sua opinião??",
           "likes": -1,
-          "comments": 6,
-          "views": 11016,
+          "comments": 14,
+          "views": 11017,
           "timestamp": "2026-02-20T21:49:17.000Z",
           "type": "Video"
         },
@@ -151,8 +151,8 @@
           "url": "https://www.instagram.com/p/DZ7yXJxx_t9/",
           "caption": "Essa é a minha! \nRespeito a sua e me orgulho da minha 🔥🤍",
           "likes": -1,
-          "comments": 15,
-          "views": 9991,
+          "comments": 16,
+          "views": 10009,
           "timestamp": "2026-06-23T15:57:20.000Z",
           "type": "Video"
         },
@@ -161,7 +161,7 @@
           "caption": "🫠🫠🫠 pelo menos fomos!",
           "likes": -1,
           "comments": 12,
-          "views": 8663,
+          "views": 8703,
           "timestamp": "2026-06-30T12:01:37.000Z",
           "type": "Video"
         },
@@ -169,8 +169,8 @@
           "url": "https://www.instagram.com/p/DXMqK0ZDZcd/",
           "caption": "Quem nunca errou a Precificação de honorários que atire a primeira pedra 🪨",
           "likes": -1,
-          "comments": 5,
-          "views": 4423,
+          "comments": 8,
+          "views": 4428,
           "timestamp": "2026-04-16T15:38:10.000Z",
           "type": "Video"
         },
@@ -179,7 +179,7 @@
           "caption": "🤎",
           "likes": -1,
           "comments": 6,
-          "views": 4323,
+          "views": 4331,
           "timestamp": "2026-05-25T21:48:10.000Z",
           "type": "Video"
         },
@@ -188,17 +188,17 @@
           "caption": "A comunidade @caixapretaadv é a resposta pra muito desafio que você enfrenta na sua advocacia.",
           "likes": -1,
           "comments": 0,
-          "views": 3875,
+          "views": 3882,
           "timestamp": "2026-04-09T12:01:05.000Z",
           "type": "Video"
         },
         {
-          "url": "https://www.instagram.com/p/DV3_SJ0CWUe/",
-          "caption": "Por isso os encontros presenciais são tão significativos e marcantes! As trocas, insights e conhecimentos adquiridos nestes momentos influenciam grand",
+          "url": "https://www.instagram.com/p/DUZBYeXkcpv/",
+          "caption": "Já é ruim não saber o que postar… mas postar por postar é pior ainda! A técnica das 3 perguntas de estratégia salvam você da imagem de advogada rasa!",
           "likes": -1,
           "comments": 4,
-          "views": 2603,
-          "timestamp": "2026-03-14T18:33:14.000Z",
+          "views": 3516,
+          "timestamp": "2026-02-05T21:18:08.000Z",
           "type": "Video"
         }
       ]
@@ -206,54 +206,36 @@
     {
       "handle": "_gabriellaibrahim",
       "followers": null,
-      "totalPosts": 104,
-      "totalViews": 118553,
-      "totalLikes": 17935,
-      "totalComments": 5374,
+      "totalPosts": 79,
+      "totalViews": 81714,
+      "totalLikes": 14707,
+      "totalComments": 3721,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DURWKq0ieFu/",
           "caption": "Toda quarta-feira um tema diferente sobre gestão, marketing e comercial para advogados.\n\nComenta AOVIVO26 e entra no grupo exclusivo para receber toda",
           "likes": -1,
-          "comments": 256,
-          "views": 23596,
+          "comments": 502,
+          "views": 24343,
           "timestamp": "2026-02-02T21:46:08.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DZn1Xh1J59A/",
           "caption": "Comenta CLAUDE26 que eu te explico.",
-          "likes": 872,
-          "comments": 1560,
-          "views": 17407,
+          "likes": 881,
+          "comments": 1736,
+          "views": 17683,
           "timestamp": "2026-06-15T22:01:50.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DZpWJatRbCD/",
-          "caption": "Site e CRM completos do meu escritório 👀\n\nForam tantos orçamentos caríssimos para fazer isso e que, com certeza, não ficariam exatamente como eu quer",
-          "likes": -1,
-          "comments": 328,
-          "views": 11526,
-          "timestamp": "2026-06-16T12:14:18.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DY8B_q2p8uj/",
-          "caption": "Suas melhores ideias já foram ditas. Numa reunião, numa call, numa explicação pro cliente.\n\nO problema é que elas somem quando a conversa termina.\n\nO ",
-          "likes": 645,
-          "comments": 727,
-          "views": 8061,
-          "timestamp": "2026-05-29T21:41:58.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DNO3splRVr0/",
           "caption": "Minha história com a advocacia não cabe em um reels rápido. \n\nEla é feita de detalhes, escolhas e reviravoltas que só fazem sentido quando contados co",
-          "likes": 636,
+          "likes": 640,
           "comments": 89,
-          "views": 7470,
+          "views": 7522,
           "timestamp": "2025-08-11T23:09:51.000Z",
           "type": "Video"
         },
@@ -262,33 +244,15 @@
           "caption": "Absolutamente nada contra ir pro Louvre, pelo contrário. \n\nMas essa foi, sem dúvidas, a melhor decisão que tomamos.\n\nUma hora de silêncio. Nós dois. L",
           "likes": 432,
           "comments": 15,
-          "views": 7305,
+          "views": 7311,
           "timestamp": "2026-04-02T20:18:51.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DWGv_MzoATf/",
-          "caption": "Lembram desse broche que garimpei no cofre de antiguidades da minha vó? ♥️\n\nLook inteiro idealizado pela @cintiaghetti na nossa consultoria de mala. R",
-          "likes": 695,
-          "comments": 81,
-          "views": 6175,
-          "timestamp": "2026-03-20T12:00:00.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DWhNHmLo76E/",
-          "caption": "Eu não estou te contando isso para impressionar. \n\nMas porque durante muito tempo acreditei que coisas muuuito boas chegavam para quem tinha “uma pita",
-          "likes": 593,
-          "comments": 12,
-          "views": 5971,
-          "timestamp": "2026-03-30T18:43:28.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DZLrVGACQtD/",
           "caption": "Uma união de frases, fotos, cores e amores. \n\nSem ordem, sem data, sem motivo.",
-          "likes": 4681,
-          "comments": 10,
+          "likes": 4680,
+          "comments": 7,
           "views": null,
           "timestamp": "2026-06-04T23:29:49.000Z",
           "type": "Sidecar"
@@ -298,8 +262,44 @@
           "caption": "Beviláqua, Beccaria, Savigny…não estarão lá pela estética.\n\nAntes de qualquer jurisprudência em vigor, antes de qualquer código que a gente cita no di",
           "likes": 383,
           "comments": 11,
-          "views": 4581,
+          "views": 4584,
           "timestamp": "2026-04-19T13:46:08.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DY9pEs8xfoI/",
+          "caption": "Conversas profundas importam. O que você faz e ama importa. \n\nNão tente se adaptar à companhias rasas. Seja seletivo. Escolha as suas pessoas.",
+          "likes": 681,
+          "comments": 3,
+          "views": 4116,
+          "timestamp": "2026-05-30T12:47:39.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DZxHTYdRxx3/",
+          "caption": "Até que enfim tudo num lugar só!! 🙏🏻\n\nComenta CLAUDE26 que eu te explico.",
+          "likes": -1,
+          "comments": 309,
+          "views": 2877,
+          "timestamp": "2026-06-19T12:36:50.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DXmhn5SxF4P/",
+          "caption": "Se a gente não mostra nossa autoridade, alguém mostra... e o cliente precisa saber quem é o advogado certo para ouvir. \n\nConcorda?",
+          "likes": 127,
+          "comments": 5,
+          "views": 2391,
+          "timestamp": "2026-04-26T16:43:54.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DZGa8nMpBtx/",
+          "caption": "No escritório, eu escolhi a D4Sign para isso. É uma das únicas plataformas com integração nativa com o Gov.br, e me dá a segurança que eu preciso nos ",
+          "likes": 115,
+          "comments": 19,
+          "views": 2390,
+          "timestamp": "2026-06-02T22:31:48.000Z",
           "type": "Video"
         }
       ]
@@ -307,27 +307,27 @@
     {
       "handle": "thaisschaly",
       "followers": null,
-      "totalPosts": 105,
-      "totalViews": 634778,
-      "totalLikes": 33145,
-      "totalComments": 2051,
+      "totalPosts": 117,
+      "totalViews": 652141,
+      "totalLikes": 34300,
+      "totalComments": 2151,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DV_nORMEQCZ/",
           "caption": "Não confundam as coisas.\n\nUm gestor não precisa fazer tudo, mas precisa saber como tudo é feito ou, no mínimo, saber reconhecer quem sabe.\n\nExiste uma",
-          "likes": 14442,
+          "likes": 14441,
           "comments": 453,
-          "views": 404242,
+          "views": 404269,
           "timestamp": "2026-03-17T17:31:30.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DW7Do6bKE1-/",
           "caption": "Não existe escritório sem controladoria!",
-          "likes": 4177,
+          "likes": 4195,
           "comments": 96,
-          "views": 56309,
+          "views": 56568,
           "timestamp": "2026-04-09T19:33:52.000Z",
           "type": "Video"
         },
@@ -335,35 +335,35 @@
           "url": "https://www.instagram.com/p/DW7bdgEqjU7/",
           "caption": "Sai e entra funcionário no escritório e é sempre uma peleja para explicar tudo de novo, né? \n\nNão mais!! Confere no vídeo como configurar o Claude par",
           "likes": 1341,
-          "comments": 27,
-          "views": 20223,
+          "comments": 28,
+          "views": 20227,
           "timestamp": "2026-04-09T23:02:06.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DXrlTrdqTi5/",
           "caption": "Testa e me diz!",
-          "likes": 1324,
-          "comments": 36,
-          "views": 16346,
+          "likes": 1339,
+          "comments": 37,
+          "views": 16490,
           "timestamp": "2026-04-28T15:52:47.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DXDOELEMP99/",
           "caption": "A maioria dos clientes não sai por causa do resultado. Sai porque não consegue falar com o advogado e não sabe o que está acontecendo no próprio proce",
-          "likes": 1004,
+          "likes": 1024,
           "comments": 20,
-          "views": 13514,
+          "views": 13780,
           "timestamp": "2026-04-12T23:38:40.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DXxScp7q5i1/",
           "caption": "Eu uso exatamente esses: \n\n1. Prompt – criação do projeto no Claude\nCrie um projeto chamado “Social Media Jurídico”. Esse projeto deve gerar planejame",
-          "likes": 977,
-          "comments": 113,
-          "views": 12937,
+          "likes": 980,
+          "comments": 127,
+          "views": 12975,
           "timestamp": "2026-04-30T21:01:45.000Z",
           "type": "Video"
         },
@@ -371,36 +371,36 @@
           "url": "https://www.instagram.com/p/DZkyI9gqryw/",
           "caption": "Nosso Workshop de IA no Setor Comercial e de Marketing está chegando. Link na BIO!",
           "likes": 212,
-          "comments": 6,
-          "views": 10224,
+          "comments": 7,
+          "views": 10236,
           "timestamp": "2026-06-14T17:31:31.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DZY4UjcM356/",
           "caption": "-20 minutos de execução 🤝 -gastos de tokens",
-          "likes": 301,
+          "likes": 313,
           "comments": 13,
-          "views": 8078,
+          "views": 8389,
           "timestamp": "2026-06-10T02:34:27.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DVti8_BkfKz/",
+          "caption": "Sem querer causar polêmica, mas já causando: advogado não sai da estratégia do escritório.\n\nE, por consequência, também não sai do operacional.\n\nO que",
+          "likes": 280,
+          "comments": 12,
+          "views": 6656,
+          "timestamp": "2026-03-10T17:06:21.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYxB7FnRjDG/",
           "caption": "Isso aqui consolida rotinas que já existem e te auxilia a criar novas, sem ter que ficar pensando em abrir abas, esquecendo links, etc!\n\nMe segue aqui",
           "likes": 355,
-          "comments": 16,
-          "views": 5777,
+          "comments": 17,
+          "views": 5787,
           "timestamp": "2026-05-25T15:09:00.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DXfBFnrqrg9/",
-          "caption": "Anota aí o fluxo que eu criei e a equipe utiliza todos os dias aqui no escritório:\n\n• NotebookLM\nÉ aqui que tudo começa. A gente constrói as teses com",
-          "likes": 341,
-          "comments": 10,
-          "views": 4943,
-          "timestamp": "2026-04-23T18:47:56.000Z",
           "type": "Video"
         }
       ]
@@ -408,71 +408,71 @@
     {
       "handle": "abarbaratorres",
       "followers": null,
-      "totalPosts": 87,
-      "totalViews": 4569770,
-      "totalLikes": 1666603,
-      "totalComments": 41638,
+      "totalPosts": 92,
+      "totalViews": 4353884,
+      "totalLikes": 1702866,
+      "totalComments": 46650,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DZFV9FDxPeY/",
           "caption": "O valor da beleza externa tem o prazo de validade muito curto.",
-          "likes": 107279,
-          "comments": 2920,
-          "views": 992265,
+          "likes": 109834,
+          "comments": 2965,
+          "views": 1018318,
           "timestamp": "2026-06-02T12:32:34.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DYmdNRNokB0/",
-          "caption": "Você também acha isso ridículo?!",
-          "likes": 77229,
-          "comments": 2903,
-          "views": 641352,
-          "timestamp": "2026-05-21T12:42:43.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYwth1tR0Fj/",
           "caption": "O que acham que vai acontecer?",
-          "likes": 59852,
-          "comments": 4193,
-          "views": 254198,
+          "likes": 59848,
+          "comments": 4192,
+          "views": 254308,
           "timestamp": "2026-05-25T12:11:20.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYhUI7LIdh2/",
           "caption": "Já que o Estado não cumpre o seu papel, nós, como comunidade, cumpriremos @vitoriamineblox_",
-          "likes": 15901,
+          "likes": 15902,
           "comments": 408,
-          "views": 207646,
+          "views": 207758,
           "timestamp": "2026-05-19T12:45:49.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DXWfzqMCEyy/",
+          "caption": "Viva no off.",
+          "likes": 14591,
+          "comments": 355,
+          "views": 177452,
+          "timestamp": "2026-04-20T11:21:18.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYzNMdTowdQ/",
           "caption": "A futilidade sempre vencerá a história?",
-          "likes": 28711,
-          "comments": 880,
-          "views": 164899,
+          "likes": 28827,
+          "comments": 881,
+          "views": 165684,
           "timestamp": "2026-05-26T11:32:43.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DZCznDLxp2Y/",
           "caption": "Qual foi o seu primeiro julgamento?",
-          "likes": 24570,
-          "comments": 397,
-          "views": 162083,
+          "likes": 24973,
+          "comments": 401,
+          "views": 163730,
           "timestamp": "2026-06-01T12:53:11.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/Dau9eCzEQ67/",
           "caption": "Não há coisa melhor nessa vida do que ser criança.",
-          "likes": 158007,
-          "comments": 5856,
+          "likes": 158065,
+          "comments": 5850,
           "views": null,
           "timestamp": "2026-07-13T12:53:08.000Z",
           "type": "Sidecar"
@@ -480,27 +480,27 @@
         {
           "url": "https://www.instagram.com/p/DZUm3pMITvF/",
           "caption": "Esse é o mais alto grau de carência que o ser humano pode chegar.",
-          "likes": 12205,
+          "likes": 12206,
           "comments": 123,
-          "views": 151083,
+          "views": 151272,
           "timestamp": "2026-06-08T10:50:12.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DXtngHqCDsD/",
           "caption": "Parabéns @povspedro 👏🏻 @bolamarmitexoficial",
-          "likes": 28630,
+          "likes": 28626,
           "comments": 399,
-          "views": 145154,
+          "views": 145203,
           "timestamp": "2026-04-29T10:48:57.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DYMjxtgoAEK/",
           "caption": "EXTRA, EXTRA! Nova influenciadora chegando.",
-          "likes": 20947,
+          "likes": 20943,
           "comments": 592,
-          "views": 137633,
+          "views": 137685,
           "timestamp": "2026-05-11T11:13:48.000Z",
           "type": "Video"
         }
@@ -509,18 +509,27 @@
     {
       "handle": "millenanbg",
       "followers": null,
-      "totalPosts": 96,
-      "totalViews": 469140,
-      "totalLikes": 312241,
-      "totalComments": 20907,
+      "totalPosts": 105,
+      "totalViews": 683332,
+      "totalLikes": 328232,
+      "totalComments": 16474,
       "engagementRate": null,
       "topPosts": [
         {
+          "url": "https://www.instagram.com/p/DWE7bTdEUtS/",
+          "caption": "E é assim que se humaniza uma marca!",
+          "likes": 14619,
+          "comments": 136,
+          "views": 155887,
+          "timestamp": "2026-03-19T19:02:52.000Z",
+          "type": "Video"
+        },
+        {
           "url": "https://www.instagram.com/p/DNYCsBauWCm/",
           "caption": "É isso que eu recomendo postar se você começou a produzir conteúdo e ainda está perdida.\n\nComente MENTORIA e entenda como eu posso te guiar nesse cami",
-          "likes": 7646,
-          "comments": 57,
-          "views": 155098,
+          "likes": 7657,
+          "comments": 174,
+          "views": 155381,
           "timestamp": "2025-08-15T12:29:25.000Z",
           "type": "Video"
         },
@@ -528,7 +537,7 @@
           "url": "https://www.instagram.com/p/DXg9K6OkU_F/",
           "caption": "O básico garante que você exista. O que vai além determina o quanto você será lembrado.",
           "likes": 63800,
-          "comments": 182,
+          "comments": 181,
           "views": null,
           "timestamp": "2026-04-24T12:46:58.000Z",
           "type": "Sidecar"
@@ -536,9 +545,9 @@
         {
           "url": "https://www.instagram.com/p/DVtjEAVkYex/",
           "caption": "O áudio de um filme de terror 💀",
-          "likes": 3774,
+          "likes": 3773,
           "comments": 402,
-          "views": 41299,
+          "views": 41301,
           "timestamp": "2026-03-10T17:09:16.000Z",
           "type": "Video"
         },
@@ -547,14 +556,23 @@
           "caption": "Deixo meu alerta novamente",
           "likes": 3060,
           "comments": 198,
-          "views": 35300,
+          "views": 35324,
           "timestamp": "2026-06-20T11:55:58.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DVlnPaqEYwy/",
+          "caption": "Descobri que copiaram um produto novo meu e estão vendendo como de sua autoria.",
+          "likes": 2735,
+          "comments": 128,
+          "views": 27271,
+          "timestamp": "2026-03-07T15:09:43.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DX6nlVPkcjr/",
           "caption": "Ninguém leu exatamente o que você leu, viveu o que você viveu, prestou atenção no que você prestou.\n\nUse seu conjunto único de referências ao seu favo",
-          "likes": 27164,
+          "likes": 27151,
           "comments": 17,
           "views": null,
           "timestamp": "2026-05-04T11:58:36.000Z",
@@ -565,14 +583,14 @@
           "caption": "É meme. Espero que entendam a referência.",
           "likes": 1308,
           "comments": 69,
-          "views": 21261,
+          "views": 21262,
           "timestamp": "2026-03-18T17:52:19.000Z",
           "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DZ2SZqCAAUH/",
           "caption": "Como você tem treinado a sua criatividade?",
-          "likes": 17965,
+          "likes": 17964,
           "comments": 19,
           "views": null,
           "timestamp": "2026-06-21T12:39:20.000Z",
@@ -581,28 +599,10 @@
         {
           "url": "https://www.instagram.com/p/DYnAaJhR_eo/",
           "caption": "Num mercado saturado de performance e ostentação, quem é coerente com a sua essência cria conexões que ninguém pode reproduzir.\n\n@joaogomescantor é pr",
-          "likes": 3492,
-          "comments": 81,
-          "views": 17218,
+          "likes": 3562,
+          "comments": 82,
+          "views": 17517,
           "timestamp": "2026-05-21T17:45:02.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DXVFW6mEYuo/",
-          "caption": "Como eu vim parar no Chile? 🇨🇱",
-          "likes": 2121,
-          "comments": 69,
-          "views": 15071,
-          "timestamp": "2026-04-19T22:13:36.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DWbx0npEZ-E/",
-          "caption": "Fazendo pesquisa de concorrência com Claude 🤓",
-          "likes": 1216,
-          "comments": 36,
-          "views": 14737,
-          "timestamp": "2026-03-28T16:03:16.000Z",
           "type": "Video"
         }
       ]
