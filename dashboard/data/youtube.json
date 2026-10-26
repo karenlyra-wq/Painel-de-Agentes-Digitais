@@ -13,16 +13,16 @@
       "handle": "abarbaratorres",
       "channelId": "UCIBHVDLjTVaK_6TPxOb3u4g",
       "title": "Bárbara Torres",
-      "subscribers": 254000,
-      "totalViews": 8163846,
+      "subscribers": 256000,
+      "totalViews": 8457325,
       "videoCount": 90,
       "topVideos": [
         {
           "id": "6YNd-8AGADQ",
           "title": "9 Técnicas que Ninguém Te Ensina para Falar Bem",
-          "views": 152828,
-          "likes": 7319,
-          "comments": 96,
+          "views": 166497,
+          "likes": 7745,
+          "comments": 105,
           "url": "https://youtube.com/watch?v=6YNd-8AGADQ",
           "publishedAt": "2026-07-28T21:13:24Z",
           "thumbnail": "https://i.ytimg.com/vi/6YNd-8AGADQ/mqdefault.jpg"
@@ -30,8 +30,8 @@
         {
           "id": "Z-72Uzmt6dM",
           "title": "7 mentiras sobre o estoicismo que todos repetem",
-          "views": 134781,
-          "likes": 4157,
+          "views": 135498,
+          "likes": 4188,
           "comments": 241,
           "url": "https://youtube.com/watch?v=Z-72Uzmt6dM",
           "publishedAt": "2026-08-12T15:15:26Z",
@@ -40,9 +40,9 @@
         {
           "id": "vCaE53sYv_s",
           "title": "Me dê 14 minutos e aprenda a ser CARISMÁTICO",
-          "views": 33738,
-          "likes": 1462,
-          "comments": 22,
+          "views": 35414,
+          "likes": 1551,
+          "comments": 23,
           "url": "https://youtube.com/watch?v=vCaE53sYv_s",
           "publishedAt": "2026-09-03T16:30:02Z",
           "thumbnail": "https://i.ytimg.com/vi/vCaE53sYv_s/mqdefault.jpg"
@@ -50,9 +50,9 @@
         {
           "id": "9rfBbID7CH8",
           "title": "Sua fala é embolada? O problema não é sua dicção",
-          "views": 27966,
-          "likes": 1336,
-          "comments": 23,
+          "views": 29191,
+          "likes": 1436,
+          "comments": 27,
           "url": "https://youtube.com/watch?v=9rfBbID7CH8",
           "publishedAt": "2026-09-17T20:30:25Z",
           "thumbnail": "https://i.ytimg.com/vi/9rfBbID7CH8/mqdefault.jpg"
@@ -60,9 +60,9 @@
         {
           "id": "4cOcPvkkMYE",
           "title": "Cuidado com as músicas que você escuta todos os dias",
-          "views": 16077,
-          "likes": 2040,
-          "comments": 57,
+          "views": 16329,
+          "likes": 2060,
+          "comments": 58,
           "url": "https://youtube.com/watch?v=4cOcPvkkMYE",
           "publishedAt": "2026-07-14T21:00:40Z",
           "thumbnail": "https://i.ytimg.com/vi/4cOcPvkkMYE/mqdefault.jpg"
@@ -70,18 +70,28 @@
         {
           "id": "3HdEa5SGdkU",
           "title": "Enquanto Falam de Você, Sua Vida Continua…  | Schopenhauer",
-          "views": 14615,
-          "likes": 1631,
-          "comments": 54,
+          "views": 15034,
+          "likes": 1662,
+          "comments": 57,
           "url": "https://youtube.com/watch?v=3HdEa5SGdkU",
           "publishedAt": "2026-08-04T15:00:02Z",
           "thumbnail": "https://i.ytimg.com/vi/3HdEa5SGdkU/mqdefault.jpg"
         },
         {
+          "id": "DkwfWdYFl5k",
+          "title": "Como se comunicar com mais clareza | Retórica de Sócrates",
+          "views": 14608,
+          "likes": 467,
+          "comments": 13,
+          "url": "https://youtube.com/watch?v=DkwfWdYFl5k",
+          "publishedAt": "2026-10-16T22:15:18Z",
+          "thumbnail": "https://i.ytimg.com/vi/DkwfWdYFl5k/mqdefault.jpg"
+        },
+        {
           "id": "u46SC0G27Ec",
           "title": "Seu Corpo Molda Sua Mente | O que Platão fala sobre treino",
-          "views": 10881,
-          "likes": 1340,
+          "views": 11000,
+          "likes": 1351,
           "comments": 18,
           "url": "https://youtube.com/watch?v=u46SC0G27Ec",
           "publishedAt": "2026-07-16T23:00:34Z",
@@ -90,28 +100,18 @@
         {
           "id": "ql6N1o8urRM",
           "title": "Como lidar com sua própria inveja | Aristóteles",
-          "views": 10039,
-          "likes": 876,
+          "views": 10223,
+          "likes": 885,
           "comments": 30,
           "url": "https://youtube.com/watch?v=ql6N1o8urRM",
           "publishedAt": "2026-07-07T21:59:02Z",
           "thumbnail": "https://i.ytimg.com/vi/ql6N1o8urRM/mqdefault.jpg"
         },
         {
-          "id": "DkwfWdYFl5k",
-          "title": "Como se comunicar com mais clareza | Retórica de Sócrates",
-          "views": 7322,
-          "likes": 229,
-          "comments": 8,
-          "url": "https://youtube.com/watch?v=DkwfWdYFl5k",
-          "publishedAt": "2026-10-16T22:15:18Z",
-          "thumbnail": "https://i.ytimg.com/vi/DkwfWdYFl5k/mqdefault.jpg"
-        },
-        {
           "id": "13qX6TmFlO0",
           "title": "Não seja refém do passado",
-          "views": 7008,
-          "likes": 645,
+          "views": 7216,
+          "likes": 657,
           "comments": 21,
           "url": "https://youtube.com/watch?v=13qX6TmFlO0",
           "publishedAt": "2026-08-19T15:03:07Z",
@@ -124,14 +124,14 @@
       "channelId": "UCQpPo9BNwezg54N9hMFQp6Q",
       "title": "Nischa",
       "subscribers": 2270000,
-      "totalViews": 145897932,
+      "totalViews": 146497640,
       "videoCount": 283,
       "topVideos": [
         {
           "id": "84emopzXgNs",
           "title": "Scammers only need one thing",
-          "views": 440221,
-          "likes": 5091,
+          "views": 445356,
+          "likes": 5121,
           "comments": 385,
           "url": "https://youtube.com/watch?v=84emopzXgNs",
           "publishedAt": "2026-09-13T12:45:04Z",
@@ -140,9 +140,9 @@
         {
           "id": "HL519MVtcqQ",
           "title": "Investing Isn't Hard. It's Misunderstood",
-          "views": 217643,
-          "likes": 2188,
-          "comments": 352,
+          "views": 232868,
+          "likes": 2321,
+          "comments": 353,
           "url": "https://youtube.com/watch?v=HL519MVtcqQ",
           "publishedAt": "2026-10-11T12:45:34Z",
           "thumbnail": "https://i.ytimg.com/vi/HL519MVtcqQ/mqdefault.jpg"
@@ -150,9 +150,9 @@
         {
           "id": "Z4N1ycp4Lu0",
           "title": "The shocking thing about investment returns...",
-          "views": 209920,
-          "likes": 2066,
-          "comments": 228,
+          "views": 211247,
+          "likes": 2092,
+          "comments": 229,
           "url": "https://youtube.com/watch?v=Z4N1ycp4Lu0",
           "publishedAt": "2026-09-20T13:12:05Z",
           "thumbnail": "https://i.ytimg.com/vi/Z4N1ycp4Lu0/mqdefault.jpg"
@@ -160,9 +160,9 @@
         {
           "id": "yFUYv1kR7xY",
           "title": "How to be so productive it feels illegal",
-          "views": 171404,
-          "likes": 2230,
-          "comments": 156,
+          "views": 178757,
+          "likes": 2325,
+          "comments": 158,
           "url": "https://youtube.com/watch?v=yFUYv1kR7xY",
           "publishedAt": "2026-10-04T12:35:50Z",
           "thumbnail": "https://i.ytimg.com/vi/yFUYv1kR7xY/mqdefault.jpg"
@@ -170,9 +170,9 @@
         {
           "id": "3eKMA0rNoGc",
           "title": "Ex-Banker Explains: How to Invest for Beginners in 2027",
-          "views": 66082,
-          "likes": 1061,
-          "comments": 251,
+          "views": 165814,
+          "likes": 2165,
+          "comments": 295,
           "url": "https://youtube.com/watch?v=3eKMA0rNoGc",
           "publishedAt": "2026-10-18T12:18:11Z",
           "thumbnail": "https://i.ytimg.com/vi/3eKMA0rNoGc/mqdefault.jpg"
@@ -180,9 +180,9 @@
         {
           "id": "mY62iV6q5as",
           "title": "Money doing nothing",
-          "views": 40832,
-          "likes": 792,
-          "comments": 17,
+          "views": 42338,
+          "likes": 823,
+          "comments": 19,
           "url": "https://youtube.com/watch?v=mY62iV6q5as",
           "publishedAt": "2026-09-10T12:00:38Z",
           "thumbnail": "https://i.ytimg.com/vi/mY62iV6q5as/mqdefault.jpg"
@@ -190,8 +190,8 @@
         {
           "id": "9g91x70h3Dk",
           "title": "The law of least regret",
-          "views": 29361,
-          "likes": 765,
+          "views": 32264,
+          "likes": 809,
           "comments": 20,
           "url": "https://youtube.com/watch?v=9g91x70h3Dk",
           "publishedAt": "2026-09-16T12:00:22Z",
@@ -200,9 +200,9 @@
         {
           "id": "a3p7OvlyK9U",
           "title": "Don't quit angry",
-          "views": 25939,
-          "likes": 744,
-          "comments": 21,
+          "views": 28851,
+          "likes": 802,
+          "comments": 33,
           "url": "https://youtube.com/watch?v=a3p7OvlyK9U",
           "publishedAt": "2026-09-15T12:00:13Z",
           "thumbnail": "https://i.ytimg.com/vi/a3p7OvlyK9U/mqdefault.jpg"
@@ -210,9 +210,9 @@
         {
           "id": "o5RvJMD78tM",
           "title": "You don't hate the job",
-          "views": 23877,
-          "likes": 645,
-          "comments": 14,
+          "views": 25915,
+          "likes": 695,
+          "comments": 13,
           "url": "https://youtube.com/watch?v=o5RvJMD78tM",
           "publishedAt": "2026-09-17T12:00:01Z",
           "thumbnail": "https://i.ytimg.com/vi/o5RvJMD78tM/mqdefault.jpg"
@@ -220,9 +220,9 @@
         {
           "id": "kldKPSBuqH0",
           "title": "The £100K 60% tax trap",
-          "views": 20180,
-          "likes": 416,
-          "comments": 14,
+          "views": 20423,
+          "likes": 422,
+          "comments": 15,
           "url": "https://youtube.com/watch?v=kldKPSBuqH0",
           "publishedAt": "2026-09-09T12:00:27Z",
           "thumbnail": "https://i.ytimg.com/vi/kldKPSBuqH0/mqdefault.jpg"
@@ -233,109 +233,109 @@
       "handle": "barbaraferreira.a",
       "channelId": "UCY6T4VpZzxVcbZmkGija12A",
       "title": "bárbara ",
-      "subscribers": 176000,
-      "totalViews": 14892661,
-      "videoCount": 437,
+      "subscribers": 178000,
+      "totalViews": 15493734,
+      "videoCount": 443,
       "topVideos": [
         {
           "id": "TniXqUygVrE",
           "title": "as piores decisões que vc pode tomar aos 20 anos.",
-          "views": 78285,
-          "likes": 3012,
-          "comments": 179,
+          "views": 223165,
+          "likes": 7211,
+          "comments": 304,
           "url": "https://youtube.com/watch?v=TniXqUygVrE",
           "publishedAt": "2026-10-15T09:00:11Z",
           "thumbnail": "https://i.ytimg.com/vi/TniXqUygVrE/mqdefault.jpg"
         },
         {
-          "id": "PIvmXRVp5pk",
-          "title": "regras de manifestação que eu gostaria de ter aprendido antes.",
-          "views": 50702,
-          "likes": 2860,
-          "comments": 136,
-          "url": "https://youtube.com/watch?v=PIvmXRVp5pk",
-          "publishedAt": "2026-10-14T09:00:25Z",
-          "thumbnail": "https://i.ytimg.com/vi/PIvmXRVp5pk/mqdefault.jpg"
+          "id": "HHDkVTCyDJw",
+          "title": "como parar de se preocupar com dinheiro.",
+          "views": 62550,
+          "likes": 3661,
+          "comments": 214,
+          "url": "https://youtube.com/watch?v=HHDkVTCyDJw",
+          "publishedAt": "2026-10-19T09:00:24Z",
+          "thumbnail": "https://i.ytimg.com/vi/HHDkVTCyDJw/mqdefault.jpg"
+        },
+        {
+          "id": "EFIHX08D6QM",
+          "title": "como treinar sua mente para acreditar que tudo vai dar certo.",
+          "views": 59334,
+          "likes": 3392,
+          "comments": 129,
+          "url": "https://youtube.com/watch?v=EFIHX08D6QM",
+          "publishedAt": "2026-10-20T09:00:01Z",
+          "thumbnail": "https://i.ytimg.com/vi/EFIHX08D6QM/mqdefault.jpg"
         },
         {
           "id": "CPCPR4EYPvU",
           "title": "como parar de viver com medo do que pode acontecer.",
-          "views": 34776,
-          "likes": 1962,
-          "comments": 122,
+          "views": 47904,
+          "likes": 2470,
+          "comments": 139,
           "url": "https://youtube.com/watch?v=CPCPR4EYPvU",
           "publishedAt": "2026-10-16T09:00:09Z",
           "thumbnail": "https://i.ytimg.com/vi/CPCPR4EYPvU/mqdefault.jpg"
         },
         {
-          "id": "g1p-O-R4G8k",
-          "title": "como descobrir no que vc é bom?",
-          "views": 23809,
-          "likes": 1566,
-          "comments": 103,
-          "url": "https://youtube.com/watch?v=g1p-O-R4G8k",
-          "publishedAt": "2026-10-12T09:00:01Z",
-          "thumbnail": "https://i.ytimg.com/vi/g1p-O-R4G8k/mqdefault.jpg"
+          "id": "5mldez6n1jk",
+          "title": "como proteger sua energia e parar de absorver tudo.",
+          "views": 23707,
+          "likes": 1916,
+          "comments": 140,
+          "url": "https://youtube.com/watch?v=5mldez6n1jk",
+          "publishedAt": "2026-10-23T09:00:35Z",
+          "thumbnail": "https://i.ytimg.com/vi/5mldez6n1jk/mqdefault.jpg"
         },
         {
-          "id": "vUH32K0T5zk",
-          "title": "como recuperar o seu brilho interior e parar de se sentir “apagada”.",
-          "views": 21097,
-          "likes": 1345,
-          "comments": 92,
-          "url": "https://youtube.com/watch?v=vUH32K0T5zk",
-          "publishedAt": "2026-10-09T09:00:20Z",
-          "thumbnail": "https://i.ytimg.com/vi/vUH32K0T5zk/mqdefault.jpg"
-        },
-        {
-          "id": "PLJd1ZsaS38",
-          "title": "sinais de que vc está se curando.",
-          "views": 18882,
-          "likes": 1358,
-          "comments": 78,
-          "url": "https://youtube.com/watch?v=PLJd1ZsaS38",
-          "publishedAt": "2026-10-13T09:00:34Z",
-          "thumbnail": "https://i.ytimg.com/vi/PLJd1ZsaS38/mqdefault.jpg"
-        },
-        {
-          "id": "k28U0Fclj6Q",
-          "title": "diário da dieta: episódio 2 - dieta & tpm.",
-          "views": 18782,
-          "likes": 679,
-          "comments": 106,
-          "url": "https://youtube.com/watch?v=k28U0Fclj6Q",
-          "publishedAt": "2026-10-10T09:00:17Z",
-          "thumbnail": "https://i.ytimg.com/vi/k28U0Fclj6Q/mqdefault.jpg"
+          "id": "ZVGwPRNnX7E",
+          "title": "coisas que você escolheu antes de nascer - contratos de alma.",
+          "views": 23088,
+          "likes": 1565,
+          "comments": 201,
+          "url": "https://youtube.com/watch?v=ZVGwPRNnX7E",
+          "publishedAt": "2026-10-22T09:00:29Z",
+          "thumbnail": "https://i.ytimg.com/vi/ZVGwPRNnX7E/mqdefault.jpg"
         },
         {
           "id": "oIDQ6C4BktU",
           "title": "diário da dieta: episódio 3 - sozinha mas não solitária.",
-          "views": 15913,
-          "likes": 773,
-          "comments": 122,
+          "views": 21445,
+          "likes": 955,
+          "comments": 104,
           "url": "https://youtube.com/watch?v=oIDQ6C4BktU",
           "publishedAt": "2026-10-17T09:00:35Z",
           "thumbnail": "https://i.ytimg.com/vi/oIDQ6C4BktU/mqdefault.jpg"
         },
         {
-          "id": "qwi7-gwm7DY",
-          "title": "Pode reparar.",
-          "views": 10943,
-          "likes": 1161,
-          "comments": 104,
-          "url": "https://youtube.com/watch?v=qwi7-gwm7DY",
-          "publishedAt": "2026-10-13T22:24:45Z",
-          "thumbnail": "https://i.ytimg.com/vi/qwi7-gwm7DY/mqdefault.jpg"
+          "id": "ZrEg2E5fojo",
+          "title": "como aprender qualquer coisa sozinho | a arte de ser autodidata.",
+          "views": 21257,
+          "likes": 1274,
+          "comments": 58,
+          "url": "https://youtube.com/watch?v=ZrEg2E5fojo",
+          "publishedAt": "2026-10-21T09:00:39Z",
+          "thumbnail": "https://i.ytimg.com/vi/ZrEg2E5fojo/mqdefault.jpg"
         },
         {
-          "id": "HHDkVTCyDJw",
-          "title": "como parar de se preocupar com dinheiro.",
-          "views": 1333,
-          "likes": 381,
-          "comments": 26,
-          "url": "https://youtube.com/watch?v=HHDkVTCyDJw",
-          "publishedAt": "2026-10-19T09:00:24Z",
-          "thumbnail": "https://i.ytimg.com/vi/HHDkVTCyDJw/mqdefault.jpg"
+          "id": "vvsRmJ7R3xE",
+          "title": "diário da dieta: episódio 4 - sem carisma porém mais magra.",
+          "views": 15344,
+          "likes": 733,
+          "comments": 86,
+          "url": "https://youtube.com/watch?v=vvsRmJ7R3xE",
+          "publishedAt": "2026-10-24T09:00:15Z",
+          "thumbnail": "https://i.ytimg.com/vi/vvsRmJ7R3xE/mqdefault.jpg"
+        },
+        {
+          "id": "CfgZX_xGLds",
+          "title": "sua vida vai mudar quando vc se tornar ousado.",
+          "views": 2091,
+          "likes": 518,
+          "comments": 33,
+          "url": "https://youtube.com/watch?v=CfgZX_xGLds",
+          "publishedAt": "2026-10-26T09:00:00Z",
+          "thumbnail": "https://i.ytimg.com/vi/CfgZX_xGLds/mqdefault.jpg"
         }
       ]
     },
@@ -343,16 +343,16 @@
       "handle": "_jared",
       "channelId": "UC2Kyj04yISmHr1V-UlJz4eg",
       "title": "Jared Henderson",
-      "subscribers": 785000,
-      "totalViews": 44843709,
-      "videoCount": 111,
+      "subscribers": 786000,
+      "totalViews": 45166466,
+      "videoCount": 112,
       "topVideos": [
         {
           "id": "vhYS1diXZMM",
           "title": "The Revolt Against Technology",
-          "views": 736244,
-          "likes": 22931,
-          "comments": 3251,
+          "views": 747226,
+          "likes": 23036,
+          "comments": 3249,
           "url": "https://youtube.com/watch?v=vhYS1diXZMM",
           "publishedAt": "2026-06-24T14:33:06Z",
           "thumbnail": "https://i.ytimg.com/vi/vhYS1diXZMM/mqdefault.jpg"
@@ -360,19 +360,29 @@
         {
           "id": "dWh3ik0CoEA",
           "title": "These dystopian novels came true.",
-          "views": 292328,
-          "likes": 8461,
-          "comments": 571,
+          "views": 294644,
+          "likes": 8513,
+          "comments": 573,
           "url": "https://youtube.com/watch?v=dWh3ik0CoEA",
           "publishedAt": "2026-08-10T15:30:21Z",
           "thumbnail": "https://i.ytimg.com/vi/dWh3ik0CoEA/mqdefault.jpg"
         },
         {
+          "id": "Hd4KWd7tgwo",
+          "title": "I wrote a book, and I can finally talk about it.",
+          "views": 97216,
+          "likes": 2847,
+          "comments": 395,
+          "url": "https://youtube.com/watch?v=Hd4KWd7tgwo",
+          "publishedAt": "2026-10-23T13:00:32Z",
+          "thumbnail": "https://i.ytimg.com/vi/Hd4KWd7tgwo/mqdefault.jpg"
+        },
+        {
           "id": "y2O61OpyIUk",
           "title": "The Trial of Socrates: An In-Depth Guide",
-          "views": 23803,
-          "likes": 419,
-          "comments": 61,
+          "views": 68769,
+          "likes": 1102,
+          "comments": 141,
           "url": "https://youtube.com/watch?v=y2O61OpyIUk",
           "publishedAt": "2026-10-18T21:35:30Z",
           "thumbnail": "https://i.ytimg.com/vi/y2O61OpyIUk/mqdefault.jpg"
@@ -380,8 +390,8 @@
         {
           "id": "xkBATyxjB48",
           "title": "Amusing Ourselves to Death",
-          "views": 22921,
-          "likes": 2003,
+          "views": 23121,
+          "likes": 2012,
           "comments": 57,
           "url": "https://youtube.com/watch?v=xkBATyxjB48",
           "publishedAt": "2026-06-16T21:00:15Z",
@@ -390,9 +400,9 @@
         {
           "id": "3b1Lr_VzAUE",
           "title": "How platforms die",
-          "views": 15915,
-          "likes": 921,
-          "comments": 33,
+          "views": 16004,
+          "likes": 925,
+          "comments": 34,
           "url": "https://youtube.com/watch?v=3b1Lr_VzAUE",
           "publishedAt": "2026-06-19T21:00:16Z",
           "thumbnail": "https://i.ytimg.com/vi/3b1Lr_VzAUE/mqdefault.jpg"
@@ -400,28 +410,18 @@
         {
           "id": "EkFwDptMhBw",
           "title": "Byung-Chul Han on the origins on burnout",
-          "views": 15649,
-          "likes": 836,
+          "views": 15972,
+          "likes": 846,
           "comments": 15,
           "url": "https://youtube.com/watch?v=EkFwDptMhBw",
           "publishedAt": "2026-06-18T13:00:01Z",
           "thumbnail": "https://i.ytimg.com/vi/EkFwDptMhBw/mqdefault.jpg"
         },
         {
-          "id": "xs6VZmIuRWA",
-          "title": "The Internet is a hostile design environment #books #neilpostman",
-          "views": 15052,
-          "likes": 1197,
-          "comments": 28,
-          "url": "https://youtube.com/watch?v=xs6VZmIuRWA",
-          "publishedAt": "2026-06-16T17:58:28Z",
-          "thumbnail": "https://i.ytimg.com/vi/xs6VZmIuRWA/mqdefault.jpg"
-        },
-        {
           "id": "hN_jYEUrjx4",
           "title": "What is active reading?",
-          "views": 9014,
-          "likes": 699,
+          "views": 9195,
+          "likes": 703,
           "comments": 11,
           "url": "https://youtube.com/watch?v=hN_jYEUrjx4",
           "publishedAt": "2026-06-19T13:00:13Z",
@@ -430,8 +430,8 @@
         {
           "id": "NJR3SdeQ8Os",
           "title": "Nobody reads anymore?",
-          "views": 7966,
-          "likes": 528,
+          "views": 8201,
+          "likes": 537,
           "comments": 17,
           "url": "https://youtube.com/watch?v=NJR3SdeQ8Os",
           "publishedAt": "2026-06-17T21:00:03Z",
@@ -440,8 +440,8 @@
         {
           "id": "EWqosVU9afk",
           "title": "Plato's Ideal City",
-          "views": 4163,
-          "likes": 150,
+          "views": 4233,
+          "likes": 153,
           "comments": 6,
           "url": "https://youtube.com/watch?v=EWqosVU9afk",
           "publishedAt": "2026-06-17T13:00:01Z",
@@ -450,5 +450,5 @@
       ]
     }
   ],
-  "scrapedAt": "2026-10-19T11:21:26.162Z"
+  "scrapedAt": "2026-10-26T11:38:59.294Z"
 }
