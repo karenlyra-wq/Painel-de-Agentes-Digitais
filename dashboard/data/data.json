@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-10-26T12:21:06.053Z",
+  "scrapedAt": "2026-11-02T14:52:24.484Z",
   "myProfile": {
     "handle": "karenlira.adv",
     "followers": 828,
@@ -22,28 +22,19 @@
     {
       "handle": "advogadamarianagoncalves",
       "followers": null,
-      "totalPosts": 61,
+      "totalPosts": 125,
       "totalViews": 0,
-      "totalLikes": -61,
-      "totalComments": 493,
+      "totalLikes": -125,
+      "totalComments": 874,
       "engagementRate": null,
       "topPosts": [
         {
-          "url": "https://www.instagram.com/p/Ddr2SkwtMIH/",
-          "caption": "Imagina abrir o WhatsApp e ler: “encontrei a dra. na internet, preciso muito do seu trabalho.”\n\nIsso não nasce de sorte. Nasce de aparecer com estraté",
+          "url": "https://www.instagram.com/p/DeF6hMlDo-i/",
+          "caption": "Assistir a um casamento é sempre muito bom. A combinação de emoção, fé e alegria torna possível acreditar que o amor transforma e move montanhas.",
           "likes": -1,
-          "comments": 0,
+          "comments": 1,
           "views": null,
-          "timestamp": "2026-09-24T21:28:10.000Z",
-          "type": "Image"
-        },
-        {
-          "url": "https://www.instagram.com/p/Dd_3zHkEd19/",
-          "caption": "Hoje iniciamos oficialmente o DESAFIO 15 DIAS PARA SAIR DO ANONIMATO. Link tá na bio! Hoje é dia de preparação! Eu te garanto uma coisa: você não se a",
-          "likes": -1,
-          "comments": 4,
-          "views": null,
-          "timestamp": "2026-10-02T16:04:51.000Z",
+          "timestamp": "2026-10-05T00:24:04.000Z",
           "type": "Sidecar"
         },
         {
@@ -54,33 +45,6 @@
           "views": null,
           "timestamp": "2026-10-19T21:33:02.000Z",
           "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/Dd7ZeoyGmQZ/",
-          "caption": "Setembro foi 3 meses em 1 só! Eu fui muito feliz e realizada em setembro 🤍",
-          "likes": -1,
-          "comments": 8,
-          "views": null,
-          "timestamp": "2026-09-30T22:22:57.000Z",
-          "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/DeHeKy9O54H/",
-          "caption": "O desafio 15 dias para sair do anonimato está muito intenso, e olha que mal começou! Você ainda pode acessar clicando no link da bio!",
-          "likes": -1,
-          "comments": 8,
-          "views": null,
-          "timestamp": "2026-10-05T14:57:48.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DexVhD4NPA6/",
-          "caption": "Já ouvi que o sonho de muito dono de escritório é que ele rode sozinho sem precisar do dono pra nada! Acho pouco provável que isso aconteça. Quando me",
-          "likes": -1,
-          "comments": 13,
-          "views": null,
-          "timestamp": "2026-10-21T21:10:30.000Z",
-          "type": "Video"
         },
         {
           "url": "https://www.instagram.com/p/DeAh1vvNi5-/",
@@ -101,139 +65,175 @@
           "type": "Video"
         },
         {
-          "url": "https://www.instagram.com/p/Dd2HkjhNUxw/",
-          "caption": "Me conta! Concorda que combinado de boca não é combinado?",
-          "likes": -1,
-          "comments": 3,
-          "views": null,
-          "timestamp": "2026-09-28T21:12:25.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DeF6hMlDo-i/",
-          "caption": "Assistir a um casamento é sempre muito bom. A combinação de emoção, fé e alegria torna possível acreditar que o amor transforma e move montanhas.",
+          "url": "https://www.instagram.com/p/DeckYQ-NQUW/",
+          "caption": "Decisões! Porque ser dona do próprio escritório e construir uma vida em cima da advocacia depende de coragem e boas decisões.",
           "likes": -1,
           "comments": 1,
           "views": null,
-          "timestamp": "2026-10-05T00:24:04.000Z",
+          "timestamp": "2026-10-13T19:34:10.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DfCp8LgxeRV/",
+          "caption": "A IA não organiza escritório bagunçado. Ela acelera a bagunça.\n\nFoi com essa frase que abri ontem a palestra Gestão Inteligente: otimize sua rotina ju",
+          "likes": -1,
+          "comments": 2,
+          "views": null,
+          "timestamp": "2026-10-28T14:38:53.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DfPWxBNIGlo/",
+          "caption": "Ahhh outubro! Belíssimo mês…\nMas novembro ahhhh novembro será incrível!",
+          "likes": -1,
+          "comments": 0,
+          "views": null,
+          "timestamp": "2026-11-02T12:55:27.000Z",
           "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/DexVhD4NPA6/",
+          "caption": "Já ouvi que o sonho de muito dono de escritório é que ele rode sozinho sem precisar do dono pra nada! Acho pouco provável que isso aconteça. Quando me",
+          "likes": -1,
+          "comments": 14,
+          "views": null,
+          "timestamp": "2026-10-21T21:10:30.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DeHeKy9O54H/",
+          "caption": "O desafio 15 dias para sair do anonimato está muito intenso, e olha que mal começou! Você ainda pode acessar clicando no link da bio!",
+          "likes": -1,
+          "comments": 8,
+          "views": null,
+          "timestamp": "2026-10-05T14:57:48.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/Ddr2SkwtMIH/",
+          "caption": "Imagina abrir o WhatsApp e ler: “encontrei a dra. na internet, preciso muito do seu trabalho.”\n\nIsso não nasce de sorte. Nasce de aparecer com estraté",
+          "likes": -1,
+          "comments": 0,
+          "views": null,
+          "timestamp": "2026-09-24T21:28:10.000Z",
+          "type": "Image"
         }
       ]
     },
     {
       "handle": "_gabriellaibrahim",
       "followers": null,
-      "totalPosts": 78,
+      "totalPosts": 23,
       "totalViews": 0,
-      "totalLikes": 33418,
-      "totalComments": 753,
+      "totalLikes": 2495,
+      "totalComments": 121,
       "engagementRate": null,
       "topPosts": [
         {
-          "url": "https://www.instagram.com/p/DeKJu9vgAgL/",
-          "caption": "Tutorial de como funcionam as redes sociais em época de eleição:\n\n1) se posiciona a favor da direita - xingamentos, ataques e tudo que tem direito vin",
-          "likes": 18862,
-          "comments": 88,
-          "views": null,
-          "timestamp": "2026-10-06T15:55:13.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DdY_DzdjfDE/",
-          "caption": "Dizer que está errado exige exatamente o que a ferramenta não entrega: repertório para saber o que deveria estar ali e não está. \n\nA IA acerta a forma",
-          "likes": 2280,
-          "comments": 8,
-          "views": null,
-          "timestamp": "2026-09-17T13:37:59.000Z",
-          "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/DdkNXOfpuVO/",
-          "caption": "Pronto, estamos entendidas, né?",
-          "likes": 1959,
-          "comments": 26,
-          "views": null,
-          "timestamp": "2026-09-21T23:30:06.000Z",
-          "type": "Image"
-        },
-        {
           "url": "https://www.instagram.com/p/DeVCEboJODV/",
           "caption": "Bem-vindos a minha vida 😂",
-          "likes": 1245,
+          "likes": 1248,
           "comments": 16,
           "views": null,
           "timestamp": "2026-10-10T21:22:28.000Z",
           "type": "Image"
         },
         {
-          "url": "https://www.instagram.com/p/Dduc65IpKcL/",
-          "caption": "Não espera cair na mão. \nAprenda. \nResolva.\nSeja desenrolada.",
-          "likes": 1048,
-          "comments": 1,
+          "url": "https://www.instagram.com/p/Deh8aq-l-O6/",
+          "caption": "Não fuja dos problemas difíceis, encontre um jeito de solucioná-los rápido.",
+          "likes": 315,
+          "comments": 0,
           "views": null,
-          "timestamp": "2026-09-25T21:44:18.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DeMMppBAAHX/",
-          "caption": "Não tá fácil produzir conteúdo...",
-          "likes": 710,
-          "comments": 48,
-          "views": null,
-          "timestamp": "2026-10-07T11:29:44.000Z",
-          "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/DeHbHwtjL-5/",
-          "caption": "O raciocínio é simples: cada real gasto em sinalização é um real que deixa de ser reserva, investimento ou margem de segurança. E a admiração que se e",
-          "likes": 660,
-          "comments": 1,
-          "views": null,
-          "timestamp": "2026-10-05T14:28:18.000Z",
+          "timestamp": "2026-10-15T21:39:29.000Z",
           "type": "Image"
         },
         {
-          "url": "https://www.instagram.com/p/Dd369J1IDc-/",
-          "caption": "Técnica jurídica e saúde financeira do escritório são competências diferentes. Uma não garante a outra.\n\nDois dados para ler junto com o carrossel:\n\nN",
-          "likes": 626,
-          "comments": 2,
+          "url": "https://www.instagram.com/p/DeegKV9FxBK/",
+          "caption": "Mercado, concorrência e economia fogem do controle. \nPosicionamento, entrega e comunicação, não.",
+          "likes": 282,
+          "comments": 5,
           "views": null,
-          "timestamp": "2026-09-29T13:58:31.000Z",
+          "timestamp": "2026-10-14T13:34:53.000Z",
+          "type": "Image"
+        },
+        {
+          "url": "https://www.instagram.com/p/DfIm24alx8U/",
+          "caption": "Vejo toda semana escritórios de advocacia que vivem só de indicação. A advogada de contratos que recebe clientes do contador tem três contratos em mar",
+          "likes": 162,
+          "comments": 0,
+          "views": null,
+          "timestamp": "2026-10-30T22:01:26.000Z",
           "type": "Sidecar"
         },
         {
-          "url": "https://www.instagram.com/p/Dc7LT_aiepa/",
-          "caption": "Ela não sabe ainda, mas o dia mais feliz foi, na verdade, o meu.\n\nComo é importante viver mais uma fase da minha vida profissional com a minha filha d",
-          "likes": 530,
-          "comments": 23,
+          "url": "https://www.instagram.com/p/DeIHcvljNiY/",
+          "caption": "Nas últimas semanas, vi perfil de escritório e de advogados virar palanque. \n\nOpinião sobre candidato, sobre urna, sobre quem ganhou e como o outro la",
+          "likes": 143,
+          "comments": 33,
           "views": null,
-          "timestamp": "2026-09-05T23:47:46.000Z",
+          "timestamp": "2026-10-05T20:55:34.000Z",
           "type": "Sidecar"
         },
         {
-          "url": "https://www.instagram.com/p/Dd2H8ygCS1J/",
-          "caption": "Quando alguém que já tem tudo decide se candidatar... qual o sentido disso?\n\nFizemos essa pergunta para nós mesmos antes de escrever este texto. Conhe",
-          "likes": 520,
-          "comments": 27,
+          "url": "https://www.instagram.com/p/DeZL9tbIGMC/",
+          "caption": "Há 4 anos vendo o mundo através dos olhos dessa criança linda, divertida, inteligente e criativa. \n\nQue privilégio Deus me deu e sou tão grata por iss",
+          "likes": 120,
+          "comments": 4,
           "views": null,
-          "timestamp": "2026-09-28T21:13:35.000Z",
+          "timestamp": "2026-10-12T12:02:05.000Z",
           "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/DeRzg_AEdCG/",
+          "caption": "O mais importante está na sua frente, é só ter o olhar atento para enxergar. \n\nObs: quem pegou a referência da frase da Aurora (a personagem que mais ",
+          "likes": 111,
+          "comments": 3,
+          "views": null,
+          "timestamp": "2026-10-09T15:13:45.000Z",
+          "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/DeNo-FziQXR/",
+          "caption": "Não existe um único funil de prospecção de clientes. \n\nE ensinamos sobre tudo isso no ecossistema do TLBC. \n\nComenta BLACK26 para participar da nossa ",
+          "likes": 76,
+          "comments": 11,
+          "views": null,
+          "timestamp": "2026-10-08T00:24:39.000Z",
+          "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/DfMymj9l47-/",
+          "caption": "Escritório que ocupa todo o espaço da marca mostra pouca confiança no que entrega. A advogada que escreve cinco áreas de atuação na bio e põe oito inf",
+          "likes": 14,
+          "comments": 0,
+          "views": null,
+          "timestamp": "2026-11-01T13:01:05.000Z",
+          "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/Dee-WBkg2Sq/",
+          "caption": "A gente está vivendo uma nova era na advocacia. Uma nova era tecnológica, uma nova era comportamental e uma nova era econômica. A advocacia também est",
+          "likes": 9,
+          "comments": 0,
+          "views": null,
+          "timestamp": "2026-10-14T17:59:25.000Z",
+          "type": "Video"
         }
       ]
     },
     {
       "handle": "thaisschaly",
       "followers": null,
-      "totalPosts": 80,
+      "totalPosts": 84,
       "totalViews": 0,
-      "totalLikes": 14937,
-      "totalComments": 2142,
+      "totalLikes": 15376,
+      "totalComments": 2150,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DbomJC_BwbO/",
           "caption": "Habilidade 1: Você atuará como magistrado responsável pelo julgamento desta demanda. Analise a peça considerando:\n\n- clareza da narrativa;\n- coerência",
-          "likes": 2656,
+          "likes": 2657,
           "comments": 63,
           "views": null,
           "timestamp": "2026-08-04T22:05:04.000Z",
@@ -242,7 +242,7 @@
         {
           "url": "https://www.instagram.com/p/DdXaDYJhhTV/",
           "caption": "Quatro projetos, quatro tarefas e uma IA. \n\nÉ essa a estrutura mínima pra automatizar um escritório de um advogado autônomo!\n\nMe segue aqui que eu abr",
-          "likes": 1434,
+          "likes": 1440,
           "comments": 28,
           "views": null,
           "timestamp": "2026-09-16T22:55:04.000Z",
@@ -260,7 +260,7 @@
         {
           "url": "https://www.instagram.com/p/DXxScp7q5i1/",
           "caption": "Eu uso exatamente esses: \n\n1. Prompt – criação do projeto no Claude\nCrie um projeto chamado “Social Media Jurídico”. Esse projeto deve gerar planejame",
-          "likes": 1005,
+          "likes": 1009,
           "comments": 146,
           "views": null,
           "timestamp": "2026-04-30T21:01:45.000Z",
@@ -303,6 +303,15 @@
           "type": "Video"
         },
         {
+          "url": "https://www.instagram.com/p/Ddm3czmhhW2/",
+          "caption": "São 5 passos para você começar a estruturar seu escritório!\n\nComenta PLUGIN aqui embaixo que eu te mando o pack pronto de habilidades que executa esse",
+          "likes": 234,
+          "comments": 355,
+          "views": null,
+          "timestamp": "2026-09-22T23:00:04.000Z",
+          "type": "Video"
+        },
+        {
           "url": "https://www.instagram.com/p/DY9_3OmKlk5/",
           "caption": "Não existem atalhos!",
           "likes": 234,
@@ -310,59 +319,32 @@
           "views": null,
           "timestamp": "2026-05-30T16:00:34.000Z",
           "type": "Video"
-        },
-        {
-          "url": "https://www.instagram.com/p/Ddm3czmhhW2/",
-          "caption": "São 5 passos para você começar a estruturar seu escritório!\n\nComenta PLUGIN aqui embaixo que eu te mando o pack pronto de habilidades que executa esse",
-          "likes": 232,
-          "comments": 347,
-          "views": null,
-          "timestamp": "2026-09-22T23:00:04.000Z",
-          "type": "Video"
         }
       ]
     },
     {
       "handle": "abarbaratorres",
       "followers": null,
-      "totalPosts": 142,
+      "totalPosts": 119,
       "totalViews": 0,
-      "totalLikes": 2374722,
-      "totalComments": 56314,
+      "totalLikes": 1919154,
+      "totalComments": 49777,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/Dau9eCzEQ67/",
           "caption": "Não há coisa melhor nessa vida do que ser criança.",
-          "likes": 157795,
-          "comments": 5814,
+          "likes": 157772,
+          "comments": 5809,
           "views": null,
           "timestamp": "2026-07-13T12:53:08.000Z",
           "type": "Sidecar"
         },
         {
-          "url": "https://www.instagram.com/p/DdT5heuEZbc/",
-          "caption": "Além do bem e do mal.",
-          "likes": 134222,
-          "comments": 2319,
-          "views": null,
-          "timestamp": "2026-09-15T14:13:20.000Z",
-          "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/DZXgCXkkZCp/",
-          "caption": "Leiam o última card.",
-          "likes": 126446,
-          "comments": 1096,
-          "views": null,
-          "timestamp": "2026-06-09T13:42:01.000Z",
-          "type": "Sidecar"
-        },
-        {
           "url": "https://www.instagram.com/p/Dd6ZLd3kQVW/",
           "caption": "a necessidade por atenção fede.",
-          "likes": 89403,
-          "comments": 3043,
+          "likes": 89476,
+          "comments": 3034,
           "views": null,
           "timestamp": "2026-09-30T13:01:06.000Z",
           "type": "Sidecar"
@@ -370,8 +352,8 @@
         {
           "url": "https://www.instagram.com/p/DdREfBPkf82/",
           "caption": "parem de idolatrar.",
-          "likes": 87870,
-          "comments": 1863,
+          "likes": 87862,
+          "comments": 1851,
           "views": null,
           "timestamp": "2026-09-14T11:51:24.000Z",
           "type": "Sidecar"
@@ -379,7 +361,7 @@
         {
           "url": "https://www.instagram.com/p/DdjzGXQmD7i/",
           "caption": "do que precisamos nos proteger?",
-          "likes": 64175,
+          "likes": 64171,
           "comments": 924,
           "views": null,
           "timestamp": "2026-09-21T18:25:03.000Z",
@@ -388,8 +370,8 @@
         {
           "url": "https://www.instagram.com/p/Da0KSw_R3ha/",
           "caption": "Vejam o perfil: @laura_e_luana22",
-          "likes": 63409,
-          "comments": 2157,
+          "likes": 63433,
+          "comments": 2159,
           "views": null,
           "timestamp": "2026-07-15T13:22:28.000Z",
           "type": "Video"
@@ -397,8 +379,8 @@
         {
           "url": "https://www.instagram.com/p/Dba2hlikVuf/",
           "caption": "Qual é a sua opinião sobre o discurso?",
-          "likes": 56826,
-          "comments": 2306,
+          "likes": 56817,
+          "comments": 2302,
           "views": null,
           "timestamp": "2026-07-30T13:59:02.000Z",
           "type": "Sidecar"
@@ -406,7 +388,7 @@
         {
           "url": "https://www.instagram.com/p/DcbOw4BERAh/",
           "caption": "é um ciclo complexo demais.",
-          "likes": 54451,
+          "likes": 54439,
           "comments": 857,
           "views": null,
           "timestamp": "2026-08-24T14:02:14.000Z",
@@ -415,10 +397,28 @@
         {
           "url": "https://www.instagram.com/p/DblE-XoFYj2/",
           "caption": ".",
-          "likes": 54378,
+          "likes": 54363,
           "comments": 360,
           "views": null,
           "timestamp": "2026-08-03T13:17:42.000Z",
+          "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/DctHT5cxLlZ/",
+          "caption": "Manu, você é linda!!! @manu_crespos",
+          "likes": 49399,
+          "comments": 4550,
+          "views": null,
+          "timestamp": "2026-08-31T12:45:58.000Z",
+          "type": "Video"
+        },
+        {
+          "url": "https://www.instagram.com/p/DbEHcinkRgN/",
+          "caption": ".",
+          "likes": 43492,
+          "comments": 641,
+          "views": null,
+          "timestamp": "2026-07-21T18:04:22.000Z",
           "type": "Sidecar"
         }
       ]
@@ -426,16 +426,16 @@
     {
       "handle": "millenanbg",
       "followers": null,
-      "totalPosts": 94,
+      "totalPosts": 103,
       "totalViews": 0,
-      "totalLikes": 343830,
-      "totalComments": 20819,
+      "totalLikes": 356858,
+      "totalComments": 17118,
       "engagementRate": null,
       "topPosts": [
         {
           "url": "https://www.instagram.com/p/DXg9K6OkU_F/",
           "caption": "O básico garante que você exista. O que vai além determina o quanto você será lembrado.",
-          "likes": 63563,
+          "likes": 63548,
           "comments": 180,
           "views": null,
           "timestamp": "2026-04-24T12:46:58.000Z",
@@ -444,7 +444,7 @@
         {
           "url": "https://www.instagram.com/p/DX6nlVPkcjr/",
           "caption": "Ninguém leu exatamente o que você leu, viveu o que você viveu, prestou atenção no que você prestou.\n\nUse seu conjunto único de referências ao seu favo",
-          "likes": 26988,
+          "likes": 26982,
           "comments": 17,
           "views": null,
           "timestamp": "2026-05-04T11:58:36.000Z",
@@ -453,7 +453,7 @@
         {
           "url": "https://www.instagram.com/p/DZ2SZqCAAUH/",
           "caption": "Como você tem treinado a sua criatividade?",
-          "likes": 17936,
+          "likes": 17937,
           "comments": 19,
           "views": null,
           "timestamp": "2026-06-21T12:39:20.000Z",
@@ -462,7 +462,7 @@
         {
           "url": "https://www.instagram.com/p/DYKYD5QkcBr/",
           "caption": "Maternidade e ambição nunca foram opostas.\n\nO mundo é que às vezes esquece disso.",
-          "likes": 11177,
+          "likes": 11172,
           "comments": 82,
           "views": null,
           "timestamp": "2026-05-10T14:50:48.000Z",
@@ -471,17 +471,35 @@
         {
           "url": "https://www.instagram.com/p/DaxVLj2msx0/",
           "caption": "Isso que é ser estrategista 😎",
-          "likes": 9105,
+          "likes": 9109,
           "comments": 388,
           "views": null,
           "timestamp": "2026-07-14T10:58:48.000Z",
           "type": "Sidecar"
         },
         {
+          "url": "https://www.instagram.com/p/DX1rHYzEfvw/",
+          "caption": "Shakira não conquistou 2 milhões de pessoas hoje. Ela construiu essa relação por 30 anos.\n\nO que você está construindo agora?",
+          "likes": 8306,
+          "comments": 61,
+          "views": null,
+          "timestamp": "2026-05-02T13:53:15.000Z",
+          "type": "Sidecar"
+        },
+        {
+          "url": "https://www.instagram.com/p/De9YaQTRyFS/",
+          "caption": "🤎",
+          "likes": 8096,
+          "comments": 49,
+          "views": null,
+          "timestamp": "2026-10-26T13:24:02.000Z",
+          "type": "Image"
+        },
+        {
           "url": "https://www.instagram.com/p/DcYOiclmn9U/",
           "caption": "Ainda não consigo acreditar… mas meu pedido de casamento pareceu um dorama. \n\nFiquei muito surpresa, eu já tinha marcado esse ensaio de fotos em um pa",
-          "likes": 8054,
-          "comments": 217,
+          "likes": 8059,
+          "comments": 218,
           "views": null,
           "timestamp": "2026-08-23T10:02:32.000Z",
           "type": "Sidecar"
@@ -489,8 +507,8 @@
         {
           "url": "https://www.instagram.com/p/DaBaDL2ATMV/",
           "caption": "Qual você irá testar primeiro? 🤎✨",
-          "likes": 7926,
-          "comments": 2647,
+          "likes": 7927,
+          "comments": 2648,
           "views": null,
           "timestamp": "2026-06-25T20:17:49.000Z",
           "type": "Sidecar"
@@ -503,24 +521,6 @@
           "views": null,
           "timestamp": "2026-05-28T21:27:00.000Z",
           "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/DWrDvdkkay8/",
-          "caption": "O guia para você não ter dúvidas antes da imersão ✍️",
-          "likes": 6779,
-          "comments": 1849,
-          "views": null,
-          "timestamp": "2026-04-03T14:25:24.000Z",
-          "type": "Sidecar"
-        },
-        {
-          "url": "https://www.instagram.com/p/DesXx45xV7o/",
-          "caption": "Nem acredito que Deus nos abençoou tão rápido. 🤎 Vivendo todos os sonhos que um dia estavam apenas no meu mural e agora o maior deles…",
-          "likes": 6735,
-          "comments": 569,
-          "views": null,
-          "timestamp": "2026-10-19T22:53:17.000Z",
-          "type": "Video"
         }
       ]
     }
